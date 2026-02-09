@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "declaration": false,
+    "incremental": true,
+    "sourceMap": true,
+    "removeComments": false,
+    "target": "esnext",
+    "module": "commonjs",
+  },
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist",
+    "**/*.spec.ts",
+    ".prettierrc.mjs",
+    "jest.config.ts",
+    "**/*.test.ts",
+    "eslint.config.ts"
+  ]
+}
