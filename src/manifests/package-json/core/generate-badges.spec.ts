@@ -1,10 +1,14 @@
+import { WithPackageJsonArgs } from "../package-json.types";
+
 import { generateBadges } from "./generate-badges";
 import { hashStringToHsl } from "./hash-string-to-hsl";
-import { BadgeMap, Sections } from "./types";
+
+import { BadgeMap } from "@/depbadge/types";
 
 describe("generateBadges", () => {
   it("generates badges only for deps with known versions", () => {
-    const sections: Sections = {
+    const sections: WithPackageJsonArgs = {
+      // this is comming from the badgesrc
       dependencies: ["react", "lodash"],
       devDependencies: ["jest"],
       peerDependencies: [],
@@ -24,7 +28,7 @@ describe("generateBadges", () => {
   });
 
   it("produces a valid BadgeMap entry", () => {
-    const sections: Sections = {
+    const sections: WithPackageJsonArgs = {
       dependencies: ["react"],
       devDependencies: [],
       peerDependencies: [],
@@ -44,7 +48,7 @@ describe("generateBadges", () => {
   });
 
   it("returns an empty object when all versions are unknown", () => {
-    const sections: Sections = {
+    const sections: WithPackageJsonArgs = {
       dependencies: ["react"],
       devDependencies: ["jest"],
       peerDependencies: [],
@@ -57,7 +61,7 @@ describe("generateBadges", () => {
   });
 
   it("handles empty sections", () => {
-    const emptySections: Sections = {
+    const emptySections: WithPackageJsonArgs = {
       dependencies: [],
       devDependencies: [],
       peerDependencies: [],

@@ -1,6 +1,8 @@
 import fs from "fs";
 import yaml from "js-yaml";
 
+import { findFile } from "../../../depbadge/find-file";
+
 /**
  * Writes a badgesrc YAML file, adding the given signature,
  * with a blank line between each top-level section.
@@ -16,6 +18,6 @@ export function writeBadgesrc(
     return dumped.trimEnd();
   });
 
-  const yamlText = sections.join("\n\n") + "\n";
-  fs.writeFileSync(path, yamlText, "utf8");
+  const absFilePath = findFile(path);
+  if (absFilePath) fs.writeFileSync(absFilePath, sections.join("\n"), "utf8");
 }

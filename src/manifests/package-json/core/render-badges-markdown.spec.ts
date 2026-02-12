@@ -1,9 +1,12 @@
+import { WithPackageJsonArgs } from "../package-json.types";
+
 import { renderBadgesMarkdown } from "./render-badges-markdown";
-import { BadgeMap, Sections } from "./types";
+
+import { BadgeMap } from "@/depbadge/types";
 
 describe("renderBadgesMarkdown", () => {
   it("renders badges only for dependencies that have a version", () => {
-    const sections: Sections = {
+    const sections: WithPackageJsonArgs = {
       dependencies: ["react", "vue"],
       devDependencies: ["jest"],
       peerDependencies: ["react-dom"],
@@ -50,7 +53,7 @@ describe("renderBadgesMarkdown", () => {
   });
 
   it("skips sections with no badges", () => {
-    const sections: Sections = {
+    const sections: WithPackageJsonArgs = {
       dependencies: [],
       devDependencies: [],
       peerDependencies: ["unknown"],

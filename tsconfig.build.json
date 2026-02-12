@@ -6,7 +6,7 @@
     "sourceMap": true,
     "removeComments": false,
     "target": "esnext",
-    "module": "commonjs",
+    "module": "commonjs"
   },
   "exclude": [
     "node_modules",

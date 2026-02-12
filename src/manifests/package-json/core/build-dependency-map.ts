@@ -1,4 +1,4 @@
-import { PackageDeps } from "./types";
+import { PackageJson } from "../package-json.types";
 
 /**
  * Builds a flat map of package dependencies.
@@ -6,7 +6,7 @@ import { PackageDeps } from "./types";
  * Internal dependencies not listed in pkg are skipped.
  */
 export function buildDependencyMap(
-  pkg: PackageDeps,
+  pkg: PackageJson,
   internal: string[] = [],
 ): Record<string, string> {
   const map: Record<string, string> = {
@@ -16,9 +16,8 @@ export function buildDependencyMap(
   };
 
   const internalDeps: Record<string, string> = {};
-  for (const dep of internal) {
+  for (const dep of internal)
     if (map[dep] !== undefined) internalDeps[dep] = map[dep];
-  }
 
   return { ...map, ...internalDeps };
 }

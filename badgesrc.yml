@@ -1,74 +1,23 @@
+target: README.md
+manifestFile: package.json
+generateBadgesPreview: true
+generateBadgesJson: true
 dependencies:
-  - '@fastify/compress'
-  - '@fastify/multipart'
-  - '@fastify/static'
-  - '@nestjs/bullmq'
-  - '@nestjs/common'
-  - '@nestjs/core'
-  - '@nestjs/microservices'
-  - '@nestjs/platform-fastify'
-  - '@nestjs/swagger'
-  - '@qdrant/js-client-rest'
-  - bullmq
-  - class-transformer
-  - class-validator
-  - date-fns
-  - fastify
-  - ioredis
-  - joi
-  - ollama
-  - pino
-  - pino-pretty
-  - reflect-metadata
-  - rxjs
-
+  - chalk
+  - js-yaml
 devDependencies:
-  - '@changesets/cli'
-  - '@eslint/js'
-  - '@nestjs/cli'
-  - '@nestjs/schematics'
-  - '@nestjs/testing'
-  - '@types/eslint'
-  - '@types/jest'
-  - '@types/node'
-  - '@types/supertest'
   - depcheck
   - dependency-cruiser
   - dotenv-cli
   - eslint
-  - eslint-config-prettier
-  - eslint-plugin-prettier
-  - eslint-plugin-simple-import-sort
-  - eslint-plugin-sonarjs
-  - globals
   - husky
   - jest
-  - jest-extended
-  - jest-junit
   - jiti
-  - js-yaml
   - lint-staged
   - npm-check-updates
   - rimraf
-  - source-map-support
   - supertest
-  - ts-jest
-  - ts-loader
-  - ts-node
-  - ts-unused-exports
-  - tsconfig-paths
   - typescript
-  - typescript-eslint
-
-internalDependencies:
-  - '@ehildt/ckir-bullmq'
-  - '@ehildt/ckir-bullmq-logger'
-  - '@ehildt/ckir-config-factory'
-  - '@ehildt/ckir-helpers'
-  - '@ehildt/ckir-ollama'
-  - '@ehildt/ckir-qdrant'
-  - '@ehildt/ckir-socket-io'
-
 peerDependencies: []
-
-signature: f0deb95fef5af13264846cb871a8666d7ecc3c9e0e4f745e8b5e265ef01ae4c3
+internalDependencies: []
+signature: 444b06300e9f62e2ffe4b1b6b1606e52391e780b2b51e29170fa36fc2c3b6b02

@@ -14,6 +14,7 @@ autodocs
 autoprefixer
 autoresize
 azuretools
+BADGESMD
 badgesrc
 bgclr
 bitnami
@@ -44,10 +45,13 @@ dbaeumer
 dbfilename
 dccs
 DCCS
+depbadge
+DEPBADGE
+depbadges
+DEPBADGES
 depcheck
 depcruise
 depcruiserrc
-depshield
 docgen
 docpose
 dompurify
@@ -145,10 +149,12 @@ pinia
 pkief
 pokemon
 postcss
+pyproject
 qdrant
 Qdrant
 rabbitmq
 RABBITMQ
+READMEMD
 redhat
 redis
 redisinsight

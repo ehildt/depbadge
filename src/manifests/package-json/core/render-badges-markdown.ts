@@ -1,4 +1,6 @@
-import { Badge, BadgeMap, Sections } from "./types";
+import { WithPackageJsonArgs } from "../package-json.types";
+
+import { Badge, BadgeMap } from "@/depbadge/types";
 
 const REGEX = /[^a-zA-Z0-9]/g;
 const encodeMessage = (s: string) => encodeURIComponent(s.replace(/^\^/, "v"));
@@ -13,10 +15,10 @@ function renderBadge(badge: Badge): string {
 }
 
 export function renderBadgesMarkdown(
-  sections: Sections,
+  props: WithPackageJsonArgs,
   badges: BadgeMap,
 ): string {
-  return Object.entries(sections)
+  return Object.entries(props)
     .filter(([, deps]) => deps.some((dep) => badges[dep]))
     .map(([section, deps]) => {
       const badgeLines = deps

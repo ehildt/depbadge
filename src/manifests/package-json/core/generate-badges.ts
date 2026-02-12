@@ -1,11 +1,14 @@
+import { WithPackageJsonArgs } from "../package-json.types";
+
 import { hashStringToHsl } from "./hash-string-to-hsl";
-import { Badge, BadgeMap, Sections } from "./types";
+
+import { Badge, BadgeMap } from "@/depbadge/types";
 
 export function generateBadges(
-  sections: Sections,
+  args: WithPackageJsonArgs,
   versions: Record<string, string>,
 ): BadgeMap {
-  const keyValues: [string, Badge][] = Object.values(sections)
+  const keyValues: [string, Badge][] = Object.values(args)
     .flat()
     .map((dep): [string, Badge] => [
       dep,
