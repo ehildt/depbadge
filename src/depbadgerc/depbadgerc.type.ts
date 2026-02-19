@@ -1,86 +1,93 @@
-// ------------------ Badge Types ------------------
-export type BadgeVariant = {
+export type Theme = "dark" | "white";
+export type Position = "left" | "right" | "center" | "justify";
+export type OutputFormat = "json" | "markdown";
+
+export type BadgeStyle = {
   color?: string;
   labelColor?: string;
   isError?: boolean;
   namedLogo?: string;
-  message: string;
   logoSvg?: string;
   logoColor?: string;
-  logoWidth?: string;
+  logoWidth?: number;
   style?: string;
   cacheSeconds?: number;
   link?: string;
+  tile?: boolean;
 };
 
-export type BadgeStyle = {
-  center?: boolean;
-  sectionHeader?: boolean;
-  style?: string;
-  cacheSeconds?: number;
-  variants?: Record<string, BadgeVariant>;
+export type Layout = {
+  theme?: Theme;
+  header?: string;
+  showHeader?: boolean;
+  position?: Position;
 };
 
-// ------------------ Artifact Types ------------------
-export type GitHubArtifact = {
-  metric: "stars" | "license";
+export type DependencyItem = BadgeStyle & {
+  name: string;
+  message: string;
+};
+
+export type Dependencies = {
+  layout?: Layout;
+  badgeStyle?: BadgeStyle;
+  items: DependencyItem[];
+};
+
+export type GitHubStatusBadge = DependencyItem & {
+  name: "github";
+  metric: "stars" | "license" | "release";
   user: string;
   repo: string;
   branch?: string | null;
 };
 
-export type DockerHubArtifact = {
+export type DockerHubStatusBadge = DependencyItem & {
+  name: "docker";
   metric: "pulls" | "stars" | "v";
   user: string;
   image: string;
   tag?: string | null;
 };
 
-export type CodecovArtifact = {
+export type CodecovStatusBadge = DependencyItem & {
+  name: "codecov";
   user: string;
   repo: string;
   branch?: string;
-  provider: string;
   flag?: string | null;
 };
 
-// ------------------ Dependency Types ------------------
+export type StatusBadgeItem = GitHubStatusBadge | DockerHubStatusBadge | CodecovStatusBadge;
 
-// Base XOR type: either packages or artifact, never both
-export type PackageDependency = {
-  source: string;
-  label?: string;
-  packages: string[];
-  artifact?: never;
+export type StatusBadges = {
+  layout?: Layout;
+  badgeStyle?: BadgeStyle;
+  items: StatusBadgeItem[];
 };
 
-export type BadgeArtifactSource = "github" | "docker" | "codecov";
-
-export type ArtifactDependency<TSource extends BadgeArtifactSource, TArtifact> = {
-  source: TSource;
-  label?: string;
-  artifact: TArtifact;
-  packages?: never;
-};
-
-// Concrete dependency types
-export type GithubDependency = ArtifactDependency<"github", GitHubArtifact>;
-export type DockerHubDependency = ArtifactDependency<"docker", DockerHubArtifact>;
-export type CodecovDependency = ArtifactDependency<"codecov", CodecovArtifact>;
-
-// Union of all valid dependencies
-export type DependencyItem = PackageDependency | GithubDependency | DockerHubDependency | CodecovDependency;
-export type BadgeArtifact = Exclude<DependencyItem, PackageDependency>;
-
-export type DependenciesArtifacts = DependencyItem[];
-
-// ------------------ RC Type ------------------
 export type DepbadgeRC = {
   integrity?: string;
-  target: string;
-  provider: string;
+  target?: string;
   manifest: string;
-  output?: string[];
-  badgeStyle: BadgeStyle;
-  dependencies: DependenciesArtifacts;
+  output?: OutputFormat[];
+
+  /* ---------- root helper defaults ---------- */
+
+  dependenciesLayout?: Layout;
+  devDependenciesLayout?: Layout;
+  peerDependenciesLayout?: Layout;
+  statusBadgesLayout?: Layout;
+
+  dependenciesStyle?: BadgeStyle;
+  devDependenciesStyle?: BadgeStyle;
+  peerDependenciesStyle?: BadgeStyle;
+  statusBadgesStyle?: BadgeStyle;
+
+  /* ---------- actual sections ---------- */
+
+  dependencies: Dependencies;
+  devDependencies?: Dependencies;
+  peerDependencies?: Dependencies;
+  statusBadges?: StatusBadges;
 };

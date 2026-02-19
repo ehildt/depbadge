@@ -1,0 +1,6 @@
+import { CtxStore, useCtxCallback } from "../../store/ctx-store";
+
+import { ManifestMethods } from "./manifest.store";
+import { DepbadgeManifest } from "./manifest.type";
+
+export const getVersion = useCtxCallback<CtxStore<DepbadgeManifest, ManifestMethods>>((store): string => store.version);

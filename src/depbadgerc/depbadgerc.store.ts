@@ -1,57 +1,47 @@
-import { ManifestMethods } from "../manifests/package-json/manifest.store";
-import { DepbadgeManifest } from "../manifests/package-json/manifest.type";
-import { composeStaticStore } from "../store/create-store";
-import { Store } from "../store/store.types";
+import { ManifestMethods } from "../manifest/package-json/manifest.store";
+import { DepbadgeManifest } from "../manifest/package-json/manifest.type";
+import { CtxStore, useCtxStore } from "../store/ctx-store";
 
-import {
-  BadgeArtifactMap,
-  BadgeVariantMap,
-  canGenerateHelper,
-  computeStateIntegrityHelper,
-  generateShieldIOEndpointArtifactMapHelper,
-  generateShieldIOEndpointBadgeMapHelper,
-  getArtifactsHelper,
-  getDependenciesHelper,
-  materializeHelper,
-  outputMarkdownPreviewHelper,
-  outputShieldIODynamicBadgesHelper,
-  renderArtifactMarkdownMapHelper,
-  renderBadgeMarkdownMapHelper,
-  stateIntegrityChangedHelper,
-} from "./depbadgerc.helpers";
-import { readDepbadgeRC } from "./depbadgerc.read";
-import { BadgeArtifact, DepbadgeRC, PackageDependency } from "./depbadgerc.type";
+import { applyMarkdownToTarget } from "./apply-markdown-to-target";
+import { computeStateIntegrity } from "./compute-state-integrity";
+import { DepbadgeRC, Dependencies, StatusBadges } from "./depbadgerc.type";
+import { ManifestContractSection, ManifestDependencyMap } from "./depbadgerc-manifest-contract.type";
+import { getDependencies } from "./get-dependencies";
+import { getStatusBadges } from "./get-status-badges";
+import { HydratedDependencyMap, hydrateDependencyBadges, RCDependencyMap } from "./hydrate-dependency-badges";
+import { HydratedStatusBadgeMap } from "./hydrate-status-badges";
+import { hydrateStatusBadges } from "./hydrate-status-badges";
+import { mapBadgesToMarkdown } from "./map-badges-to-markdown";
+import { mapStatusBadgesToMarkdown } from "./map-status-badges-to-markdown";
+import { outputMarkdownPreview } from "./output-markdown-preview.io";
+import { outputShieldioBadgesJson } from "./output-shieldio-badges-json";
+import { processManifest } from "./process-manifest";
+import { DEPBADGERC } from "./read-depbadgerc-with-defaults";
 
-import { BadgeDependencyMap } from "@/manifests/package-json/dependencies-to-badge-map";
-
-export type DepbadgeRCMethods = {
-  outputMarkdownPreview(t: "BADGE" | "ARTIFACT", v: Record<string, string[]>): void;
-  outputShieldIODynamicBadges(v: BadgeVariantMap): void;
-  getDependencies(): PackageDependency[];
-  getArtifacts(): BadgeArtifact[];
-  materialize(mf: Store<DepbadgeManifest, ManifestMethods>): void;
-  canGenerate(v: string): boolean;
-  stateIntegrityChanged(v?: string): boolean;
-  computeStateIntegrity(...args: unknown[]): string;
-  generateShieldIOEndpointBadgeMap(depMap: BadgeDependencyMap): BadgeVariantMap;
-  generateShieldIOEndpointArtifactMap(artifacts: BadgeArtifact[]): BadgeArtifactMap;
-  renderBadgeMarkdownMap(badgeMap: BadgeVariantMap): Record<string, string[]>;
-  renderArtifactMarkdownMap(artifactMap: BadgeArtifactMap): Record<string, string[]>;
+export type Methods = {
+  processManifest(mf: CtxStore<DepbadgeManifest, ManifestMethods>): void;
+  getDependencies(): Record<ManifestContractSection, Dependencies>;
+  getStatusBadges(): Record<ManifestContractSection, StatusBadges>;
+  hydrateDependencyBadges(deps: RCDependencyMap, mfdm: ManifestDependencyMap): HydratedDependencyMap;
+  outputShieldioBadgesJson(hbm: HydratedDependencyMap): void;
+  mapBadgesToMarkdown(badgeMap: HydratedDependencyMap): Record<string, string[]>;
+  applyMarkdownToTarget(...markdowns: Record<string, string[]>[]): void;
+  mapStatusBadgesToMarkdown(statusBadges: HydratedStatusBadgeMap): Record<string, string[]>;
+  hydrateStatusBadges(statusBadges: Record<ManifestContractSection, StatusBadges>): HydratedStatusBadgeMap;
+  computeStateIntegrity(...args: any[]): string;
+  outputMarkdownPreview(type: "BADGES" | "ARTIFACTS", badgeMarkdownMap: Record<string, string[]>, dir?: string): void;
 };
 
-// here we create closures for the arrow functions to capture rcStore,
-// otherwise use function declaration foo() {} to capture this.
-export const rcStore: Store<DepbadgeRC, DepbadgeRCMethods> = composeStaticStore(readDepbadgeRC(), {
-  generateShieldIOEndpointArtifactMap: (v) => generateShieldIOEndpointArtifactMapHelper(v),
-  renderArtifactMarkdownMap: (v) => renderArtifactMarkdownMapHelper(v, rcStore.badgeStyle),
-  outputMarkdownPreview: (t, v) => outputMarkdownPreviewHelper(t, v, rcStore.badgeStyle),
-  outputShieldIODynamicBadges: (v) => outputShieldIODynamicBadgesHelper(v),
-  renderBadgeMarkdownMap: (v) => renderBadgeMarkdownMapHelper(v, rcStore.badgeStyle),
-  generateShieldIOEndpointBadgeMap: (v) => generateShieldIOEndpointBadgeMapHelper(v, rcStore.badgeStyle),
-  getDependencies: () => getDependenciesHelper(rcStore.dependencies),
-  getArtifacts: () => getArtifactsHelper(rcStore.dependencies),
-  materialize: (mf) => materializeHelper(mf, rcStore),
-  canGenerate: (v) => canGenerateHelper(rcStore.output, v),
-  computeStateIntegrity: (v) => computeStateIntegrityHelper(rcStore, v),
-  stateIntegrityChanged: (v) => stateIntegrityChangedHelper(rcStore.integrity, v),
+export const rcCtxStore = useCtxStore<DepbadgeRC, Methods>(DEPBADGERC, {
+  processManifest,
+  getDependencies,
+  getStatusBadges,
+  outputShieldioBadgesJson,
+  hydrateStatusBadges,
+  hydrateDependencyBadges,
+  mapBadgesToMarkdown,
+  applyMarkdownToTarget,
+  mapStatusBadgesToMarkdown,
+  computeStateIntegrity,
+  outputMarkdownPreview,
 });

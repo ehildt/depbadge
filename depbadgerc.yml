@@ -1,78 +1,122 @@
-integrity: ee394a548d150d94ba13c026971bef4b3e268e3247ba62fbd38880fe9d9d5765
+integrity: cce96f1d1ef3d14ec5cbb858e34537bac3e472eb5a9e927904c8ad9178c95eb2
 target: README.md
-provider: shieldio
 manifest: package.json
-output: badges,preview
+output: ['json', 'markdown']
 
-badgeStyle:
-  center: true
-  sectionHeader: false
-  style: flat-square
+# optional
+dependenciesLayout: &DEPENDENCIES_LAYOUT
+  position: center
+  showHeader: true
+  theme: dark
+
+# optional
+devDependenciesLayout: &DEV_DEPENDENCIES_LAYOUT
+  <<: *DEPENDENCIES_LAYOUT
+  position: left
+  header: my-new-header-name
+
+# optional
+peerDependenciesLayout: &PEER_DEPENDENCIES_LAYOUT
+  <<: *DEPENDENCIES_LAYOUT
+  position: right
+  showHeader: false
+  theme: white
+
+# optional
+statusBadgesLayout: &STATUS_BADGES_LAYOUT
+  position: center
+  # if header is missing it will fallback to the section name. in this case it's statusBadges
+  showHeader: true
+  theme: dark
+
+# optional
+dependenciesStyle: &DEPENDENCIES_STYLE
+  color: '#222'
+  labelColor: '#888'
+  isError: false
+  namedLogo: npm
+  logoSvg: ''
+  logoColor: white
+  logoWidth: 40
+  style: for-the-badge
   cacheSeconds: 3600
-  variants:
-    Chalk:
-      color: '#4CAF50'
-      labelColor: '#000000'
-      isError: false
-      namedLogo: npm
-      logoSvg: ''
-      message: '' 
-      logoColor: white
-      logoWidth: '40'
-      style: for-the-badge
-      cacheSeconds: 3600
-      link: https://www.npmjs.com/package/chalk
-      
+  link: https://www.npmjs.com/package/example_package
+  tile: false
+
+# optional
+devDependenciesStyle: &DEV_DEPENDENCIES_STYLE
+  <<: *DEPENDENCIES_STYLE
+  labelColor: '#333333'
+  style: flat-square
+
+# optional
+peerDependenciesStyle: &PEER_DEPENDENCIES_STYLE
+  <<: *DEPENDENCIES_STYLE
+  labelColor: '#444444'
+  style: flat
+
+# optional
+statusBadgesStyle: &STATUS_BADGES_STYLE
+  color: '#0078D4'      
+  labelColor: '#222222'
+  isError: false
+  namedLogo: ''
+  logoSvg: ''
+  logoColor: white
+  logoWidth: 40
+  style: for-the-badge
+  cacheSeconds: 3600
+  link: 'https://something.com'
+  tile: false
+
+# required
 dependencies:
-  - source: dependencies
-    label: optional
-    packages:
-      - chalk
-      - js-yaml
-  - source: internalDependencies
-    label: optional
-    packages:
-      - some_lib_1
-      - some_lib_2
-  - source: devDependencies
-    packages:
-      - depcheck
-      - dependency-cruiser
-      - dotenv-cli
-      - eslint
-      - husky
-      - jest
-      - jiti
-      - lint-staged
-      - npm-check-updates
-      - rimraf
-      - supertest
-      - typescript
-  - source: github
-    label: optional
-    artifact:
-      metric: stars
+  layout:
+    <<: *DEPENDENCIES_LAYOUT           
+  badgeStyle: *DEPENDENCIES_STYLE    
+  items:                                   
+    - name: chalk                           
+    - name: js-yaml 
+
+# optional
+devDependencies:
+  layout:
+    <<: *DEV_DEPENDENCIES_LAYOUT
+    position: left
+  badgeStyle: *DEV_DEPENDENCIES_STYLE
+  items: 
+    - name: typescript
+    - name: eslint
+
+# optional
+peerDependencies:
+  layout:
+    <<: *PEER_DEPENDENCIES_LAYOUT
+    theme: 'white'
+  badgeStyle: *PEER_DEPENDENCIES_STYLE
+  items: 
+    - name: react 
+
+# optional
+statusBadges:
+  layout: 
+    <<: *STATUS_BADGES_LAYOUT
+    header: Highlights
+  badgeStyle: *STATUS_BADGES_STYLE
+  items:
+    - name: github
+      metric: release
       user: ehildt
       repo: depbadge
       branch: main
-  - source: github
-    label: optional
-    artifact:
-      metric: license
-      user: ehildt
-      repo: depbadge
-      branch: main
-  - source: docker
-    label: DEPBADGE
-    artifact:
+      namedLogo: npm
+      <<: *STATUS_BADGES_STYLE # each item can have its own style that overrides the badgeStyle
+    - name: docker
       metric: pulls
       user: ehildt
       image: myimage
       tag: null
-  - source: codecov
-    label: optional
-    artifact:
-      provider: github
+    - name: codecov
       user: ehildt
       repo: depbadge
       branch: main

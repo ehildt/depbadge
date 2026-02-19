@@ -1,130 +1,225 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "DepbadgeRC Schema",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/depbadge.schema.json",
+  "title": "DepbadgeRC",
   "type": "object",
+  "additionalProperties": false,
+  "required": ["manifest", "dependencies"],
+
   "properties": {
     "integrity": { "type": "string" },
-    "target": { "enum": ["README.md"] },
-    "provider": { "enum": ["shieldio"] },
-    "manifest": { "enum": ["package.json"] },
-    "output": { 
-      "type": "string",
-      "description": "Comma-separated list like 'badges,preview'"
+    "target": { "type": "string" },
+    "manifest": { "type": "string" },
+
+    "output": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/OutputFormat" },
+      "uniqueItems": true
     },
-    "badgeStyle": {
+
+    "dependenciesLayout": { "$ref": "#/$defs/Layout" },
+    "devDependenciesLayout": { "$ref": "#/$defs/Layout" },
+    "peerDependenciesLayout": { "$ref": "#/$defs/Layout" },
+    "statusBadgesLayout": { "$ref": "#/$defs/Layout" },
+
+    "dependenciesStyle": { "$ref": "#/$defs/BadgeStyle" },
+    "devDependenciesStyle": { "$ref": "#/$defs/BadgeStyle" },
+    "peerDependenciesStyle": { "$ref": "#/$defs/BadgeStyle" },
+    "statusBadgesStyle": { "$ref": "#/$defs/BadgeStyle" },
+
+    "dependencies": { "$ref": "#/$defs/Dependencies" },
+    "devDependencies": { "$ref": "#/$defs/Dependencies" },
+    "peerDependencies": { "$ref": "#/$defs/Dependencies" },
+    "statusBadges": { "$ref": "#/$defs/StatusBadges" }
+  },
+
+  "$defs": {
+    "Theme": {
+      "type": "string",
+      "enum": ["dark", "white"]
+    },
+
+    "Position": {
+      "type": "string",
+      "enum": ["left", "right", "center", "justify"]
+    },
+
+    "OutputFormat": {
+      "type": "string",
+      "enum": ["json", "markdown"]
+    },
+
+    "BadgeStyle": {
       "type": "object",
       "properties": {
-        "center": { "type": "boolean" },
-        "sectionHeader": { "type": "boolean" },
+        "color": { "type": "string" },
+        "labelColor": { "type": "string" },
+        "isError": { "type": "boolean" },
+        "namedLogo": { "type": "string" },
+        "logoSvg": { "type": "string" },
+        "logoColor": { "type": "string" },
+        "logoWidth": { "type": "number" },
         "style": { "type": "string" },
         "cacheSeconds": { "type": "number" },
-        "variants": {
-          "type": "object",
-          "patternProperties": {
-            ".*": {
-              "type": "object",
-              "properties": {
-                "color": { "type": "string" },
-                "labelColor": { "type": "string" },
-                "isError": { "type": "boolean" },
-                "namedLogo": { "type": "string" },
-                "message": { "type": "string"  },
-                "logoSvg": { "type": "string" },
-                "logoColor": { "type": "string" },
-                "logoWidth": { "type": "string" },
-                "style": { "type": "string" },
-                "cacheSeconds": { "type": "number" },
-                "link": { "type": "string", "format": "uri" }
-              },
-              "additionalProperties": false
-            }
-          }
-        }
-      },
-      "additionalProperties": false
+        "link": { "type": "string" },
+        "tile": { "type": "boolean" }
+      }
     },
-    "dependencies": {
-      "type": "array",
-      "items": {
-        "oneOf": [
-          {
-            "type": "object",
-            "properties": {
-              "source": { "type": "string" },
-              "label": { "type": "string" },
-              "packages": {
-                "type": "array",
-                "items": { "type": "string" }
-              }
-            },
-            "required": ["source", "packages"],
-            "additionalProperties": false
-          },
-          {
-            "type": "object",
-            "properties": {
-              "source": { "enum": ["github"] },
-              "label": { "type": "string" },
-              "artifact": {
-                "type": "object",
-                "properties": {
-                  "metric": { "enum": ["stars", "license"] },
-                  "user": { "type": "string" },
-                  "repo": { "type": "string" },
-                  "branch": { "type": ["string", "null"] }
-                },
-                "required": ["metric", "user", "repo"],
-                "additionalProperties": false
-              }
-            },
-            "required": ["source", "artifact"],
-            "additionalProperties": false
-          },
-          {
-            "type": "object",
-            "properties": {
-              "source": { "enum": ["docker"] },
-              "label": { "type": "string" },
-              "artifact": {
-                "type": "object",
-                "properties": {
-                  "metric": { "enum": ["pulls", "stars", "v"] },
-                  "user": { "type": "string" },
-                  "image": { "type": "string" },
-                  "tag": { "type": ["string", "null"] }
-                },
-                "required": ["metric", "user", "image"],
-                "additionalProperties": false
-              }
-            },
-            "required": ["source", "artifact"],
-            "additionalProperties": false
-          },
-          {
-            "type": "object",
-            "properties": {
-              "source": { "enum": ["codecov"] },
-              "label": { "type": "string" },
-              "artifact": {
-                "type": "object",
-                "properties": {
-                  "provider": { "type": "string" },
-                  "user": { "type": "string" },
-                  "repo": { "type": "string" },
-                  "branch": { "type": "string" },
-                  "flag": { "type": ["string", "null"] }
-                },
-                "required": ["provider", "user", "repo"],
-                "additionalProperties": false
-              }
-            },
-            "required": ["source", "artifact"],
-            "additionalProperties": false
-          }
-        ]
+
+    "Layout": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "theme": { "$ref": "#/$defs/Theme" },
+        "header": { "type": "string" },
+        "showHeader": { "type": "boolean" },
+        "position": { "$ref": "#/$defs/Position" }
+      }
+    },
+
+    "DependencyItem": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string" },
+        "message": { "type": "string" },
+
+        "color": { "type": "string" },
+        "labelColor": { "type": "string" },
+        "isError": { "type": "boolean" },
+        "namedLogo": { "type": "string" },
+        "logoSvg": { "type": "string" },
+        "logoColor": { "type": "string" },
+        "logoWidth": { "type": "number" },
+        "style": { "type": "string" },
+        "cacheSeconds": { "type": "number" },
+        "link": { "type": "string" },
+        "tile": { "type": "boolean" }
+      }
+    },
+
+    "Dependencies": {
+      "type": "object",
+      "required": ["items"],
+      "additionalProperties": false,
+      "properties": {
+        "layout": { "$ref": "#/$defs/Layout" },
+        "badgeStyle": { "$ref": "#/$defs/BadgeStyle" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/DependencyItem" }
+        }
+      }
+    },
+
+    "GitHubStatusBadge": {
+      "type": "object",
+      "required": ["name", "metric", "user", "repo"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "github" },
+        "metric": {
+          "type": "string",
+          "enum": ["stars", "license", "release"]
+        },
+        "user": { "type": "string" },
+        "repo": { "type": "string" },
+        "branch": { "type": ["string", "null"] },
+
+        "message": { "type": "string" },
+
+        "color": { "type": "string" },
+        "labelColor": { "type": "string" },
+        "isError": { "type": "boolean" },
+        "namedLogo": { "type": "string" },
+        "logoSvg": { "type": "string" },
+        "logoColor": { "type": "string" },
+        "logoWidth": { "type": "number" },
+        "style": { "type": "string" },
+        "cacheSeconds": { "type": "number" },
+        "link": { "type": "string" },
+        "tile": { "type": "boolean" }
+      }
+    },
+
+    "DockerHubStatusBadge": {
+      "type": "object",
+      "required": ["name", "metric", "user", "image"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "docker" },
+        "metric": {
+          "type": "string",
+          "enum": ["pulls", "stars", "v"]
+        },
+        "user": { "type": "string" },
+        "image": { "type": "string" },
+        "tag": { "type": ["string", "null"] },
+
+        "message": { "type": "string" },
+
+        "color": { "type": "string" },
+        "labelColor": { "type": "string" },
+        "isError": { "type": "boolean" },
+        "namedLogo": { "type": "string" },
+        "logoSvg": { "type": "string" },
+        "logoColor": { "type": "string" },
+        "logoWidth": { "type": "number" },
+        "style": { "type": "string" },
+        "cacheSeconds": { "type": "number" },
+        "link": { "type": "string" },
+        "tile": { "type": "boolean" }
+      }
+    },
+
+    "CodecovStatusBadge": {
+      "type": "object",
+      "required": ["name", "user", "repo"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "codecov" },
+        "user": { "type": "string" },
+        "repo": { "type": "string" },
+        "branch": { "type": "string" },
+        "flag": { "type": ["string", "null"] },
+
+        "message": { "type": "string" },
+
+        "color": { "type": "string" },
+        "labelColor": { "type": "string" },
+        "isError": { "type": "boolean" },
+        "namedLogo": { "type": "string" },
+        "logoSvg": { "type": "string" },
+        "logoColor": { "type": "string" },
+        "logoWidth": { "type": "number" },
+        "style": { "type": "string" },
+        "cacheSeconds": { "type": "number" },
+        "link": { "type": "string" },
+        "tile": { "type": "boolean" }
+      }
+    },
+
+    "StatusBadgeItem": {
+      "oneOf": [
+        { "$ref": "#/$defs/GitHubStatusBadge" },
+        { "$ref": "#/$defs/DockerHubStatusBadge" },
+        { "$ref": "#/$defs/CodecovStatusBadge" }
+      ]
+    },
+
+    "StatusBadges": {
+      "type": "object",
+      "required": ["items"],
+      "additionalProperties": false,
+      "properties": {
+        "layout": { "$ref": "#/$defs/Layout" },
+        "badgeStyle": { "$ref": "#/$defs/BadgeStyle" },
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/StatusBadgeItem" }
+        }
       }
     }
-  },
-  "required": ["target", "provider", "manifest", "badgeStyle", "dependencies"],
-  "additionalProperties": false
+  }
 }

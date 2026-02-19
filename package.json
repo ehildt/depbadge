@@ -1,7 +1,7 @@
 {
   "name": "@ehildt/depbadge",
   "description": "A github action that creates badges",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "author": {
     "email": "eugen.hildt@gmail.com",
@@ -44,7 +44,7 @@
     "depcheck": "^1.4.7",
     "dependency-cruiser": "^17.3.8",
     "dotenv-cli": "^11.0.0",
-    "eslint": "^10.0.0",
+    "eslint": "^10.0.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
@@ -64,7 +64,6 @@
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "ts-unused-exports": "^11.0.1",
-    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.0"
   }
