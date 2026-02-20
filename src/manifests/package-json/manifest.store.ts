@@ -1,16 +1,19 @@
 import { PackageDependency } from "../../depbadgerc/depbadgerc.type";
-import { composeStaticStore, Store } from "../../store/create-store";
+import { useCtxStore } from "../../store/ctx-store";
 
-import { BadgeDependencyMap, dependenciesToBadgeMapHelper } from "./dependencies-to-badge-map";
+import { BadgeDependencyMap, dependenciesToBadgeMap } from "./dependencies-to-badge-map";
 import { readManifest } from "./manifest.read";
 import { DepbadgeManifest } from "./manifest.type";
 
 export type ManifestMethods = {
+  /**
+   * Generates a badge map from RC dependencies.
+   * @param v - Array of PackageDependency objects
+   * @returns BadgeDependencyMap keyed by dependency labels
+   */
   dependenciesToBadgeMap(v: PackageDependency[]): BadgeDependencyMap;
 };
 
-// here we create closures for the arrow functions to capture rcStore,
-// otherwise use function declaration foo() {} to capture this.
-export const mfStore: Store<DepbadgeManifest, ManifestMethods> = composeStaticStore(readManifest(), {
-  dependenciesToBadgeMap: (v) => dependenciesToBadgeMapHelper(v, mfStore),
+export const PackageJsonCtx = useCtxStore<DepbadgeManifest, ManifestMethods>(readManifest(), {
+  dependenciesToBadgeMap,
 });
