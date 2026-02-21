@@ -9,7 +9,7 @@ import { DepbadgeRC } from "./depbadgerc.type";
 function formatBadgesArtifactsMarkdown(markdowns: Record<string, string[]>[], renderHeader: boolean = false) {
   return markdowns.reduce(
     (acc, md) =>
-      `${acc}\n${Object.entries(md)
+      `${acc}\n\n${Object.entries(md)
         .map(([section, badges]) => `${renderHeader ? `\n\n# ${section}` : ""}\n\n${badges.join("\n")}`)
         .join("")
         .trim()}`,

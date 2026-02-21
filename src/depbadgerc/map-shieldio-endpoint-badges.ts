@@ -1,5 +1,4 @@
 import { BadgeDependencyMap } from "../manifest/package-json/dependencies-to-badge-map";
-import { hashStringToHsl } from "../shared/hash-string-to-hsl";
 import { CtxStore, useCtxCallback } from "../store/ctx-store";
 
 import { Methods } from "./depbadgerc.store";
@@ -7,7 +6,7 @@ import { BadgeVariantMap, DepbadgeRC } from "./depbadgerc.type";
 
 export const mapShieldIOEndpointBadges = useCtxCallback<CtxStore<DepbadgeRC, Methods>>(
   (store, depMap: BadgeDependencyMap): BadgeVariantMap => {
-    const { style, cacheSeconds: defaultCache, variants = {}, theme } = store.badgeStyle;
+    const { style, cacheSeconds: defaultCache, variants = {} } = store.badgeStyle;
     return Object.fromEntries(
       Object.entries(depMap).map(([section, packages]) => [
         section,
@@ -18,8 +17,8 @@ export const mapShieldIOEndpointBadges = useCtxCallback<CtxStore<DepbadgeRC, Met
               pkgName,
               [
                 {
-                  color: variant.color ?? hashStringToHsl(pkgName),
-                  labelColor: variant.labelColor || theme === "dark" ? "#222222" : "rgb(233, 234, 241)",
+                  color: variant.color,
+                  labelColor: variant.labelColor,
                   isError: variant.isError,
                   message: version,
                   style: variant.style || style,

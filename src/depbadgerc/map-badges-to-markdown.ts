@@ -15,14 +15,17 @@ export const mapBadgesToMarkdown = useCtxCallback<CtxStore<DepbadgeRC, Methods>>
         section,
         Object.entries(badges).flatMap(([pkgName, variants]) =>
           variants.map((variant) => {
+            const labelColor = variant?.labelColor ?? store.badgeStyle.theme === "dark" ? "#222222" : "#E9EAF1";
+            const cacheSeconds =
+              variant?.cacheSeconds?.toString() ?? store.badgeStyle.cacheSeconds?.toString() ?? "3600";
             const urlSearchParams = new URLSearchParams({
-              ...(variant.labelColor && { labelColor: variant.labelColor }),
+              labelColor,
+              cacheSeconds,
               ...(variant.isError && { isError: "true" }),
               ...(variant.namedLogo && { logo: variant.namedLogo }),
               ...(variant.logoColor && { logoColor: variant.logoColor }),
               ...(variant.logoWidth && { logoWidth: variant.logoWidth.toString() }),
               ...(variant.style ?? store.badgeStyle.style ? { style: variant.style ?? store.badgeStyle.style } : {}),
-              ...(variant.cacheSeconds && { cacheSeconds: variant.cacheSeconds.toString() }),
               ...(variant.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(variant.logoSvg)}` }),
             }).toString();
 

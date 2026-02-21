@@ -12,15 +12,18 @@ export function mapGithubArtifactToMarkdownBadge(
   badgeStyle: BadgeStyle,
 ): string {
   const variant = badgeStyle.variants?.[item.source];
+  const color = variant?.color ?? hashStringToHsl(item.source);
+  const labelColor = variant?.labelColor ?? badgeStyle.theme === "dark" ? "#222222" : "#E9EAF1";
+  const cacheSeconds = variant?.cacheSeconds?.toString() ?? badgeStyle.cacheSeconds?.toString() ?? "3600";
   const urlSearchParams = new URLSearchParams({
-    ...(variant?.labelColor && { labelColor: variant.labelColor }),
+    color,
+    labelColor,
+    cacheSeconds,
     ...(variant?.isError && { isError: "true" }),
     ...(variant?.namedLogo && { logo: variant.namedLogo }),
     ...(variant?.logoColor && { logoColor: variant.logoColor }),
     ...(variant?.logoWidth && { logoWidth: variant.logoWidth.toString() }),
     ...(variant?.style ?? badgeStyle.style ? { style: variant?.style ?? badgeStyle.style } : {}),
-    ...(variant?.cacheSeconds && { cacheSeconds: variant.cacheSeconds.toString() }),
-    ...(variant?.color && { color: variant.color ?? hashStringToHsl(item.source) }),
     ...(variant?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(variant.logoSvg)}` }),
     ...(item.artifact.branch && { branch: item.artifact.branch }),
   }).toString();

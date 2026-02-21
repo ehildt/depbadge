@@ -1,15 +1,14 @@
-integrity: c1206b30803dbb210c1fdaea12e91fd851ffb55e39cad313f3f674cba2372c13
+integrity: 919abab62e41935a852a1a181d21f68d0a1b40a9381ad9670611862703bcf0d2
 target: README.md
 provider: shieldio
 manifest: package.json
 output: ['json', 'markdown']
 
 badgeStyle:
-# ! extend global defaults
   center: true
   sectionHeader: false
-  theme: 'white'
-  style: flat-square
+  theme: 'dark'
+  style: for-the-badge
   cacheSeconds: 3600
   variants:
     Chalk:
