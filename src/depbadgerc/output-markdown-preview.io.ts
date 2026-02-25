@@ -12,8 +12,8 @@ export const outputMarkdownPreview = useCtxCallback<CtxStore<DepbadgeRC, Methods
       .map(([section, badges]) => {
         const layout = store[section as ManifestContractSection | "statusBadges"]?.layout;
         const header = layout?.header ?? section;
-        const content = `${layout?.header ? `\n\n# ${header}` : ""}\n\n${badges.join("\n")}`;
-        return layout?.position ? `<div align="${layout.position}">\n\n${content}\n\n</div>` : content;
+        const content = `${layout?.showHeader ? `\n# ${header}` : ""}\n\n${badges.join("\n")}`;
+        return layout?.position ? `<div align="${layout.position}">\n${content}\n\n</div>` : content;
       })
       .join("")
       .trim();

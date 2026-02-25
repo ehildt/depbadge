@@ -18,7 +18,7 @@ function formatMarkdown(store: DepbadgeRC, markdowns: Record<string, string[]>[]
         return layout?.position ? `<div align="${layout.position}">\n\n${content}\n\n</div>` : content;
       }),
     )
-    .join("\n\n")
+    .join("\n\n<br>\n\n")
     .trim();
 }
 

@@ -27,7 +27,7 @@ export const processManifest = useCtxCallback<CtxStore<DepbadgeRC, Methods>>((st
   if (canOutput(store.output, "json")) store.outputShieldioBadgesJson(dependencyBadges);
   if (canOutput(store.output, "markdown")) {
     store.outputMarkdownPreview("BADGES", badgesMarkdown);
-    store.outputMarkdownPreview("ARTIFACTS", statusBadgesMarkdown);
+    store.outputMarkdownPreview("STATUS_BADGES", statusBadgesMarkdown);
   }
 
   store.applyMarkdownToTarget(statusBadgesMarkdown, badgesMarkdown);

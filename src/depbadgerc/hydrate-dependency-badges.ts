@@ -13,7 +13,6 @@ export const hydrateDependencyBadges = useCtxCallback<CtxStore<DepbadgeRC, Metho
     return (Object.entries(deps) as [ManifestContractSection, Dependencies][]).reduce<HydratedDependencyMap>(
       (acc, [section, config]) => {
         if (!config?.items?.length) return acc;
-        const style = config.badgeStyle ?? {};
         const entries = config.items.flatMap((item) => {
           const message = mfdm[section]?.[item.name];
           return message === undefined
@@ -22,7 +21,6 @@ export const hydrateDependencyBadges = useCtxCallback<CtxStore<DepbadgeRC, Metho
                 [
                   item.name,
                   {
-                    ...style,
                     ...item,
                     message,
                   } satisfies HydratedDependencyBadge,

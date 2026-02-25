@@ -1,123 +1,174 @@
-integrity: cce96f1d1ef3d14ec5cbb858e34537bac3e472eb5a9e927904c8ad9178c95eb2
+integrity: da069826f912f63bc20bc5cc9d20a83c4c1696b91eb0897336543a93f18144fb
 target: README.md
 manifest: package.json
 output: ['json', 'markdown']
 
-# optional
 dependenciesLayout: &DEPENDENCIES_LAYOUT
   position: center
-  showHeader: true
+  showHeader: false
   theme: dark
 
-# optional
 devDependenciesLayout: &DEV_DEPENDENCIES_LAYOUT
   <<: *DEPENDENCIES_LAYOUT
   position: left
+  showHeader: false
   header: my-new-header-name
 
-# optional
 peerDependenciesLayout: &PEER_DEPENDENCIES_LAYOUT
   <<: *DEPENDENCIES_LAYOUT
   position: right
   showHeader: false
   theme: white
 
-# optional
 statusBadgesLayout: &STATUS_BADGES_LAYOUT
   position: center
-  # if header is missing it will fallback to the section name. in this case it's statusBadges
   showHeader: true
   theme: dark
 
-# optional
 dependenciesStyle: &DEPENDENCIES_STYLE
-  color: '#222'
-  labelColor: '#888'
+  # color: '#222'
+  labelColor: '#333'
   isError: false
   namedLogo: npm
   logoSvg: ''
-  logoColor: white
+  # logoColor: "#777"
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
   link: https://www.npmjs.com/package/example_package
-  tile: false
 
-# optional
 devDependenciesStyle: &DEV_DEPENDENCIES_STYLE
   <<: *DEPENDENCIES_STYLE
-  labelColor: '#333333'
+  # labelColor: '#333'
+  # color: '#222'
   style: flat-square
 
-# optional
 peerDependenciesStyle: &PEER_DEPENDENCIES_STYLE
   <<: *DEPENDENCIES_STYLE
-  labelColor: '#444444'
+  labelColor: '#333'
   style: flat
 
-# optional
-statusBadgesStyle: &STATUS_BADGES_STYLE
-  color: '#0078D4'      
-  labelColor: '#222222'
+statusBadgesStyle: &STATUS_BADGES_STYLE   
+  labelColor: '#bbb'
   isError: false
-  namedLogo: ''
+  namedLogo: 'npm'
   logoSvg: ''
-  logoColor: white
+  color: white
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
   link: 'https://something.com'
-  tile: false
 
-# required
 dependencies:
   layout:
-    <<: *DEPENDENCIES_LAYOUT           
-  badgeStyle: *DEPENDENCIES_STYLE    
-  items:                                   
-    - name: chalk                           
-    - name: js-yaml 
+    <<: *DEPENDENCIES_LAYOUT
+  badgeStyle: *DEPENDENCIES_STYLE
+  items:
+    - name: chalk
+      namedLogo: chalk
+    - name: colord
+      namedLogo: colord
+    - name: js-yaml
+      namedLogo: js
 
-# optional
 devDependencies:
   layout:
     <<: *DEV_DEPENDENCIES_LAYOUT
-    position: left
+    position: center
   badgeStyle: *DEV_DEPENDENCIES_STYLE
-  items: 
-    - name: typescript
+  items:
+    - name: '@changesets/cli'
+      namedLogo: npm
+    - name: '@eslint/js'
+      namedLogo: eslint
+    - name: '@types/eslint'
+      namedLogo: eslint
+    - name: '@types/jest'
+      namedLogo: jest
+    - name: '@types/node'
+      namedLogo: node
+    - name: '@types/supertest'
+      namedLogo: npm
+    - name: depcheck
+      namedLogo: npm
+    - name: dependency-cruiser
+      namedLogo: npm
+    - name: dotenv-cli
+      namedLogo: npm
     - name: eslint
+      namedLogo: eslint
+    - name: eslint-config-prettier
+      namedLogo: prettier
+    - name: eslint-plugin-prettier
+      namedLogo: prettier
+    - name: eslint-plugin-simple-import-sort
+      namedLogo: npm
+    - name: eslint-plugin-sonarjs
+      namedLogo: sonar
+    - name: globals
+      namedLogo: npm
+    - name: husky
+      namedLogo: husky
+    - name: jest
+      namedLogo: jest
+    - name: jest-extended
+      namedLogo: jest
+    - name: jest-junit
+      namedLogo: jest
+    - name: jiti
+      namedLogo: npm
+    - name: lint-staged
+      namedLogo: npm
+    - name: npm-check-updates
+      namedLogo: npm
+    - name: rimraf
+      namedLogo: npm
+    - name: source-map-support
+      namedLogo: npm
+    - name: supertest
+      namedLogo: npm
+    - name: ts-jest
+      namedLogo: jest
+    - name: ts-loader
+      namedLogo: npm
+    - name: ts-node
+      namedLogo: npm
+    - name: ts-unused-exports
+      namedLogo: npm
+    - name: typescript
+      namedLogo: typescript
+    - name: typescript-eslint
+      namedLogo: eslint
 
-# optional
 peerDependencies:
   layout:
     <<: *PEER_DEPENDENCIES_LAYOUT
     theme: 'white'
   badgeStyle: *PEER_DEPENDENCIES_STYLE
-  items: 
-    - name: react 
-
-# optional
-statusBadges:
-  layout: 
-    <<: *STATUS_BADGES_LAYOUT
-    header: Highlights
-  badgeStyle: *STATUS_BADGES_STYLE
   items:
-    - name: github
-      metric: release
-      user: ehildt
-      repo: depbadge
-      branch: main
-      namedLogo: npm
-      <<: *STATUS_BADGES_STYLE # each item can have its own style that overrides the badgeStyle
-    - name: docker
-      metric: pulls
-      user: ehildt
-      image: myimage
-      tag: null
-    - name: codecov
-      user: ehildt
-      repo: depbadge
-      branch: main
-      flag: c
+    - name: react
+      namedLogo: react
+
+# statusBadges:
+#   layout:
+#     <<: *STATUS_BADGES_LAYOUT
+#     header: Highlights
+#   badgeStyle: *STATUS_BADGES_STYLE
+#   items:
+#     - name: github
+#       metric: release
+#       user: ehildt
+#       repo: depbadge
+#       branch: main
+#       namedLogo: github
+#     - name: docker
+#       metric: pulls
+#       user: ehildt
+#       image: myimage
+#       tag: null
+#       namedLogo: docker
+#     - name: codecov
+#       user: ehildt
+#       repo: depbadge
+#       branch: main
+#       flag: c

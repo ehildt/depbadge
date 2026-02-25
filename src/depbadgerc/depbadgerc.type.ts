@@ -13,7 +13,6 @@ export type BadgeStyle = {
   style?: string;
   cacheSeconds?: number;
   link?: string;
-  tile?: boolean;
 };
 
 export type Layout = {
@@ -72,8 +71,6 @@ export type DepbadgeRC = {
   manifest: string;
   output?: OutputFormat[];
 
-  /* ---------- root helper defaults ---------- */
-
   dependenciesLayout?: Layout;
   devDependenciesLayout?: Layout;
   peerDependenciesLayout?: Layout;
@@ -83,8 +80,6 @@ export type DepbadgeRC = {
   devDependenciesStyle?: BadgeStyle;
   peerDependenciesStyle?: BadgeStyle;
   statusBadgesStyle?: BadgeStyle;
-
-  /* ---------- actual sections ---------- */
 
   dependencies: Dependencies;
   devDependencies?: Dependencies;

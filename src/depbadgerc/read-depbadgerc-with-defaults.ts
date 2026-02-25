@@ -1,9 +1,11 @@
+import { colord } from "colord";
 import fs from "fs";
 import yaml from "js-yaml";
 
 import { findFile } from "../shared/find-file";
+import { hashStringToHsl } from "../shared/hash-string-to-hsl";
 
-import { BadgeStyle, DepbadgeRC, Layout } from "./depbadgerc.type";
+import { BadgeStyle, DepbadgeRC, DependencyItem, Layout } from "./depbadgerc.type";
 
 type Section = {
   layout?: Layout;
@@ -27,11 +29,15 @@ function applySectionDefaults<T extends Section>(section: T, defaultLayout?: Lay
     ...section,
     layout,
     badgeStyle,
-    items: section.items.map((item) => ({
-      ...defaultStyle,
-      ...section.badgeStyle,
-      ...item,
-    })),
+    items: section.items.map((item) => {
+      const merged = { ...defaultStyle, ...section.badgeStyle, ...item };
+      return {
+        ...merged,
+        color: merged.color ? colord(merged.color).toHslString() : hashStringToHsl(merged.name),
+        labelColor: merged.labelColor ? colord(merged.labelColor).toHslString() : undefined,
+        logoColor: merged.logoColor ? colord(merged.logoColor).toHslString() : hashStringToHsl(merged.name),
+      } as DependencyItem;
+    }),
   };
 }
 
@@ -68,5 +74,3 @@ export function readDepbadgeRC(path = "depbadgerc.yml"): DepbadgeRC {
 }
 
 export const DEPBADGERC = withDefaults(readDepbadgeRC());
-
-console.log(JSON.stringify(DEPBADGERC, null, 2));

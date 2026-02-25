@@ -10,8 +10,7 @@ export const hydrateStatusBadges = useCtxCallback<CtxStore<DepbadgeRC, Methods>>
     (Object.entries(statusBadges) as ["statusBadges", StatusBadges][]).reduce<HydratedStatusBadgeMap>(
       (acc, [section, statusBadges]) => {
         if (!statusBadges?.items?.length) return acc;
-        const style = statusBadges.badgeStyle ?? {};
-        acc[section] = [...(acc[section] ?? []), ...statusBadges.items.map((item) => ({ ...style, ...item }))];
+        acc[section] = [...(acc[section] ?? []), ...statusBadges.items];
         return acc;
       },
       {},

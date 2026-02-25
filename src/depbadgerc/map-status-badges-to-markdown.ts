@@ -1,4 +1,3 @@
-import { hashStringToHsl } from "../shared/hash-string-to-hsl";
 import { CtxStore, useCtxCallback } from "../store/ctx-store";
 
 import { Methods } from "./depbadgerc.store";
@@ -10,9 +9,10 @@ const encodeLabel = (s: string) => encodeURIComponent(s?.replace(REGEX, "_"));
 
 export function mapGithubStatusBadgeToMarkdown(badge: GitHubStatusBadge): string {
   const urlSearchParams = new URLSearchParams({
+    ...(badge?.labelColor && { labelColor: badge.labelColor }),
     ...(badge.style && { style: badge.style }),
     ...(badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() }),
-    ...(badge?.color && { color: badge.color ?? hashStringToHsl(badge.name) }),
+    ...(badge?.color && { color: badge.color }),
     ...(badge?.isError && { isError: "true" }),
     ...(badge?.namedLogo && { logo: badge.namedLogo }),
     ...(badge?.logoColor && { logoColor: badge.logoColor }),
@@ -20,6 +20,8 @@ export function mapGithubStatusBadgeToMarkdown(badge: GitHubStatusBadge): string
     ...(badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
     ...(badge.branch && { branch: badge.branch }),
   }).toString();
+
+  console.log(urlSearchParams);
 
   const label = badge.name;
   const src = encodeLabel(label);
@@ -39,7 +41,7 @@ export function mapDockerHubStatusBadgeToMarkdown(badge: DockerHubStatusBadge): 
     ...(badge?.logoWidth && { logoWidth: badge.logoWidth.toString() }),
     ...(badge.style && { style: badge.style }),
     ...(badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() }),
-    ...(badge?.color && { color: badge.color ?? hashStringToHsl(badge.name) }),
+    ...(badge?.color && { color: badge.color }),
     ...(badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
     ...(badge.tag && badge.metric === "v" && { tag: badge.tag }),
   }).toString();
@@ -62,7 +64,7 @@ export function mapCodecovStatusBadgeToMarkdown(badge: CodecovStatusBadge): stri
     ...(badge?.logoColor && { logoColor: badge.logoColor }),
     ...(badge?.logoWidth && { logoWidth: badge.logoWidth.toString() }),
     ...(badge.style && { style: badge.style }),
-    ...(badge?.color && { color: badge.color ?? hashStringToHsl(badge.name) }),
+    ...(badge?.color && { color: badge.color }),
     ...(badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
     ...(badge.branch && { branch: badge.branch }),
   }).toString();

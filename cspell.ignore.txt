@@ -35,6 +35,7 @@ cmps
 cobertura
 codecov
 codesnap
+colord
 configdb
 conv
 conventionalcommits

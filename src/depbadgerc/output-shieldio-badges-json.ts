@@ -9,8 +9,11 @@ export const outputShieldioBadgesJson = useCtxCallback((_, hbm: HydratedDependen
   Object.entries(hbm).forEach(([section, badgesMap]) => {
     const sectionPath = path.join(dir, section);
     fs.mkdirSync(sectionPath, { recursive: true });
+
     Object.entries(badgesMap).forEach(([name, badge]) => {
-      const filePath = path.join(sectionPath, `${name}.json`);
+      // normalize the name so it can be a valid filename
+      const safeName = name.replace(/^@/, "").replace(/\//g, "__");
+      const filePath = path.join(sectionPath, `${safeName}.json`);
       fs.writeFileSync(filePath, JSON.stringify(badge, null, 2));
     });
   });

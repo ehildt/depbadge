@@ -1,4 +1,3 @@
-import { hashStringToHsl } from "../shared/hash-string-to-hsl";
 import { CtxStore, useCtxCallback } from "../store/ctx-store";
 
 import { Methods } from "./depbadgerc.store";
@@ -28,7 +27,7 @@ export const mapBadgesToMarkdown = useCtxCallback<CtxStore<DepbadgeRC, Methods>>
 
           const dependency = encodeLabel(name);
           const message = encodeMessage(badge.message);
-          const color = encodeURIComponent(badge.color ?? hashStringToHsl(name));
+          const color = encodeURIComponent(badge.color!);
           const url = `https://img.shields.io/badge/${dependency}-${message}-${color}.svg?${urlSearchParams}`;
           return badge.link ? `[![${name}](${url})](${badge.link})` : `![${name}](${url})`;
         }),

@@ -29,7 +29,11 @@ export type Methods = {
   mapStatusBadgesToMarkdown(statusBadges: HydratedStatusBadgeMap): Record<string, string[]>;
   hydrateStatusBadges(statusBadges: Record<ManifestContractSection, StatusBadges>): HydratedStatusBadgeMap;
   computeStateIntegrity(...args: any[]): string;
-  outputMarkdownPreview(type: "BADGES" | "ARTIFACTS", badgeMarkdownMap: Record<string, string[]>, dir?: string): void;
+  outputMarkdownPreview(
+    type: "BADGES" | "STATUS_BADGES",
+    badgeMarkdownMap: Record<string, string[]>,
+    dir?: string,
+  ): void;
 };
 
 export const rcCtxStore = useCtxStore<DepbadgeRC, Methods>(DEPBADGERC, {

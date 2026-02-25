@@ -61,8 +61,7 @@
         "logoWidth": { "type": "number" },
         "style": { "type": "string" },
         "cacheSeconds": { "type": "number" },
-        "link": { "type": "string" },
-        "tile": { "type": "boolean" }
+        "link": { "type": "string" }
       }
     },
 
@@ -94,8 +93,7 @@
         "logoWidth": { "type": "number" },
         "style": { "type": "string" },
         "cacheSeconds": { "type": "number" },
-        "link": { "type": "string" },
-        "tile": { "type": "boolean" }
+        "link": { "type": "string" }
       }
     },
 
@@ -138,8 +136,7 @@
         "logoWidth": { "type": "number" },
         "style": { "type": "string" },
         "cacheSeconds": { "type": "number" },
-        "link": { "type": "string" },
-        "tile": { "type": "boolean" }
+        "link": { "type": "string" }
       }
     },
 
@@ -168,8 +165,7 @@
         "logoWidth": { "type": "number" },
         "style": { "type": "string" },
         "cacheSeconds": { "type": "number" },
-        "link": { "type": "string" },
-        "tile": { "type": "boolean" }
+        "link": { "type": "string" }
       }
     },
 
@@ -195,8 +191,7 @@
         "logoWidth": { "type": "number" },
         "style": { "type": "string" },
         "cacheSeconds": { "type": "number" },
-        "link": { "type": "string" },
-        "tile": { "type": "boolean" }
+        "link": { "type": "string" }
       }
     },
 
