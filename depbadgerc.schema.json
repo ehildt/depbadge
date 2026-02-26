@@ -9,7 +9,7 @@
   "properties": {
     "integrity": { "type": "string" },
     "target": { "type": "string" },
-    "manifest": { "type": "string" },
+    "manifest": { "enum": ["package.json", "pyproject.toml"] },
 
     "output": {
       "type": "array",

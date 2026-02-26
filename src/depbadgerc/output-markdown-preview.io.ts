@@ -18,6 +18,7 @@ export const outputMarkdownPreview = useCtxCallback<CtxStore<DepbadgeRC, Methods
       .join("")
       .trim();
 
+    if (!md?.length) return;
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(`${dir}/${type}.md`, md);
   },

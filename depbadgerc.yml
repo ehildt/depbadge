@@ -1,6 +1,6 @@
-integrity: da069826f912f63bc20bc5cc9d20a83c4c1696b91eb0897336543a93f18144fb
+integrity: bb5326393d0039ac81df0c386759febb9567fc31be85d31b2b7cede21d5933e3
 target: README.md
-manifest: package.json
+manifest: pyproject.toml
 output: ['json', 'markdown']
 
 dependenciesLayout: &DEPENDENCIES_LAYOUT
@@ -70,6 +70,7 @@ dependencies:
       namedLogo: colord
     - name: js-yaml
       namedLogo: js
+    - name: pydantic
 
 devDependencies:
   layout:

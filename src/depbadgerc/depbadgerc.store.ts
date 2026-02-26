@@ -1,11 +1,10 @@
 import { ManifestMethods } from "../manifest/package-json/manifest.store";
-import { DepbadgeManifest } from "../manifest/package-json/manifest.type";
 import { CtxStore, useCtxStore } from "../store/ctx-store";
 
 import { applyMarkdownToTarget } from "./apply-markdown-to-target";
 import { computeStateIntegrity } from "./compute-state-integrity";
 import { DepbadgeRC, Dependencies, StatusBadges } from "./depbadgerc.type";
-import { ManifestContractSection, ManifestDependencyMap } from "./depbadgerc-manifest-contract.type";
+import { ManifestContract, ManifestContractSection, ManifestDependencyMap } from "./depbadgerc-manifest-contract.type";
 import { getDependencies } from "./get-dependencies";
 import { getStatusBadges } from "./get-status-badges";
 import { HydratedDependencyMap, hydrateDependencyBadges, RCDependencyMap } from "./hydrate-dependency-badges";
@@ -19,7 +18,7 @@ import { processManifest } from "./process-manifest";
 import { DEPBADGERC } from "./read-depbadgerc-with-defaults";
 
 export type Methods = {
-  processManifest(mf: CtxStore<DepbadgeManifest, ManifestMethods>): void;
+  processManifest(mf: CtxStore<ManifestContract, ManifestMethods>): void;
   getDependencies(): Record<ManifestContractSection, Dependencies>;
   getStatusBadges(): Record<ManifestContractSection, StatusBadges>;
   hydrateDependencyBadges(deps: RCDependencyMap, mfdm: ManifestDependencyMap): HydratedDependencyMap;
