@@ -51,7 +51,6 @@ web_modules/
 ##### Output
 ###############################################
 .nuxt
-dist
 lib
 tmp
 out-tsc
@@ -147,7 +146,6 @@ typings/
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/

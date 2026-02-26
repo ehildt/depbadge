@@ -1,9 +1,9 @@
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
-import { updateDepbadgeRCIntegrity } from "./depbadgerc.update";
-import { ManifestContract } from "./depbadgerc-manifest-contract.type";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
+import { ManifestContract } from "./depbadgerc-manifest-contract.type.ts";
+import { updateIntegrity } from "./update-integrity.ts";
 
 function canOutput(x: string[] = [], y: string) {
   return x?.includes(y) ?? false;
@@ -31,6 +31,6 @@ export const processManifest = useCtxCallback<CtxStore<DepbadgeRC, Methods>>((st
   }
 
   store.applyMarkdownToTarget(statusBadgesMarkdown, badgesMarkdown);
-  if (canUpdate(store.integrity, integrity)) updateDepbadgeRCIntegrity(integrity);
+  if (canUpdate(store.integrity, integrity)) updateIntegrity(integrity);
   process.exit(0);
 });

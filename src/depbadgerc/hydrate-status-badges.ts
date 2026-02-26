@@ -1,7 +1,7 @@
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC, StatusBadgeItem, StatusBadges } from "./depbadgerc.type";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC, StatusBadgeItem, StatusBadges } from "./depbadgerc.type.ts";
 
 export type HydratedStatusBadgeMap = Record<string, StatusBadgeItem[]>;
 

@@ -1,8 +1,8 @@
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC, Dependencies, DependencyItem } from "./depbadgerc.type";
-import { ManifestContractSection, ManifestDependencyMap } from "./depbadgerc-manifest-contract.type";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC, Dependencies, DependencyItem } from "./depbadgerc.type.ts";
+import { ManifestContractSection, ManifestDependencyMap } from "./depbadgerc-manifest-contract.type.ts";
 
 type HydratedDependencyBadge = DependencyItem;
 export type HydratedDependencyMap = Partial<Record<ManifestContractSection, Record<string, HydratedDependencyBadge>>>;

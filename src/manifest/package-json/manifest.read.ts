@@ -1,8 +1,8 @@
 import fs from "fs";
 
-import { findFile } from "../../shared/find-file";
+import { findFile } from "../../shared/find-file.ts";
 
-import { DepbadgeManifest } from "./manifest.type";
+import { DepbadgeManifest } from "./manifest.type.ts";
 
 export function readManifest(path = "package.json"): DepbadgeManifest {
   const filePath = findFile(path);

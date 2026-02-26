@@ -1,13 +1,15 @@
 import fs from "fs";
 
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
-import { ManifestContractSection } from "./depbadgerc-manifest-contract.type";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
+import { ManifestContractSection } from "./depbadgerc-manifest-contract.type.ts";
+
+export type MarkdownPreview = "BADGES" | "STATUS_BADGES";
 
 export const outputMarkdownPreview = useCtxCallback<CtxStore<DepbadgeRC, Methods>>(
-  (store, type: "BADGES" | "STATUS_BADGES", badgeMarkdownMap: Record<string, string[]>, dir = ".depbadge"): void => {
+  (store, type: MarkdownPreview, badgeMarkdownMap: Record<string, string[]>, dir = ".depbadge"): void => {
     const md = Object.entries(badgeMarkdownMap)
       .map(([section, badges]) => {
         const layout = store[section as ManifestContractSection | "statusBadges"]?.layout;

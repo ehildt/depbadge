@@ -1,10 +1,10 @@
-import { ManifestContract, ManifestContractSection } from "../../depbadgerc/depbadgerc-manifest-contract.type";
-import { useCtxStore } from "../../store/ctx-store";
+import { ManifestContract, ManifestContractSection } from "../../depbadgerc/depbadgerc-manifest-contract.type.ts";
+import { useCtxStore } from "../../store/ctx-store.ts";
 
-import { getDependencies } from "./get-dependencies";
-import { getVersion } from "./get-version";
-import { readManifest } from "./manifest.read";
-import { Manifest } from "./manifest.type";
+import { getDependencies } from "./get-dependencies.ts";
+import { getVersion } from "./get-version.ts";
+import { readManifest } from "./manifest.read.ts";
+import { Manifest } from "./manifest.type.ts";
 
 export type ManifestMethods = {
   getVersion(): string;

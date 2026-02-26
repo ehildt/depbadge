@@ -1,12 +1,39 @@
-import { rcCtxStore } from "./depbadgerc/depbadgerc.store";
-import { CargoTomlCtx } from "./manifest/cargo.toml/manifest.store";
-import { PackageJsonCtx } from "./manifest/package-json/manifest.store";
-import { PyProjectCtx } from "./manifest/pyproject-toml/manifest.store";
+import { execSync } from "node:child_process";
 
-if (rcCtxStore.manifest === "package.json") rcCtxStore.processManifest(PackageJsonCtx);
-if (rcCtxStore.manifest === "pyproject.toml") rcCtxStore.processManifest(PyProjectCtx);
-if (rcCtxStore.manifest === "Cargo.toml") rcCtxStore.processManifest(CargoTomlCtx);
-else {
-  // console.error(`${chalk.bold.yellowBright("DEPBADGES")} ${chalk.redBright(file)}: manifest file not supported`);
-  process.exit(1);
+import * as core from "@actions/core";
+
+import { rcCtx } from "./depbadgerc/depbadgerc.store.ts";
+import { CargoTomlCtx } from "./manifest/cargo.toml/manifest.store.ts";
+import { PackageJsonCtx } from "./manifest/package-json/manifest.store.ts";
+import { PyProjectCtx } from "./manifest/pyproject-toml/manifest.store.ts";
+
+try {
+  const manifestMap = {
+    "package.json": PackageJsonCtx,
+    "pyproject.toml": PyProjectCtx,
+    "Cargo.toml": CargoTomlCtx,
+    // TODO: add more manifest contexts here
+  } as const;
+
+  const ctx = manifestMap[rcCtx.manifest as keyof typeof manifestMap];
+  if (!ctx) throw new Error(`Unsupported manifest file: ${rcCtx.manifest}`);
+
+  rcCtx.processManifest(ctx);
+
+  const cmd = core.getInput("depbadge") || "pnpm depbadge";
+  const commitMessage = core.getInput("commit") || "Update Badges";
+  execSync(cmd, { stdio: "inherit" });
+  execSync("git add .", { stdio: "inherit" });
+
+  try {
+    execSync(`git commit -m "${commitMessage}"`, { stdio: "inherit" });
+  } catch {
+    // ignore if no changes to commit
+    // TODO: logging
+  }
+
+  execSync("git push", { stdio: "inherit" });
+} catch (error) {
+  // TODO: logging
+  core.setFailed(error instanceof Error ? error.message : String(error));
 }

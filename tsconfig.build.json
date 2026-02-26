@@ -1,12 +1,14 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "declaration": false,
-    "incremental": true,
-    "sourceMap": true,
-    "removeComments": false,
-    "target": "esnext",
-    "module": "commonjs"
+    "noEmit": false,
+    "declaration": true,
+    "incremental": false,
+    "sourceMap": false,
+    "removeComments": true,
+    "module": "nodenext",
+    "outDir": "./dist",
+    "tsBuildInfoFile": "./dist/tsconfig.tsbuildinfo"
   },
   "exclude": [
     "node_modules",

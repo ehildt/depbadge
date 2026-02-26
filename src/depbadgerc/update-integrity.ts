@@ -1,11 +1,11 @@
 import fs from "fs";
 
-import { findFile } from "../shared/find-file";
+import { findFile } from "../shared/find-file.ts";
 
 /**
  * Updates the `integrity` field in an existing depbadgerc YAML file.
  */
-export function updateDepbadgeRCIntegrity(integrity: string, path = "depbadgerc.yml"): void {
+export function updateIntegrity(integrity: string, path = "depbadgerc.yml"): void {
   const absFilePath = findFile(path);
   if (!absFilePath) return;
   const content = fs.readFileSync(absFilePath, "utf8");

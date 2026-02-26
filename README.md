@@ -35,6 +35,17 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 <!-- DEPBADGE:START -->
 <div align="center">
 
+[![github](https://img.shields.io/github/release/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)](https://something.com)
+[![github](https://img.shields.io/github/stars/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)](https://something.com)
+[![github](https://img.shields.io/github/license/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)](https://something.com)
+[![codecov](https://img.shields.io/codecov/c/codecov/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28253%2C68%25%2C41%25%29&logoWidth=40&style=for-the-badge&color=hsl%28253%2C68%25%2C41%25%29&branch=main)](https://something.com)
+
+</div>
+
+<br>
+
+<div align="center">
+
 [![chalk](https://img.shields.io/badge/chalk-v5.6.2-hsl(35%2C63%25%2C43%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=chalk&logoColor=hsl%2835%2C63%25%2C43%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
 [![colord](https://img.shields.io/badge/colord-v2.9.3-hsl(297%2C75%25%2C44%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=colord&logoColor=hsl%28297%2C75%25%2C44%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
 [![js-yaml](https://img.shields.io/badge/js_yaml-v4.1.1-hsl(259%2C68%25%2C54%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=js&logoColor=hsl%28259%2C68%25%2C54%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)

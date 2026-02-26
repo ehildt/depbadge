@@ -1,10 +1,10 @@
 import crypto from "crypto";
 import yaml from "js-yaml";
 
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
 
 export const computeStateIntegrity = useCtxCallback<CtxStore<DepbadgeRC, Methods>>((store, ...rest: unknown[]) => {
   const payloadStringified = JSON.stringify(rest);

@@ -55,6 +55,7 @@ export type CodecovStatusBadge = DependencyItem & {
   repo: string;
   branch?: string;
   flag?: string | null;
+  token?: string;
 };
 
 export type StatusBadgeItem = GitHubStatusBadge | DockerHubStatusBadge | CodecovStatusBadge;

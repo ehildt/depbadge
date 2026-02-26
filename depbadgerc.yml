@@ -1,4 +1,4 @@
-integrity: db934b5aa74452cc7ba7f7e47b2b9a35785e0903ceaf86d60311af55def0a12c
+integrity: cf896ab828c0a55d4086a4c7ff37083fa40434c7fc11e267f59a0f032e709e14
 target: README.md
 manifest: package.json
 output: ['json', 'markdown']
@@ -49,11 +49,11 @@ peerDependenciesStyle: &PEER_DEPENDENCIES_STYLE
   style: flat
 
 statusBadgesStyle: &STATUS_BADGES_STYLE   
-  labelColor: '#bbb'
+  labelColor: '#333'
   isError: false
   namedLogo: 'npm'
   logoSvg: ''
-  color: white
+  #color: white
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
@@ -151,26 +151,39 @@ peerDependencies:
     - name: react
       namedLogo: react
 
-# statusBadges:
-#   layout:
-#     <<: *STATUS_BADGES_LAYOUT
-#     header: Highlights
-#   badgeStyle: *STATUS_BADGES_STYLE
-#   items:
-#     - name: github
-#       metric: release
-#       user: ehildt
-#       repo: depbadge
-#       branch: main
-#       namedLogo: github
+statusBadges:
+  layout:
+    <<: *STATUS_BADGES_LAYOUT
+    header: Highlights
+    showHeader: false
+  badgeStyle: *STATUS_BADGES_STYLE
+  items:
+    - name: github
+      metric: release
+      user: ehildt
+      repo: depbadge
+      branch: main
+      namedLogo: github
+    - name: github
+      metric: stars
+      user: ehildt
+      repo: depbadge
+      branch: main
+      namedLogo: github
+    - name: github
+      metric: license
+      user: ehildt
+      repo: depbadge
+      branch: main
+      namedLogo: github
 #     - name: docker
 #       metric: pulls
 #       user: ehildt
 #       image: myimage
 #       tag: null
 #       namedLogo: docker
-#     - name: codecov
-#       user: ehildt
-#       repo: depbadge
-#       branch: main
-#       flag: c
+    - name: codecov
+      user: ehildt
+      repo: depbadge
+      branch: main
+      flag: c

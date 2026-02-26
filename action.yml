@@ -1,27 +1,26 @@
 name: "DEPBADGE"
 author: "Eugen Hildt"
-description: >
-  Generates Shields.io-compatible badges from your project manifest using
-  `depbadgerc.yml`, injects them into `README.md`, and outputs structured
-  files under `.depbadge`.
+description: Auto-generate Shields.io badges from your project manifest and embed them in README.md..
 
-runs:
-  using: "node24"
-  main: "dist/index.js"
+
 
 branding:
   icon: "tag"
   color: "purple"
 
 inputs:
-  config-file:
-    description: "Path to depbadgerc.yml in the project root"
-    required: true
-    default: "depbadgerc.yml"
-  readme:
-    description: "Path to README.md in the project root"
-    required: true
-    default: "README.md"
+  depbadge:
+    description: "Command to run"
+    required: false
+    default: "depbadge"
+  commit:
+    description: "Commit message"
+    required: false
+    default: "Update dependency badges"
+
+runs:
+  using: "node24"
+  main: "dist/index.mjs"
 
 outputs:
   badges-json:

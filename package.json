@@ -3,6 +3,7 @@
   "description": "A github action that creates badges",
   "version": "1.0.0",
   "license": "MIT",
+  "type": "module",
   "author": {
     "email": "eugen.hildt@gmail.com",
     "name": "Eugen Hildt"
@@ -11,9 +12,8 @@
     "email": "eugen.hildt@gmail.com"
   },
   "scripts": {
-    "depbadge": "rimraf .depbadge && node dist/index.js",
-    "build": "rimraf dist && tsc -p ./tsconfig.build.json",
-    "build:prod": "tsc -p ./tsconfig.build.prod.json",
+    "depbadge": "rimraf .depbadge && node dist/index.mjs",
+    "build": "rimraf dist && pnpm tsup",
     "depcheck": "npx depcheck .",
     "depcruise": "npx dependency-cruiser -c .depcruise.mjs --ts-config tsconfig.json src",
     "format": "prettier --write .",
@@ -32,6 +32,7 @@
     "lint:unused": "npx ts-unused-exports ./tsconfig.exclude.json --maxIssues=0"
   },
   "dependencies": {
+    "@actions/core": "^3.0.0",
     "@iarna/toml": "^2.2.5",
     "chalk": "^5.6.2",
     "colord": "^2.9.3",
@@ -67,6 +68,7 @@
     "ts-loader": "^9.5.4",
     "ts-node": "^10.9.2",
     "ts-unused-exports": "^11.0.1",
+    "tsup": "^8.5.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
   }

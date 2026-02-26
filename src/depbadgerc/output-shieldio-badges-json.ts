@@ -1,9 +1,9 @@
 import fs from "fs";
 import path from "path";
 
-import { useCtxCallback } from "../store/ctx-store";
+import { useCtxCallback } from "../store/ctx-store.ts";
 
-import { HydratedDependencyMap } from "./hydrate-dependency-badges";
+import { HydratedDependencyMap } from "./hydrate-dependency-badges.ts";
 
 export const outputShieldioBadgesJson = useCtxCallback((_, hbm: HydratedDependencyMap, dir = ".depbadge"): void => {
   Object.entries(hbm).forEach(([section, badgesMap]) => {

@@ -157,6 +157,7 @@ pinia
 pkief
 pokemon
 postcss
+pydantic
 pyproject
 qdrant
 Qdrant

@@ -1,8 +1,8 @@
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
-import { HydratedDependencyMap } from "./hydrate-dependency-badges";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
+import { HydratedDependencyMap } from "./hydrate-dependency-badges.ts";
 
 const REGEX = /[^a-zA-Z0-9]/g;
 const encodeMessage = (s: string) => encodeURIComponent(s.replace(/^\^/, "v"));

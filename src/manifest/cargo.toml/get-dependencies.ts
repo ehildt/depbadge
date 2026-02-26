@@ -1,8 +1,8 @@
-import { ManifestContractSection } from "../../depbadgerc/depbadgerc-manifest-contract.type";
-import { CtxStore, useCtxCallback } from "../../store/ctx-store";
+import { ManifestContractSection } from "../../depbadgerc/depbadgerc-manifest-contract.type.ts";
+import { CtxStore, useCtxCallback } from "../../store/ctx-store.ts";
 
-import { ManifestMethods } from "./manifest.store";
-import { Manifest } from "./manifest.type";
+import { ManifestMethods } from "./manifest.store.ts";
+import { Manifest } from "./manifest.type.ts";
 
 const parseCargoDependency = (
   entry: string | { version: string; optional?: boolean; features?: string[] },

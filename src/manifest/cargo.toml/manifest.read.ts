@@ -1,9 +1,9 @@
 import { parse } from "@iarna/toml";
 import fs from "fs";
 
-import { findFile } from "../../shared/find-file";
+import { findFile } from "../../shared/find-file.ts";
 
-import { Manifest } from "./manifest.type";
+import { Manifest } from "./manifest.type.ts";
 
 export function readManifest(path = "Cargo.toml"): Manifest {
   const filePath = findFile(path);

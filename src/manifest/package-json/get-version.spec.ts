@@ -1,8 +1,8 @@
-import { CtxStore } from "../../store/ctx-store";
+import { CtxStore } from "../../store/ctx-store.ts";
 
-import { getVersion } from "./get-version";
-import { ManifestMethods } from "./manifest.store";
-import type { DepbadgeManifest } from "./manifest.type";
+import { getVersion } from "./get-version.ts";
+import { ManifestMethods } from "./manifest.store.ts";
+import type { DepbadgeManifest } from "./manifest.type.ts";
 
 describe("getManifestVersion", () => {
   it("returns the version from the store", () => {

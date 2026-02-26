@@ -59,7 +59,7 @@
         "logoSvg": { "type": "string" },
         "logoColor": { "type": "string" },
         "logoWidth": { "type": "number" },
-        "style": { "type": "string" },
+        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -91,7 +91,7 @@
         "logoSvg": { "type": "string" },
         "logoColor": { "type": "string" },
         "logoWidth": { "type": "number" },
-        "style": { "type": "string" },
+        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -134,7 +134,7 @@
         "logoSvg": { "type": "string" },
         "logoColor": { "type": "string" },
         "logoWidth": { "type": "number" },
-        "style": { "type": "string" },
+        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -163,7 +163,7 @@
         "logoSvg": { "type": "string" },
         "logoColor": { "type": "string" },
         "logoWidth": { "type": "number" },
-        "style": { "type": "string" },
+        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -174,14 +174,13 @@
       "required": ["name", "user", "repo"],
       "additionalProperties": false,
       "properties": {
+        "token": { "type": "string" },
         "name": { "const": "codecov" },
         "user": { "type": "string" },
         "repo": { "type": "string" },
         "branch": { "type": "string" },
         "flag": { "type": ["string", "null"] },
-
         "message": { "type": "string" },
-
         "color": { "type": "string" },
         "labelColor": { "type": "string" },
         "isError": { "type": "boolean" },
@@ -189,7 +188,7 @@
         "logoSvg": { "type": "string" },
         "logoColor": { "type": "string" },
         "logoWidth": { "type": "number" },
-        "style": { "type": "string" },
+        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }

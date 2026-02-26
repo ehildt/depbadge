@@ -2,10 +2,10 @@ import { colord } from "colord";
 import fs from "fs";
 import yaml from "js-yaml";
 
-import { findFile } from "../shared/find-file";
-import { hashStringToHsl } from "../shared/hash-string-to-hsl";
+import { findFile } from "../shared/find-file.ts";
+import { hashStringToHsl } from "../shared/hash-string-to-hsl.ts";
 
-import { BadgeStyle, DepbadgeRC, DependencyItem, Layout } from "./depbadgerc.type";
+import { BadgeStyle, DepbadgeRC, DependencyItem, Layout } from "./depbadgerc.type.ts";
 
 type Section = {
   layout?: Layout;
@@ -67,9 +67,7 @@ export function withDefaults(rc: DepbadgeRC): DepbadgeRC {
 export function readDepbadgeRC(path = "depbadgerc.yml"): DepbadgeRC {
   const filePath = findFile(path);
   if (!filePath) throw new Error(`${path} not found`);
-
   const rc = yaml.load(fs.readFileSync(filePath, "utf8")) as DepbadgeRC;
-
   return rc;
 }
 

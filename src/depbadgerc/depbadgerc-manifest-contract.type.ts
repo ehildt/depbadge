@@ -30,5 +30,17 @@ export type ManifestContract = {
    */
   getVersion(): string;
 
+  /**
+   * Returns the dependencies of the manifest file.
+   *
+   * @returns an object of dependencies satisfying the contract
+   *
+   * @example
+   * {
+   *  dependencies: { react: "^19.0.1", ... },
+   *  devDependencies: { eslint: "^10.0.2", ... },
+   *  peerDependencies: { ... }
+   * }
+   */
   getDependencies(): Record<ManifestContractSection, Record<string, string>>;
 };

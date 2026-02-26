@@ -1,4 +1,4 @@
-import { hashStringToHsl } from "./hash-string-to-hsl";
+import { hashStringToHsl } from "./hash-string-to-hsl.ts";
 
 describe("hashStringToHsl", () => {
   it("returns a valid HSL string", () => {

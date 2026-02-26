@@ -1,5 +1,5 @@
-import { getDependencies } from "./get-dependencies";
-import { Manifest } from "./manifest.type";
+import { getDependencies } from "./get-dependencies.ts";
+import { Manifest } from "./manifest.type.ts";
 
 describe("getDependencies (bound store)", () => {
   const bind = (project: Partial<Manifest["project"]>) => getDependencies({ project } as any)(); // bind + execute

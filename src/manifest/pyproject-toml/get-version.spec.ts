@@ -1,4 +1,4 @@
-import { getVersion } from "./get-version";
+import { getVersion } from "./get-version.ts";
 
 describe("getVersion (bound store)", () => {
   const bind = (version?: string) => getVersion({ project: { version } } as any)(); // bind + execute

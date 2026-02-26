@@ -1,8 +1,8 @@
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC, Dependencies } from "./depbadgerc.type";
-import { ManifestContractSection } from "./depbadgerc-manifest-contract.type";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC, Dependencies } from "./depbadgerc.type.ts";
+import { ManifestContractSection } from "./depbadgerc-manifest-contract.type.ts";
 
 export const getDependencies = useCtxCallback<CtxStore<DepbadgeRC, Methods>>(
   (store): Record<ManifestContractSection, Dependencies> => {

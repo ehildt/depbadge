@@ -1,8 +1,8 @@
-import { CtxStore, useCtxCallback } from "../store/ctx-store";
+import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { CodecovStatusBadge, DepbadgeRC, DockerHubStatusBadge, GitHubStatusBadge } from "./depbadgerc.type";
-import { HydratedStatusBadgeMap } from "./hydrate-status-badges";
+import { Methods } from "./depbadgerc.store.ts";
+import { CodecovStatusBadge, DepbadgeRC, DockerHubStatusBadge, GitHubStatusBadge } from "./depbadgerc.type.ts";
+import { HydratedStatusBadgeMap } from "./hydrate-status-badges.ts";
 
 const REGEX = /[^a-zA-Z0-9]/g;
 const encodeLabel = (s: string) => encodeURIComponent(s?.replace(REGEX, "_"));
@@ -20,8 +20,6 @@ export function mapGithubStatusBadgeToMarkdown(badge: GitHubStatusBadge): string
     ...(badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
     ...(badge.branch && { branch: badge.branch }),
   }).toString();
-
-  console.log(urlSearchParams);
 
   const label = badge.name;
   const src = encodeLabel(label);
@@ -74,6 +72,8 @@ export function mapCodecovStatusBadgeToMarkdown(badge: CodecovStatusBadge): stri
   const repo = encodeLabel(badge.repo);
   const provider = encodeLabel(label);
   const flag = encodeLabel(badge.flag ?? "c");
+
+  // ! codecov requires a token so this url might change based on if the token is provided or not
   const url = `https://img.shields.io/codecov/${flag}/${provider}/${user}/${repo}?${urlSearchParams}`;
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
 }
