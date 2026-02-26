@@ -1,8 +1,8 @@
 import { getDependencies } from "./get-dependencies";
-import { DepbadgeManifest } from "./manifest.type";
+import { Manifest } from "./manifest.type";
 
 describe("getDependencies (bound store)", () => {
-  const bind = (project: Partial<DepbadgeManifest["project"]>) => getDependencies({ project } as any)(); // bind + execute
+  const bind = (project: Partial<Manifest["project"]>) => getDependencies({ project } as any)(); // bind + execute
 
   it("parses dependencies and strips operators", () => {
     const result = bind({

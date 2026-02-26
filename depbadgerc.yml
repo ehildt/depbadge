@@ -1,6 +1,6 @@
-integrity: bb5326393d0039ac81df0c386759febb9567fc31be85d31b2b7cede21d5933e3
+integrity: db934b5aa74452cc7ba7f7e47b2b9a35785e0903ceaf86d60311af55def0a12c
 target: README.md
-manifest: pyproject.toml
+manifest: package.json
 output: ['json', 'markdown']
 
 dependenciesLayout: &DEPENDENCIES_LAYOUT
@@ -70,7 +70,8 @@ dependencies:
       namedLogo: colord
     - name: js-yaml
       namedLogo: js
-    - name: pydantic
+    - name: "@iarna/toml"
+      namedLogo: toml
 
 devDependencies:
   layout:

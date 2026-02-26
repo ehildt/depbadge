@@ -2,7 +2,7 @@ import { ManifestContractSection } from "../../depbadgerc/depbadgerc-manifest-co
 import { CtxStore, useCtxCallback } from "../../store/ctx-store";
 
 import { ManifestMethods } from "./manifest.store";
-import { DepbadgeManifest } from "./manifest.type";
+import { Manifest } from "./manifest.type";
 
 const parseRequirement = (req: string): [string, string] => {
   const match = req.match(/^([A-Za-z0-9_.-]+)\s*[<>=!~]*\s*([^,;\s]+)?/);
@@ -16,7 +16,7 @@ const toRecord = (deps?: string[]): Record<string, string> =>
     return acc;
   }, {}) ?? {};
 
-export const getDependencies = useCtxCallback<CtxStore<DepbadgeManifest, ManifestMethods>>(
+export const getDependencies = useCtxCallback<CtxStore<Manifest, ManifestMethods>>(
   (store): Record<ManifestContractSection, Record<string, string>> => {
     const { project } = store;
 

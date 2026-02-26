@@ -11,7 +11,8 @@
     "email": "eugen.hildt@gmail.com"
   },
   "scripts": {
-    "build": "tsc -p ./tsconfig.build.json",
+    "depbadge": "rimraf .depbadge && node dist/index.js",
+    "build": "rimraf dist && tsc -p ./tsconfig.build.json",
     "build:prod": "tsc -p ./tsconfig.build.prod.json",
     "depcheck": "npx depcheck .",
     "depcruise": "npx dependency-cruiser -c .depcruise.mjs --ts-config tsconfig.json src",

@@ -1,4 +1,4 @@
-export type DepbadgeManifest = {
+export type Manifest = {
   "build-system": {
     requires: string[];
     "build-backend": string;

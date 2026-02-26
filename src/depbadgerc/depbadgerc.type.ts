@@ -65,10 +65,12 @@ export type StatusBadges = {
   items: StatusBadgeItem[];
 };
 
+export type SupportedManifest = "package.json" | "pyproject.toml" | "Cargo.toml";
+
 export type DepbadgeRC = {
   integrity?: string;
   target?: string;
-  manifest: string;
+  manifest: SupportedManifest;
   output?: OutputFormat[];
 
   dependenciesLayout?: Layout;

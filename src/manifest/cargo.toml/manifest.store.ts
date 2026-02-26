@@ -11,7 +11,7 @@ export type ManifestMethods = {
   getDependencies(): Record<ManifestContractSection, Record<string, string>>;
 } & ManifestContract;
 
-export const PyProjectCtx = useCtxStore<Manifest, ManifestMethods>(readManifest(), {
+export const CargoTomlCtx = useCtxStore<Manifest, ManifestMethods>(readManifest(), {
   getVersion,
   getDependencies,
 });
