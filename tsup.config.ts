@@ -4,17 +4,22 @@ export default defineConfig({
   entry: ["src/index.ts"],
   format: ["esm"],
   target: "node24",
-  tsconfig: "tsconfig.build.json",
-  dts: true,
+  platform: "node",
+  bundle: true,
+  shims: true,
   clean: true,
   outDir: "dist",
-  bundle: true,
-  sourcemap: true,
-  minify: false,
-  outExtension: ({ format }) => (format === "esm" ? { js: ".mjs" } : {}),
-  external: ["fs", "path", "crypto", "net", "http", "https", "tls", "url"],
-  esbuildOptions(options) {
-    options.conditions = ["node", "import"]; // proper ESM resolution
+  outExtension: () => ({ js: ".mjs" }),
+  // Bundle all dependencies so the runner doesn't need a node_modules folder
+  noExternal: [/(.*)/],
+  banner: {
+    js: `
+      import { createRequire } from 'module';
+      const require = createRequire(import.meta.url);
+    `,
   },
-  noExternal: ["@actions/core", "@iarna/toml", "chalk", "colord", "js-yaml"],
+  esbuildOptions(options) {
+    options.platform = "node";
+    options.external = ["node:*", "net", "http", "https", "tls", "crypto", "path", "fs", "os", "url", "child_process"];
+  },
 });

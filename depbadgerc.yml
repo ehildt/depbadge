@@ -1,4 +1,4 @@
-integrity: cf896ab828c0a55d4086a4c7ff37083fa40434c7fc11e267f59a0f032e709e14
+integrity: 5ccb72d9371d6a32540cb6edbae5afd0e9c469096f200d0197e7997f1be24655
 target: README.md
 manifest: package.json
 output: ['json', 'markdown']
@@ -72,6 +72,8 @@ dependencies:
       namedLogo: js
     - name: "@iarna/toml"
       namedLogo: toml
+    - name: "@actions/core"
+      namedLogo: github
 
 devDependencies:
   layout:

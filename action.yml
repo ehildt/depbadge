@@ -2,21 +2,9 @@ name: "DEPBADGE"
 author: "Eugen Hildt"
 description: Auto-generate Shields.io badges from your project manifest and embed them in README.md..
 
-
-
 branding:
   icon: "tag"
   color: "purple"
-
-inputs:
-  depbadge:
-    description: "Command to run"
-    required: false
-    default: "depbadge"
-  commit:
-    description: "Commit message"
-    required: false
-    default: "Update dependency badges"
 
 runs:
   using: "node24"

@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "declaration": true,
-    "incremental": true,
     "sourceMap": true,
     "removeComments": false,
     "strict": true,

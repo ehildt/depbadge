@@ -3,7 +3,6 @@
   "compilerOptions": {
     "noEmit": false,
     "declaration": true,
-    "incremental": false,
     "sourceMap": false,
     "removeComments": true,
     "module": "nodenext",

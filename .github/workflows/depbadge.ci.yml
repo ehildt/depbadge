@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - dev
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -24,6 +25,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: true
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -40,13 +42,17 @@ jobs:
       - name: Install Dependencies
         run: pnpm install --ignore-scripts
 
-      - name: Configure Git User
+      - name: Run Depbadge Action
+        uses: ehildt/depbadge@v1.0.0-rc.2
+
+      - name: Commit Badges
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-      - name: Run Depbadge Action
-        uses: ehildt/depbadge@v1.0.0-rc.2
-        with:
-          depbadge: pnpm depbadge
-          commit: 'Depbadge Badges'
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "DEPBADGE UPDATE [skip ci]"
+            git push origin HEAD:${{ github.ref_name }}
+          else
+            echo "No changes to badges detected."
+          fi
