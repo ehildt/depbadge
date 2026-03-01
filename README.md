@@ -46,9 +46,9 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 
 <div align="center">
 
-[![chalk](https://img.shields.io/badge/chalk-v5.6.2-hsl(35%2C63%25%2C43%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=chalk&logoColor=hsl%2835%2C63%25%2C43%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
-[![colord](https://img.shields.io/badge/colord-v2.9.3-hsl(297%2C75%25%2C44%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=colord&logoColor=hsl%28297%2C75%25%2C44%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
-[![js-yaml](https://img.shields.io/badge/js_yaml-v4.1.1-hsl(259%2C68%25%2C54%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=js&logoColor=hsl%28259%2C68%25%2C54%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
+[![chalk](https://img.shields.io/badge/chalk-v5.6.2-hsl(35%2C63%25%2C43%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%2835%2C63%25%2C43%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
+[![colord](https://img.shields.io/badge/colord-v2.9.3-hsl(297%2C75%25%2C44%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28297%2C75%25%2C44%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
+[![js-yaml](https://img.shields.io/badge/js_yaml-v4.1.1-hsl(259%2C68%25%2C54%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28259%2C68%25%2C54%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
 [![@iarna/toml](https://img.shields.io/badge/_iarna_toml-v2.2.5-hsl(348%2C64%25%2C54%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=toml&logoColor=hsl%28348%2C64%25%2C54%25%29&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/example_package)
 
 </div>

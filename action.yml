@@ -1,6 +1,6 @@
 name: "DEPBADGE"
 author: "Eugen Hildt"
-description: Auto-generate Shields.io badges from your project manifest and embed them in README.md..
+description: Auto-generate Shields.io badges from your project manifest and embed them in README.md.
 
 branding:
   icon: "tag"

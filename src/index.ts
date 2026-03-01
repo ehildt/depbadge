@@ -16,6 +16,7 @@ try {
   console.log(`Processing manifest: ${manifestFile}`);
   rcCtx.processManifest(ctx);
   console.log("✅ Manifest processed successfully.");
+  process.exit(0);
 } catch (error) {
   const message = error instanceof Error ? error.message : String(error);
   console.error(`::error::${message}`);

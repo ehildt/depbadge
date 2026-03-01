@@ -1,4 +1,4 @@
-integrity: 5ccb72d9371d6a32540cb6edbae5afd0e9c469096f200d0197e7997f1be24655
+integrity: f5bc9594027b09da74630a977cf5bd550cf157c34aa84f835efe3f1acf2c5ad4
 target: README.md
 manifest: package.json
 output: ['json', 'markdown']
@@ -65,15 +65,13 @@ dependencies:
   badgeStyle: *DEPENDENCIES_STYLE
   items:
     - name: chalk
-      namedLogo: chalk
+      namedLogo: npm
     - name: colord
-      namedLogo: colord
+      namedLogo: npm
     - name: js-yaml
-      namedLogo: js
+      namedLogo: npm
     - name: "@iarna/toml"
       namedLogo: toml
-    - name: "@actions/core"
-      namedLogo: github
 
 devDependencies:
   layout:
@@ -144,14 +142,14 @@ devDependencies:
     - name: typescript-eslint
       namedLogo: eslint
 
-peerDependencies:
-  layout:
-    <<: *PEER_DEPENDENCIES_LAYOUT
-    theme: 'white'
-  badgeStyle: *PEER_DEPENDENCIES_STYLE
-  items:
-    - name: react
-      namedLogo: react
+# peerDependencies:
+#   layout:
+#     <<: *PEER_DEPENDENCIES_LAYOUT
+#     theme: 'white'
+#   badgeStyle: *PEER_DEPENDENCIES_STYLE
+#   items:
+#     - name: react
+#       namedLogo: react
 
 statusBadges:
   layout:

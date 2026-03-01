@@ -5020,7 +5020,6 @@ var processManifest = useCtxCallback((store, mfc) => {
   }
   store.applyMarkdownToTarget(statusBadgesMarkdown, badgesMarkdown);
   if (canUpdate(store.integrity, integrity)) updateIntegrity(integrity);
-  process.exit(0);
 });
 
 // src/depbadgerc/read-depbadgerc-with-defaults.ts
@@ -5401,6 +5400,7 @@ try {
   console.log(`Processing manifest: ${manifestFile}`);
   rcCtx.processManifest(ctx);
   console.log("\u2705 Manifest processed successfully.");
+  process.exit(0);
 } catch (error) {
   const message = error instanceof Error ? error.message : String(error);
   console.error(`::error::${message}`);

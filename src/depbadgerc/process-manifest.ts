@@ -32,5 +32,4 @@ export const processManifest = useCtxCallback<CtxStore<DepbadgeRC, Methods>>((st
 
   store.applyMarkdownToTarget(statusBadgesMarkdown, badgesMarkdown);
   if (canUpdate(store.integrity, integrity)) updateIntegrity(integrity);
-  process.exit(0);
 });

@@ -1,6 +1,6 @@
 {
   "name": "@ehildt/depbadge",
-  "description": "A github action that creates badges",
+  "description": "A tool that creates shieldio badges",
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
