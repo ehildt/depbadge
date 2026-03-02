@@ -1,3 +1,20 @@
+# Quick Start
+depbadge is a platform-agnostic tool designed to run anywhere JavaScript is available. Whether you're running it locally or integrated into a CI/CD pipeline, setup is designed to be minimal and fast.
+
+## Installation & Usage
+### Via npm
+You can run depbadge directly using npx or add it to your project's development dependencies.
+
+- Run once without installing   
+`npx @ehildt/depbadge`
+
+- Or add to your project   
+`npm install -D @ehildt/depbadge`
+
+### Via GitHub Actions
+Automate your badge updates by adding this workflow to `.github/workflows/depbadge.yml`. This example uses pnpm and automatically commits changes back to your branch.
+
+```yml
 name: DEPBADGE_CI
 
 on:
@@ -56,3 +73,17 @@ jobs:
             git commit -m "DEPBADGE UPDATE [skip ci]"
             git push origin HEAD:${{ github.ref_name }}
           )
+```
+
+## Minimal Configuration
+To get started, create a `.depbadgerc.yml` file in your project root.    
+Define which packages to track by listing them under `dependencies.items`.
+
+```yaml
+dependencies:
+  items:
+    - name: chalk
+    - name: colord
+    - name: js-yaml
+    - name: "@iarna/toml"
+```

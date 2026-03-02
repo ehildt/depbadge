@@ -5,6 +5,7 @@ export default defineConfig({
   format: ["esm"],
   target: "node24",
   platform: "node",
+  tsconfig: "tsconfig.build.json",
   bundle: true,
   shims: true,
   clean: true,
@@ -22,4 +23,5 @@ export default defineConfig({
     options.platform = "node";
     options.external = ["node:*", "net", "http", "https", "tls", "crypto", "path", "fs", "os", "url", "child_process"];
   },
+  treeshake: true,
 });

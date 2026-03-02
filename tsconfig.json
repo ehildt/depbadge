@@ -9,8 +9,9 @@
     "baseUrl": "./",
     "outDir": "./dist",
     "target": "ESNext",
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "commonjs",
+    // "moduleResolution": "nodenext",
+    "isolatedModules": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
@@ -24,6 +25,7 @@
     "src/",
     "eslint.config.ts",
     "prettier.config.mjs",
-    "jest.config.ts"
+    "jest.config.ts",
+    "tsup.config.ts"
   ]
 }

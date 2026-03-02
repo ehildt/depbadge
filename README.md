@@ -9,9 +9,7 @@ Depbadge handles both dependency badges and third-party status badges (e.g., rel
 By automating badge generation, Depbadge solves common problems: outdated badges, inconsistent styling, and manual maintenance overhead — keeping your documentation visually consistent and trustworthy.
 
 <br>
-<br>
-<details align="center">
-<summary>Supported Manifest Files</summary>
+<div align="center">
 
 ### Official / Extended Support
 
@@ -19,18 +17,9 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 **`pyproject.toml`** – Python projects (PEP 621)  
 **`Cargo.toml`** – Rust projects   
 
-</details>
-<br>
-<br>
-
-<div align="center">
-
-**`-- THE BADGES BELOW WERE CREATED USING DEPBADGE --`**
 </div>
-
 <br>
 <br>
-
 
 <!-- DEPBADGE:START -->
 <div align="center">
@@ -93,13 +82,12 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 <!-- DEPBADGE:END -->
 
 <br>
-<br>
+
 
 <div align="center">
 
 [E-MAIL](mailto:eugen.hildt@gmail.com) &nbsp;—&nbsp; [WIKI](https://github.com/ehildt/depbadge/wiki) &nbsp;—&nbsp; [ISSUES](https://github.com/ehildt/depbadge/issues) &nbsp;—&nbsp; [DONATE](https://github.com/sponsors/ehildt)
 
-</div>
 
-<br>
+</div>
 <br>

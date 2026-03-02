@@ -1,11 +1,12 @@
 export default {
-  preset: "ts-jest",
+  preset: "ts-jest/presets/default-esm",
   moduleFileExtensions: ["js", "json", "ts"],
   roots: ["<rootDir>/src"],
   testEnvironment: "node",
   testRegex: ".*\\.spec\\.ts$",
+  extensionsToTreatAsEsm: [".ts"],
   transform: {
-    "^.+\\.ts$": "ts-jest",
+    "^.+\\.ts$": ["ts-jest", { useESM: true }],
   },
   verbose: false,
   reporters: ["default"],
@@ -21,10 +22,10 @@ export default {
   collectCoverageFrom: ["!**/dist/**"],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
-    "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
-      "identity-obj-proxy",
+    "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy",
   },
   coverageDirectory: "<rootDir>/coverage",
   setupFilesAfterEnv: ["jest-extended/all"],
   moduleDirectories: ["node_modules"],
+  transformIgnorePatterns: [],
 };

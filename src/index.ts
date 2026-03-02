@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { rcCtx } from "./depbadgerc/depbadgerc.store.ts";
 import { CargoTomlCtx } from "./manifest/cargo.toml/manifest.store.ts";
 import { PackageJsonCtx } from "./manifest/package-json/manifest.store.ts";

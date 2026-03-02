@@ -17,6 +17,7 @@
     ".prettierrc.mjs",
     "jest.config.ts",
     "**/*.test.ts",
-    "eslint.config.ts"
+    "eslint.config.ts",
+    "tsup.config.ts"
   ]
 }

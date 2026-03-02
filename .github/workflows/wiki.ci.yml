@@ -32,8 +32,8 @@ jobs:
       - name: Commit & push to Wiki
         working-directory: wiki
         run: |
-          git config user.name "github-actions[bot]"
+          git config user.name "wiki[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || git commit -m "docs(wiki): sync .wiki to GitHub Wiki"
+          git diff --cached --quiet || git commit -m "WIKI UPDATE"
           git push

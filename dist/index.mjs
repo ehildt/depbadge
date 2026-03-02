@@ -1,6 +1,11 @@
+#!/usr/bin/env node
+import { createRequire } from 'module';
+import path2 from 'path';
+import 'url';
+import fs2 from 'fs';
+import crypto from 'crypto';
 
-      import { createRequire } from 'module';
-      const require = createRequire(import.meta.url);
+const require$1 = createRequire(import.meta.url);
     
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -8,10 +13,10 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __require = /* @__PURE__ */ ((x2) => typeof require !== "undefined" ? require : typeof Proxy !== "undefined" ? new Proxy(x2, {
-  get: (a2, b2) => (typeof require !== "undefined" ? require : a2)[b2]
+var __require = /* @__PURE__ */ ((x2) => typeof require$1 !== "undefined" ? require$1 : typeof Proxy !== "undefined" ? new Proxy(x2, {
+  get: (a2, b2) => (typeof require$1 !== "undefined" ? require$1 : a2)[b2]
 }) : x2)(function(x2) {
-  if (typeof require !== "undefined") return require.apply(this, arguments);
+  if (typeof require$1 !== "undefined") return require$1.apply(this, arguments);
   throw Error('Dynamic require of "' + x2 + '" is not supported');
 });
 var __esm = (fn, res) => function __init() {
@@ -33,23 +38,17 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   // file that has been converted to a CommonJS file using a Babel-
   // compatible transform (i.e. "__esModule" has not been set), then set
   // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
+  __defProp(target, "default", { value: mod, enumerable: true }) ,
   mod
 ));
-
-// node_modules/.pnpm/tsup@8.5.1_jiti@2.6.1_postcss@8.5.6_typescript@5.9.3_yaml@2.8.2/node_modules/tsup/assets/esm_shims.js
-import path from "path";
-import { fileURLToPath } from "url";
 var init_esm_shims = __esm({
   "node_modules/.pnpm/tsup@8.5.1_jiti@2.6.1_postcss@8.5.6_typescript@5.9.3_yaml@2.8.2/node_modules/tsup/assets/esm_shims.js"() {
-    "use strict";
   }
 });
 
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/parser.js
 var require_parser = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/parser.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     var ParserEND = 1114112;
     var ParserError = class _ParserError extends Error {
@@ -175,7 +174,6 @@ var require_parser = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-datetime.js
 var require_create_datetime = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-datetime.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = (value) => {
       const date = new Date(value);
@@ -191,7 +189,6 @@ var require_create_datetime = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/format-num.js
 var require_format_num = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/format-num.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = (d2, num) => {
       num = String(num);
@@ -204,7 +201,6 @@ var require_format_num = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-datetime-float.js
 var require_create_datetime_float = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-datetime-float.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     var f2 = require_format_num();
     var FloatingDateTime = class extends Date {
@@ -232,7 +228,6 @@ var require_create_datetime_float = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-date.js
 var require_create_date = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-date.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     var f2 = require_format_num();
     var DateTime = global.Date;
@@ -259,7 +254,6 @@ var require_create_date = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-time.js
 var require_create_time = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/create-time.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     var f2 = require_format_num();
     var Time = class extends Date {
@@ -284,8 +278,7 @@ var require_create_time = __commonJS({
 
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/toml-parser.js
 var require_toml_parser = __commonJS({
-  "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/toml-parser.js"(exports, module) {
-    "use strict";
+  "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/lib/toml-parser.js"(exports$1, module) {
     init_esm_shims();
     module.exports = makeParserClass(require_parser());
     module.exports.makeParserClass = makeParserClass;
@@ -1599,7 +1592,6 @@ var require_toml_parser = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-pretty-error.js
 var require_parse_pretty_error = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-pretty-error.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = prettyError;
     function prettyError(err, buf) {
@@ -1636,7 +1628,6 @@ var require_parse_pretty_error = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-string.js
 var require_parse_string = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-string.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = parseString;
     var TOMLParser = require_toml_parser();
@@ -1659,7 +1650,6 @@ var require_parse_string = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-async.js
 var require_parse_async = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-async.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = parseAsync;
     var TOMLParser = require_toml_parser();
@@ -1694,7 +1684,6 @@ var require_parse_async = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-stream.js
 var require_parse_stream = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse-stream.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = parseStream;
     var stream = __require("stream");
@@ -1703,7 +1692,7 @@ var require_parse_stream = __commonJS({
       if (stm) {
         return parseReadable(stm);
       } else {
-        return parseTransform(stm);
+        return parseTransform();
       }
     }
     function parseReadable(stm) {
@@ -1774,7 +1763,6 @@ var require_parse_stream = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse.js
 var require_parse = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/parse.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = require_parse_string();
     module2.exports.async = require_parse_async();
@@ -1786,7 +1774,6 @@ var require_parse = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/stringify.js
 var require_stringify = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/stringify.js"(exports2, module2) {
-    "use strict";
     init_esm_shims();
     module2.exports = stringify;
     module2.exports.value = stringifyInline;
@@ -2048,7 +2035,6 @@ var require_stringify = __commonJS({
 // node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/toml.js
 var require_toml = __commonJS({
   "node_modules/.pnpm/@iarna+toml@2.2.5/node_modules/@iarna/toml/toml.js"(exports2) {
-    "use strict";
     init_esm_shims();
     exports2.parse = require_parse();
     exports2.stringify = require_stringify();
@@ -2076,17 +2062,14 @@ function useCtxCallback(callback) {
 
 // src/depbadgerc/apply-markdown-to-target.ts
 init_esm_shims();
-import fs2 from "fs";
 
 // src/shared/find-file.ts
 init_esm_shims();
-import fs from "fs";
-import path2 from "path";
 function findFile(filename, startDir = process.cwd()) {
   let dir = startDir;
   while (true) {
     const candidate = path2.join(dir, filename);
-    if (fs.existsSync(candidate)) return candidate;
+    if (fs2.existsSync(candidate)) return candidate;
     const parent = path2.dirname(dir);
     if (parent === dir) break;
     dir = parent;
@@ -2128,7 +2111,6 @@ ${renderedMarkdown}
 
 // src/depbadgerc/compute-state-integrity.ts
 init_esm_shims();
-import crypto from "crypto";
 
 // node_modules/.pnpm/js-yaml@4.1.1/node_modules/js-yaml/dist/js-yaml.mjs
 init_esm_shims();
@@ -4759,7 +4741,10 @@ var jsYaml = {
 var computeStateIntegrity = useCtxCallback((store, ...rest) => {
   const payloadStringified = JSON.stringify(rest);
   const hash = crypto.createHash("sha256");
-  const yml = jsYaml.dump({ ...JSON.parse(JSON.stringify(store)), integrity: null });
+  const yml = jsYaml.dump({
+    ...JSON.parse(JSON.stringify(store)),
+    integrity: null
+  });
   hash.update(`${yml} --- ${payloadStringified}`, "utf8");
   return hash.digest("hex");
 });
@@ -4844,12 +4829,16 @@ var mapBadgesToMarkdown = useCtxCallback(
           const urlSearchParams = new URLSearchParams({
             ...badge.isError && { isError: "true" },
             ...badge.labelColor && { labelColor: badge.labelColor },
-            ...badge.cacheSeconds && { cacheSeconds: badge.cacheSeconds?.toString() },
+            ...badge.cacheSeconds && {
+              cacheSeconds: badge.cacheSeconds?.toString()
+            },
             ...badge.namedLogo && { logo: badge.namedLogo },
             ...badge.logoColor && { logoColor: badge.logoColor },
             ...badge.logoWidth && { logoWidth: badge.logoWidth.toString() },
             ...badge.style && { style: badge.style },
-            ...badge.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }
+            ...badge.logoSvg && {
+              logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
+            }
           }).toString();
           const dependency = encodeLabel(name);
           const message = encodeMessage(badge.message);
@@ -4876,7 +4865,9 @@ function mapGithubStatusBadgeToMarkdown(badge) {
     ...badge?.namedLogo && { logo: badge.namedLogo },
     ...badge?.logoColor && { logoColor: badge.logoColor },
     ...badge?.logoWidth && { logoWidth: badge.logoWidth.toString() },
-    ...badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` },
+    ...badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
+    },
     ...badge.branch && { branch: badge.branch }
   }).toString();
   const label = badge.name;
@@ -4897,7 +4888,9 @@ function mapDockerHubStatusBadgeToMarkdown(badge) {
     ...badge.style && { style: badge.style },
     ...badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() },
     ...badge?.color && { color: badge.color },
-    ...badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` },
+    ...badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
+    },
     ...badge.tag && badge.metric === "v" && { tag: badge.tag }
   }).toString();
   const label = badge.name;
@@ -4918,7 +4911,9 @@ function mapCodecovStatusBadgeToMarkdown(badge) {
     ...badge?.logoWidth && { logoWidth: badge.logoWidth.toString() },
     ...badge.style && { style: badge.style },
     ...badge?.color && { color: badge.color },
-    ...badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` },
+    ...badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
+    },
     ...badge.branch && { branch: badge.branch }
   }).toString();
   const label = badge.name;
@@ -4944,7 +4939,6 @@ var mapStatusBadgesToMarkdown = useCtxCallback(
 
 // src/depbadgerc/output-markdown-preview.io.ts
 init_esm_shims();
-import fs3 from "fs";
 var outputMarkdownPreview = useCtxCallback(
   (store, type2, badgeMarkdownMap, dir = ".depbadge") => {
     const md = Object.entries(badgeMarkdownMap).map(([section, badges]) => {
@@ -4960,23 +4954,21 @@ ${content}
 </div>` : content;
     }).join("").trim();
     if (!md?.length) return;
-    fs3.mkdirSync(dir, { recursive: true });
-    fs3.writeFileSync(`${dir}/${type2}.md`, md);
+    fs2.mkdirSync(dir, { recursive: true });
+    fs2.writeFileSync(`${dir}/${type2}.md`, md);
   }
 );
 
 // src/depbadgerc/output-shieldio-badges-json.ts
 init_esm_shims();
-import fs4 from "fs";
-import path3 from "path";
 var outputShieldioBadgesJson = useCtxCallback((_, hbm, dir = ".depbadge") => {
   Object.entries(hbm).forEach(([section, badgesMap]) => {
-    const sectionPath = path3.join(dir, section);
-    fs4.mkdirSync(sectionPath, { recursive: true });
+    const sectionPath = path2.join(dir, section);
+    fs2.mkdirSync(sectionPath, { recursive: true });
     Object.entries(badgesMap).forEach(([name, badge]) => {
       const safeName = name.replace(/^@/, "").replace(/\//g, "__");
-      const filePath = path3.join(sectionPath, `${safeName}.json`);
-      fs4.writeFileSync(filePath, JSON.stringify(badge, null, 2));
+      const filePath = path2.join(sectionPath, `${safeName}.json`);
+      fs2.writeFileSync(filePath, JSON.stringify(badge, null, 2));
     });
   });
 });
@@ -4986,14 +4978,13 @@ init_esm_shims();
 
 // src/depbadgerc/update-integrity.ts
 init_esm_shims();
-import fs5 from "fs";
 function updateIntegrity(integrity, path4 = "depbadgerc.yml") {
   const absFilePath = findFile(path4);
   if (!absFilePath) return;
-  const content = fs5.readFileSync(absFilePath, "utf8");
+  const content = fs2.readFileSync(absFilePath, "utf8");
   const newContent = content.match(/^integrity: .*/m) ? content.replace(/^integrity: .*/m, `integrity: ${integrity}`) : `integrity: ${integrity}
 ${content}`;
-  fs5.writeFileSync(absFilePath, newContent, "utf8");
+  fs2.writeFileSync(absFilePath, newContent, "utf8");
 }
 
 // src/depbadgerc/process-manifest.ts
@@ -5184,9 +5175,6 @@ var w = function(r2) {
   return r2 instanceof j ? r2 : new j(r2);
 };
 
-// src/depbadgerc/read-depbadgerc-with-defaults.ts
-import fs6 from "fs";
-
 // src/shared/hash-string-to-hsl.ts
 init_esm_shims();
 function hashStringToHsl(str2) {
@@ -5235,7 +5223,7 @@ function withDefaults(rc) {
 function readDepbadgeRC(path4 = "depbadgerc.yml") {
   const filePath = findFile(path4);
   if (!filePath) throw new Error(`${path4} not found`);
-  const rc = jsYaml.load(fs6.readFileSync(filePath, "utf8"));
+  const rc = jsYaml.load(fs2.readFileSync(filePath, "utf8"));
   return rc;
 }
 var DEPBADGERC = withDefaults(readDepbadgeRC());
@@ -5296,12 +5284,11 @@ var getVersion = useCtxCallback((store) => store.package.version);
 
 // src/manifest/cargo.toml/manifest.read.ts
 init_esm_shims();
-var import_toml = __toESM(require_toml(), 1);
-import fs7 from "fs";
+var import_toml = __toESM(require_toml());
 function readManifest(path4 = "Cargo.toml") {
   const filePath = findFile(path4);
   if (!filePath) throw new Error(`${path4} not found`);
-  return (0, import_toml.parse)(fs7.readFileSync(filePath, "utf8"));
+  return (0, import_toml.parse)(fs2.readFileSync(filePath, "utf8"));
 }
 
 // src/manifest/cargo.toml/manifest.store.ts
@@ -5329,11 +5316,10 @@ var getVersion2 = useCtxCallback((store) => store.version);
 
 // src/manifest/package-json/manifest.read.ts
 init_esm_shims();
-import fs8 from "fs";
 function readManifest2(path4 = "package.json") {
   const filePath = findFile(path4);
   if (!filePath) throw new Error(`${path4} not found`);
-  return JSON.parse(fs8.readFileSync(filePath, "utf8"));
+  return JSON.parse(fs2.readFileSync(filePath, "utf8"));
 }
 
 // src/manifest/package-json/manifest.store.ts
@@ -5373,12 +5359,11 @@ var getVersion3 = useCtxCallback((store) => store.project.version);
 
 // src/manifest/pyproject-toml/manifest.read.ts
 init_esm_shims();
-var import_toml2 = __toESM(require_toml(), 1);
-import fs9 from "fs";
+var import_toml2 = __toESM(require_toml());
 function readManifest3(path4 = "pyproject.toml") {
   const filePath = findFile(path4);
   if (!filePath) throw new Error(`${path4} not found`);
-  return (0, import_toml2.parse)(fs9.readFileSync(filePath, "utf8"));
+  return (0, import_toml2.parse)(fs2.readFileSync(filePath, "utf8"));
 }
 
 // src/manifest/pyproject-toml/manifest.store.ts
