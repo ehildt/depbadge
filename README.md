@@ -9,9 +9,7 @@ Depbadge handles both dependency badges and third-party status badges (e.g., rel
 By automating badge generation, Depbadge solves common problems: outdated badges, inconsistent styling, and manual maintenance overhead — keeping your documentation visually consistent and trustworthy.
 
 <br>
-<br>
-<details align="center">
-<summary>Supported Manifest Files</summary>
+<div align="center">
 
 ### Official / Extended Support
 
@@ -19,18 +17,9 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 **`pyproject.toml`** – Python projects (PEP 621)  
 **`Cargo.toml`** – Rust projects   
 
-</details>
-<br>
-<br>
-
-<div align="center">
-
-**`-- THE BADGES BELOW WERE CREATED USING DEPBADGE --`**
 </div>
-
 <br>
 <br>
-
 
 <!-- DEPBADGE:START -->
 <div align="center">
@@ -57,7 +46,7 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 
 <div align="center">
 
-[![@changesets/cli](https://img.shields.io/badge/_changesets_cli-v2.29.8-hsl(82%2C70%25%2C43%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%2882%2C70%25%2C43%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
+[![@changesets/cli](https://img.shields.io/badge/_changesets_cli-v2.30.0-hsl(82%2C70%25%2C43%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%2882%2C70%25%2C43%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![@eslint/js](https://img.shields.io/badge/_eslint_js-v10.0.1-hsl(279%2C66%25%2C40%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=eslint&logoColor=hsl%28279%2C66%25%2C40%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![@types/eslint](https://img.shields.io/badge/_types_eslint-v9.6.1-hsl(303%2C68%25%2C53%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=eslint&logoColor=hsl%28303%2C68%25%2C53%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![@types/jest](https://img.shields.io/badge/_types_jest-v30.0.0-hsl(218%2C76%25%2C45%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=jest&logoColor=hsl%28218%2C76%25%2C45%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
@@ -77,7 +66,7 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 [![jest-extended](https://img.shields.io/badge/jest_extended-v7.0.0-hsl(26%2C75%25%2C49%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=jest&logoColor=hsl%2826%2C75%25%2C49%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![jest-junit](https://img.shields.io/badge/jest_junit-v16.0.0-hsl(93%2C76%25%2C47%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=jest&logoColor=hsl%2893%2C76%25%2C47%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![jiti](https://img.shields.io/badge/jiti-v2.6.1-hsl(132%2C63%25%2C44%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28132%2C63%25%2C44%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
-[![lint-staged](https://img.shields.io/badge/lint_staged-v16.3.1-hsl(48%2C74%25%2C51%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%2848%2C74%25%2C51%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
+[![lint-staged](https://img.shields.io/badge/lint_staged-v16.3.2-hsl(48%2C74%25%2C51%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%2848%2C74%25%2C51%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![npm-check-updates](https://img.shields.io/badge/npm_check_updates-v19.6.3-hsl(131%2C73%25%2C44%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28131%2C73%25%2C44%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![rimraf](https://img.shields.io/badge/rimraf-v6.1.3-hsl(145%2C65%25%2C40%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28145%2C65%25%2C40%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![source-map-support](https://img.shields.io/badge/source_map_support-v0.5.21-hsl(124%2C63%25%2C49%25).svg?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28124%2C63%25%2C49%25%29&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
@@ -93,13 +82,12 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 <!-- DEPBADGE:END -->
 
 <br>
-<br>
+
 
 <div align="center">
 
 [E-MAIL](mailto:eugen.hildt@gmail.com) &nbsp;—&nbsp; [WIKI](https://github.com/ehildt/depbadge/wiki) &nbsp;—&nbsp; [ISSUES](https://github.com/ehildt/depbadge/issues) &nbsp;—&nbsp; [DONATE](https://github.com/sponsors/ehildt)
 
-</div>
 
-<br>
+</div>
 <br>

@@ -1,6 +1,7 @@
-export type Theme = "dark" | "white";
-export type Position = "left" | "right" | "center" | "justify";
-export type OutputFormat = "json" | "markdown";
+type Theme = "dark" | "white";
+type Position = "left" | "right" | "center" | "justify";
+type OutputFormat = "json" | "markdown";
+type SupportedManifest = "package.json" | "pyproject.toml" | "Cargo.toml";
 
 export type BadgeStyle = {
   color?: string;
@@ -65,8 +66,6 @@ export type StatusBadges = {
   badgeStyle?: BadgeStyle;
   items: StatusBadgeItem[];
 };
-
-export type SupportedManifest = "package.json" | "pyproject.toml" | "Cargo.toml";
 
 export type DepbadgeRC = {
   integrity?: string;

@@ -1,4 +1,5 @@
 import pluginJs from "@eslint/js";
+import { defineConfig } from "eslint/config";
 import eslintConfigPrettier from "eslint-config-prettier";
 import eslintPluginPrettierRecommended from "eslint-plugin-prettier/recommended";
 import simpleImportSort from "eslint-plugin-simple-import-sort";
@@ -6,7 +7,7 @@ import sonarjs from "eslint-plugin-sonarjs";
 import globals from "globals";
 import tseslint from "typescript-eslint";
 
-export default [
+export default defineConfig([
   {
     ignores: [".husky", ".gitlab", ".vscode", ".json", ".depcruise.mjs", "dist", "node_modules"],
   },
@@ -53,23 +54,16 @@ export default [
         "warn",
         {
           groups: [
-            // Node.js builtins
             ["^node:"],
-            // Packages
             ["^@?\\w"],
-            // Internal packages
             ["^(@app|@modules|@services)(/.*|$)"],
-            // Side effect imports
             ["^\\u0000"],
-            // Parent imports
             ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
-            // Sibling imports
             ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
-            // Style imports
             ["^.+\\.s?css$"],
           ],
         },
       ],
     },
   },
-];
+]);

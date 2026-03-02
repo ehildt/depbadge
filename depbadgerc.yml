@@ -1,4 +1,4 @@
-integrity: f5bc9594027b09da74630a977cf5bd550cf157c34aa84f835efe3f1acf2c5ad4
+integrity: 2132aee83cc328d4f7e2efd087d88e1a99a50559209fd414f3f9fdf308dcc467
 target: README.md
 manifest: package.json
 output: ['json', 'markdown']

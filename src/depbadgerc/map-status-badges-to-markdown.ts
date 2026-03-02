@@ -17,7 +17,9 @@ export function mapGithubStatusBadgeToMarkdown(badge: GitHubStatusBadge): string
     ...(badge?.namedLogo && { logo: badge.namedLogo }),
     ...(badge?.logoColor && { logoColor: badge.logoColor }),
     ...(badge?.logoWidth && { logoWidth: badge.logoWidth.toString() }),
-    ...(badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
+    ...(badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`,
+    }),
     ...(badge.branch && { branch: badge.branch }),
   }).toString();
 
@@ -40,7 +42,9 @@ export function mapDockerHubStatusBadgeToMarkdown(badge: DockerHubStatusBadge): 
     ...(badge.style && { style: badge.style }),
     ...(badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() }),
     ...(badge?.color && { color: badge.color }),
-    ...(badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
+    ...(badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`,
+    }),
     ...(badge.tag && badge.metric === "v" && { tag: badge.tag }),
   }).toString();
 
@@ -63,7 +67,9 @@ export function mapCodecovStatusBadgeToMarkdown(badge: CodecovStatusBadge): stri
     ...(badge?.logoWidth && { logoWidth: badge.logoWidth.toString() }),
     ...(badge.style && { style: badge.style }),
     ...(badge?.color && { color: badge.color }),
-    ...(badge?.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
+    ...(badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`,
+    }),
     ...(badge.branch && { branch: badge.branch }),
   }).toString();
 

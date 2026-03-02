@@ -9,7 +9,10 @@ import { DepbadgeRC } from "./depbadgerc.type.ts";
 export const computeStateIntegrity = useCtxCallback<CtxStore<DepbadgeRC, Methods>>((store, ...rest: unknown[]) => {
   const payloadStringified = JSON.stringify(rest);
   const hash = crypto.createHash("sha256");
-  const yml = yaml.dump({ ...JSON.parse(JSON.stringify(store)), integrity: null });
+  const yml = yaml.dump({
+    ...JSON.parse(JSON.stringify(store)),
+    integrity: null,
+  });
   hash.update(`${yml} --- ${payloadStringified}`, "utf8");
   return hash.digest("hex");
 });

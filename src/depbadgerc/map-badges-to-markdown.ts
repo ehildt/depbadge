@@ -17,12 +17,16 @@ export const mapBadgesToMarkdown = useCtxCallback<CtxStore<DepbadgeRC, Methods>>
           const urlSearchParams = new URLSearchParams({
             ...(badge.isError && { isError: "true" }),
             ...(badge.labelColor && { labelColor: badge.labelColor }),
-            ...(badge.cacheSeconds && { cacheSeconds: badge.cacheSeconds?.toString() }),
+            ...(badge.cacheSeconds && {
+              cacheSeconds: badge.cacheSeconds?.toString(),
+            }),
             ...(badge.namedLogo && { logo: badge.namedLogo }),
             ...(badge.logoColor && { logoColor: badge.logoColor }),
             ...(badge.logoWidth && { logoWidth: badge.logoWidth.toString() }),
             ...(badge.style && { style: badge.style }),
-            ...(badge.logoSvg && { logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}` }),
+            ...(badge.logoSvg && {
+              logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`,
+            }),
           }).toString();
 
           const dependency = encodeLabel(name);
