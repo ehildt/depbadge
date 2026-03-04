@@ -79,7 +79,7 @@ export function mapCodecovStatusBadgeToMarkdown(badge: CodecovStatusBadge): stri
   const provider = encodeLabel(label);
   const flag = encodeLabel(badge.flag ?? "c");
 
-  // ! codecov requires a token so this url might change based on if the token is provided or not
+  // ! Codecov badges require a token; the generated URL may differ depending on whether a token is provided.
   const url = `https://img.shields.io/codecov/${flag}/${provider}/${user}/${repo}?${urlSearchParams}`;
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
 }

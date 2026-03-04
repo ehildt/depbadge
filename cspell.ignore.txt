@@ -54,6 +54,7 @@ DEPBADGES
 depcheck
 depcruise
 depcruiserrc
+depshield
 docgen
 dockerhub
 docpose

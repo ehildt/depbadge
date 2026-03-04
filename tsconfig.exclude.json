@@ -5,10 +5,11 @@
     ".vscode",
     ".storybook",
     "node_modules",
-    "src/**/*.stories.?sx",
     "jest.config.ts",
     "eslint.config.ts",
-    "tsup.config.ts"
+    "tsup.config.ts",
+    "src/**/*.stories.?sx",
+    "src/**/map-status-badges-to-markdown.ts"
   ],
   "extends": "./tsconfig.json"
 }

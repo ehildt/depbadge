@@ -16,10 +16,10 @@ import { HydratedStatusBadgeMap } from "./hydrate-status-badges.ts";
 import { hydrateStatusBadges } from "./hydrate-status-badges.ts";
 import { mapBadgesToMarkdown } from "./map-badges-to-markdown.ts";
 import { mapStatusBadgesToMarkdown } from "./map-status-badges-to-markdown.ts";
-import { MarkdownPreview, outputMarkdownPreview } from "./output-markdown-preview.io.ts";
+import { MarkdownPreview, outputMarkdownPreview } from "./output-markdown-preview.ts";
 import { outputShieldioBadgesJson } from "./output-shieldio-badges-json.ts";
 import { processManifest } from "./process-manifest.ts";
-import { DEPBADGERC } from "./read-depbadgerc-with-defaults.ts";
+import { getDepbadgeRC } from "./read-depbadgerc-with-defaults.ts";
 
 export type Methods = {
   processManifest(mf: CtxStore<ManifestContract, ManifestMethods>): void;
@@ -35,7 +35,7 @@ export type Methods = {
   outputMarkdownPreview(type: MarkdownPreview, badgeMarkdownMap: Record<string, string[]>, dir?: string): void;
 };
 
-export const rcCtx = useCtxStore<DepbadgeRC, Methods>(DEPBADGERC, {
+export const rcCtx = useCtxStore<DepbadgeRC, Methods>(getDepbadgeRC(), {
   processManifest,
   getDependencies,
   getStatusBadges,

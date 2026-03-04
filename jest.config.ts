@@ -10,7 +10,7 @@ export default {
   },
   verbose: false,
   reporters: ["default"],
-  coverageReporters: ["clover", "json", "cobertura"],
+  coverageReporters: ["clover", "json", "cobertura", "text"],
   coverageThreshold: {
     global: {
       branches: 5,

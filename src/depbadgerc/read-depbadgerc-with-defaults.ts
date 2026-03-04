@@ -71,4 +71,4 @@ export function readDepbadgeRC(path = "depbadgerc.yml"): DepbadgeRC {
   return rc;
 }
 
-export const DEPBADGERC = withDefaults(readDepbadgeRC());
+export const getDepbadgeRC = () => withDefaults(readDepbadgeRC());
