@@ -71,15 +71,14 @@ export function mapCodecovStatusBadgeToMarkdown(badge: CodecovStatusBadge): stri
       logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`,
     }),
     ...(badge.branch && { branch: badge.branch }),
+    ...(badge.token && { token: badge.token }),
   }).toString();
 
   const label = badge.name;
   const user = encodeLabel(badge.user ?? "library");
   const repo = encodeLabel(badge.repo);
-  const provider = encodeLabel("github"); // currently we support codecov through github
+  const provider = encodeLabel("github");
   const flag = encodeLabel(badge.flag ?? "c");
-
-  // ! Codecov badges require a token; the generated URL may differ depending on whether a token is provided.
   const url = `https://img.shields.io/codecov/${flag}/${provider}/${user}/${repo}?${urlSearchParams}`;
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
 }

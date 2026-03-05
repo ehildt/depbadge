@@ -1,6 +1,6 @@
 # Layout Configuration
 
-Layout controls how a group of badges is rendered inside the generated Markdown. It affects positioning, grouping, theme, and header rendering — not the badge itself. Layouts are optional and typically defined as reusable YAML anchors.
+Layout controls how a group of badges is rendered inside the generated Markdown. It affects positioning, grouping, and header rendering — not the badge itself. Layouts are optional and typically defined as reusable YAML anchors.
 
 ### Basic Example
 
@@ -8,7 +8,6 @@ Layout controls how a group of badges is rendered inside the generated Markdown.
 dependenciesLayout: &DEPENDENCIES_LAYOUT
   position: center
   showHeader: false
-  theme: dark
   # header: 'My Dependencies'
 ```
 
@@ -17,7 +16,6 @@ dependenciesLayout: &DEPENDENCIES_LAYOUT
 | :--- | :--- | :--- |
 | **position** | string | Alignment in the document (left, center, right) |
 | **showHeader** | boolean | Whether a Markdown header is rendered above the section |
-| **theme** | string | Visual grouping theme (e.g. dark, white) |
 | **header** | string | Optional custom header title (falls back to section name) |
 
 ### Reusing Layouts via YAML Anchors

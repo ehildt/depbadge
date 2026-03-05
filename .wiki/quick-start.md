@@ -82,7 +82,6 @@ Define which packages to track by listing them under `dependencies.items`.
 ```yaml
 dependencies:
   items:
-    - name: chalk
     - name: colord
     - name: js-yaml
     - name: "@iarna/toml"

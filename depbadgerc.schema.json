@@ -34,11 +34,6 @@
   },
 
   "$defs": {
-    "Theme": {
-      "type": "string",
-      "enum": ["dark", "white"]
-    },
-
     "Position": {
       "type": "string",
       "enum": ["left", "right", "center", "justify"]
@@ -69,7 +64,6 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "theme": { "$ref": "#/$defs/Theme" },
         "header": { "type": "string" },
         "showHeader": { "type": "boolean" },
         "position": { "$ref": "#/$defs/Position" }

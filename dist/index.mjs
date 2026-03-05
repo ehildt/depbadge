@@ -4914,7 +4914,8 @@ function mapCodecovStatusBadgeToMarkdown(badge) {
     ...badge?.logoSvg && {
       logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
     },
-    ...badge.branch && { branch: badge.branch }
+    ...badge.branch && { branch: badge.branch },
+    ...badge.token && { token: badge.token }
   }).toString();
   const label = badge.name;
   const user = encodeLabel2(badge.user ?? "library");

@@ -32,7 +32,7 @@ describe("withDefaults", () => {
   it("merges layout and badgeStyle defaults", () => {
     const rc: DepbadgeRC = {
       manifest: "package.json",
-      dependenciesLayout: { theme: "dark" },
+      dependenciesLayout: {},
       dependenciesStyle: { color: "red" },
       dependencies: {
         layout: { showHeader: true },
@@ -42,7 +42,7 @@ describe("withDefaults", () => {
     };
 
     const result = withDefaults(rc);
-    expect(result.dependencies.layout).toEqual({ theme: "dark", showHeader: true });
+    expect(result.dependencies.layout).toEqual({ showHeader: true });
     const dep = result.dependencies.items[0] as DependencyItem;
     expect(dep.color).toBe(colord("red").toHslString()); // merged default
   });

@@ -5,7 +5,6 @@ manifest: package.json
 dependenciesLayout: &DEPENDENCIES_LAYOUT
   position: center
   showHeader: false
-  theme: dark
 
 devDependenciesLayout: &DEV_DEPENDENCIES_LAYOUT
   <<: *DEPENDENCIES_LAYOUT
@@ -16,7 +15,6 @@ devDependenciesLayout: &DEV_DEPENDENCIES_LAYOUT
 statusBadgesLayout: &STATUS_BADGES_LAYOUT
   position: center
   showHeader: true
-  theme: dark
 
 dependenciesStyle: &DEPENDENCIES_STYLE
   labelColor: '#333'
@@ -46,8 +44,6 @@ dependencies:
     <<: *DEPENDENCIES_LAYOUT
   badgeStyle: *DEPENDENCIES_STYLE
   items:
-    - name: chalk
-      namedLogo: npm
     - name: colord
       namedLogo: npm
     - name: js-yaml

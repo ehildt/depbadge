@@ -145,6 +145,7 @@ nrwl
 nvidia
 obsidiandynamics
 ocrs
+octocat
 oderwat
 ollama
 openai

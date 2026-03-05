@@ -25,7 +25,6 @@ output: ['json', 'markdown']
 dependenciesLayout: &DEP_LAYOUT
   position: center     # Alignment of badges: left, center, right
   showHeader: true     # Render a section header
-  theme: dark          # Visual theme (dark/light)
 
 devDependenciesLayout: &DEV_LAYOUT
   <<: *DEP_LAYOUT      # Inherit defaults from DEP_LAYOUT
@@ -36,12 +35,10 @@ devDependenciesLayout: &DEV_LAYOUT
 peerDependenciesLayout: &PEER_LAYOUT
   <<: *DEP_LAYOUT
   position: right
-  theme: white
 
 statusBadgesLayout: &STATUS_LAYOUT
   position: center
   showHeader: true
-  theme: dark
 
 # ==============================
 # Badge Style Presets (Optional)
