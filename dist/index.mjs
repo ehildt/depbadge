@@ -5293,7 +5293,7 @@ function readManifest(path4 = "Cargo.toml") {
 }
 
 // src/manifest/cargo.toml/manifest.store.ts
-var CargoTomlCtx = useCtxStore(readManifest(), {
+var CargoTomlCtx = () => useCtxStore(readManifest(), {
   getVersion,
   getDependencies: getDependencies2
 });
@@ -5324,7 +5324,7 @@ function readManifest2(path4 = "package.json") {
 }
 
 // src/manifest/package-json/manifest.store.ts
-var PackageJsonCtx = useCtxStore(readManifest2(), {
+var PackageJsonCtx = () => useCtxStore(readManifest2(), {
   getVersion: getVersion2,
   getDependencies: getDependencies3
 });
@@ -5368,7 +5368,7 @@ function readManifest3(path4 = "pyproject.toml") {
 }
 
 // src/manifest/pyproject-toml/manifest.store.ts
-var PyProjectCtx = useCtxStore(readManifest3(), {
+var PyProjectCtx = () => useCtxStore(readManifest3(), {
   getVersion: getVersion3,
   getDependencies: getDependencies4
 });
@@ -5381,7 +5381,7 @@ try {
     "Cargo.toml": CargoTomlCtx
   };
   const manifestFile = rcCtx.manifest;
-  const ctx = manifestMap[manifestFile];
+  const ctx = manifestMap[manifestFile]?.();
   if (!ctx) throw new Error(`Unsupported manifest file: ${rcCtx.manifest}`);
   console.log(`Processing manifest: ${manifestFile}`);
   rcCtx.processManifest(ctx);

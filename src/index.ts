@@ -12,7 +12,7 @@ try {
   } as const;
 
   const manifestFile = rcCtx.manifest as keyof typeof manifestMap;
-  const ctx = manifestMap[manifestFile];
+  const ctx = manifestMap[manifestFile]?.();
   if (!ctx) throw new Error(`Unsupported manifest file: ${rcCtx.manifest}`);
   console.log(`Processing manifest: ${manifestFile}`);
   rcCtx.processManifest(ctx);

@@ -11,7 +11,8 @@ export type ManifestMethods = {
   getDependencies(): Record<ManifestContractSection, Record<string, string>>;
 } & ManifestContract;
 
-export const PackageJsonCtx = useCtxStore<DepbadgeManifest, ManifestMethods>(readManifest(), {
-  getVersion,
-  getDependencies,
-});
+export const PackageJsonCtx = () =>
+  useCtxStore<DepbadgeManifest, ManifestMethods>(readManifest(), {
+    getVersion,
+    getDependencies,
+  });

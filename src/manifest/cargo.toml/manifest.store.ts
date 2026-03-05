@@ -11,7 +11,8 @@ export type ManifestMethods = {
   getDependencies(): Record<ManifestContractSection, Record<string, string>>;
 } & ManifestContract;
 
-export const CargoTomlCtx = useCtxStore<Manifest, ManifestMethods>(readManifest(), {
-  getVersion,
-  getDependencies,
-});
+export const CargoTomlCtx = () =>
+  useCtxStore<Manifest, ManifestMethods>(readManifest(), {
+    getVersion,
+    getDependencies,
+  });
