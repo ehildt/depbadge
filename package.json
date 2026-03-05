@@ -1,7 +1,7 @@
 {
   "name": "@ehildt/depbadge",
   "description": "A tool that creates shieldio badges",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "type": "module",
   "main": "dist/index.mjs",

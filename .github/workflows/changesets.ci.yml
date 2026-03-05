@@ -52,4 +52,4 @@ jobs:
           version: pnpm changeset version
           commit: 'VERSION BUMP'
         env:
-          GITHUB_TOKEN: ${{ secrets.GHT_CHANGESET }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
