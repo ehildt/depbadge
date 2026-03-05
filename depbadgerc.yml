@@ -1,7 +1,6 @@
-integrity: bb255a37deb6eb554029f7f5bfac5c7d5bb5e2d50cbe0cbf75108ed31c1062e1
+integrity: 27d1b9ab2a5278723492b07800370f9706c583c8c7678416f74338c98cae24c3
 target: README.md
 manifest: package.json
-output: ['json', 'markdown']
 
 dependenciesLayout: &DEPENDENCIES_LAYOUT
   position: center
@@ -14,24 +13,16 @@ devDependenciesLayout: &DEV_DEPENDENCIES_LAYOUT
   showHeader: false
   header: my-new-header-name
 
-peerDependenciesLayout: &PEER_DEPENDENCIES_LAYOUT
-  <<: *DEPENDENCIES_LAYOUT
-  position: right
-  showHeader: false
-  theme: white
-
 statusBadgesLayout: &STATUS_BADGES_LAYOUT
   position: center
   showHeader: true
   theme: dark
 
 dependenciesStyle: &DEPENDENCIES_STYLE
-  # color: '#222'
   labelColor: '#333'
   isError: false
   namedLogo: npm
   logoSvg: ''
-  # logoColor: "#777"
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
@@ -39,25 +30,16 @@ dependenciesStyle: &DEPENDENCIES_STYLE
 
 devDependenciesStyle: &DEV_DEPENDENCIES_STYLE
   <<: *DEPENDENCIES_STYLE
-  # labelColor: '#333'
-  # color: '#222'
   style: flat-square
-
-peerDependenciesStyle: &PEER_DEPENDENCIES_STYLE
-  <<: *DEPENDENCIES_STYLE
-  labelColor: '#333'
-  style: flat
 
 statusBadgesStyle: &STATUS_BADGES_STYLE   
   labelColor: '#333'
   isError: false
   namedLogo: 'npm'
   logoSvg: ''
-  #color: white
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
-  link: 'https://something.com'
 
 dependencies:
   layout:
@@ -142,15 +124,6 @@ devDependencies:
     - name: typescript-eslint
       namedLogo: eslint
 
-# peerDependencies:
-#   layout:
-#     <<: *PEER_DEPENDENCIES_LAYOUT
-#     theme: 'white'
-#   badgeStyle: *PEER_DEPENDENCIES_STYLE
-#   items:
-#     - name: react
-#       namedLogo: react
-
 statusBadges:
   layout:
     <<: *STATUS_BADGES_LAYOUT
@@ -176,12 +149,6 @@ statusBadges:
       repo: depbadge
       branch: main
       namedLogo: github
-#     - name: docker
-#       metric: pulls
-#       user: ehildt
-#       image: myimage
-#       tag: null
-#       namedLogo: docker
     - name: codecov
       user: ehildt
       repo: depbadge

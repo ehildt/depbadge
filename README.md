@@ -1,10 +1,10 @@
 # DEPBADGE
 
-Depbadge is a CLI tool that automatically generates and maintains dependency and status badges for your project documentation — to spice up your badge love.
+Depbadge is a CLI tool that automatically generates and maintains dependency and status badges for your project documentation — perfect for keeping your badges consistent and up-to-date.
 
-It reads your project’s manifest and produces Shields-based badges rendered dynamically via Shields.io, fully compatible with platforms like GitHub and GitLab. All layout, grouping, styling, and badge composition are defined in a `depbadgerc.yml` configuration file, making the output deterministic, reproducible, and fully automated.
+It reads your project’s manifest and produces Shields-based badges rendered dynamically via Shields.io, fully compatible with GitHub, GitLab, and other platforms. All layout, grouping, styling, and badge composition are defined in a depbadgerc.yml configuration file, making the output deterministic, reproducible, and fully automated.
 
-Depbadge handles both dependency badges and third-party status badges (e.g., releases, container metrics, coverage), injecting them into your target documentation file (default README.md) so your badges are always accurate and up-to-date. It also generates previews and structured definitions for inspection or CI/CD workflows.
+Depbadge handles both dependency badges and third-party status badges (e.g., releases, container metrics, coverage), injecting them directly into your target documentation file (default README.md) so your badges are always accurate. It also supports generating previews and structured definitions for inspection or CI/CD workflows.
 
 By automating badge generation, Depbadge solves common problems: outdated badges, inconsistent styling, and manual maintenance overhead — keeping your documentation visually consistent and trustworthy.
 
@@ -24,10 +24,10 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 <!-- DEPBADGE:START -->
 <div align="center">
 
-[![github](https://img.shields.io/github/release/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)](https://something.com)
-[![github](https://img.shields.io/github/stars/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)](https://something.com)
-[![github](https://img.shields.io/github/license/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)](https://something.com)
-[![codecov](https://img.shields.io/codecov/c/codecov/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28253%2C68%25%2C41%25%29&logoWidth=40&style=for-the-badge&color=hsl%28253%2C68%25%2C41%25%29&branch=main)](https://something.com)
+![github](https://img.shields.io/github/release/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)
+![github](https://img.shields.io/github/stars/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)
+![github](https://img.shields.io/github/license/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&style=for-the-badge&cacheSeconds=3600&color=hsl%2827%2C65%25%2C42%25%29&logo=github&logoColor=hsl%2827%2C65%25%2C42%25%29&logoWidth=40&branch=main)
+![codecov](https://img.shields.io/codecov/c/github/ehildt/depbadge?labelColor=hsl%280%2C+0%25%2C+20%25%29&cacheSeconds=3600&logo=npm&logoColor=hsl%28253%2C68%25%2C41%25%29&logoWidth=40&style=for-the-badge&color=hsl%28253%2C68%25%2C41%25%29&branch=main)
 
 </div>
 

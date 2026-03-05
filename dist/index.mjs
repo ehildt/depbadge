@@ -4919,7 +4919,7 @@ function mapCodecovStatusBadgeToMarkdown(badge) {
   const label = badge.name;
   const user = encodeLabel2(badge.user ?? "library");
   const repo = encodeLabel2(badge.repo);
-  const provider = encodeLabel2(label);
+  const provider = encodeLabel2("github");
   const flag = encodeLabel2(badge.flag ?? "c");
   const url = `https://img.shields.io/codecov/${flag}/${provider}/${user}/${repo}?${urlSearchParams}`;
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
@@ -4937,7 +4937,7 @@ var mapStatusBadgesToMarkdown = useCtxCallback(
   )
 );
 
-// src/depbadgerc/output-markdown-preview.io.ts
+// src/depbadgerc/output-markdown-preview.ts
 init_esm_shims();
 var outputMarkdownPreview = useCtxCallback(
   (store, type2, badgeMarkdownMap, dir = ".depbadge") => {
@@ -5226,10 +5226,10 @@ function readDepbadgeRC(path4 = "depbadgerc.yml") {
   const rc = jsYaml.load(fs2.readFileSync(filePath, "utf8"));
   return rc;
 }
-var DEPBADGERC = withDefaults(readDepbadgeRC());
+var getDepbadgeRC = () => withDefaults(readDepbadgeRC());
 
 // src/depbadgerc/depbadgerc.store.ts
-var rcCtx = useCtxStore(DEPBADGERC, {
+var rcCtx = useCtxStore(getDepbadgeRC(), {
   processManifest,
   getDependencies,
   getStatusBadges,

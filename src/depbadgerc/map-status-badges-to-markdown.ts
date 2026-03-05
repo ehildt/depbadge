@@ -76,7 +76,7 @@ export function mapCodecovStatusBadgeToMarkdown(badge: CodecovStatusBadge): stri
   const label = badge.name;
   const user = encodeLabel(badge.user ?? "library");
   const repo = encodeLabel(badge.repo);
-  const provider = encodeLabel(label);
+  const provider = encodeLabel("github"); // currently we support codecov through github
   const flag = encodeLabel(badge.flag ?? "c");
 
   // ! Codecov badges require a token; the generated URL may differ depending on whether a token is provided.
