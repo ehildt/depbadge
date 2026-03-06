@@ -1,5 +1,11 @@
 # @ehildt/depbadge
 
+## 1.0.11
+
+### Patch Changes
+
+- 43e241d: added pragma-style comment to depbadgerc.yml
+
 ## 1.0.10
 
 ### Patch Changes
