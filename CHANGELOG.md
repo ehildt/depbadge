@@ -1,5 +1,11 @@
 # @ehildt/depbadge
 
+## 1.0.10
+
+### Patch Changes
+
+- af6bf15: extended wiki
+
 ## 1.0.9
 
 ### Patch Changes
