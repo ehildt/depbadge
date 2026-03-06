@@ -1,11 +1,15 @@
 # Root Configuration
 
 ```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/ehildt/depbadge/main/depbadgerc.schema.json
 integrity: 838e9da83c5b73c2de43b87b950428403a090d7dc926145640c1576d7c313820
 target: README.md
 manifest: package.json
 output: ['json', 'markdown']
 ```
+
+`# yaml-language-server`
+This is a pragma-style comment used by YAML editor tooling. It is recognized by the YAML language server and allows you to provide configuration hints directly inside a YAML file.
 
 `integrity`
 

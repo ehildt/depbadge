@@ -1,0 +1,209 @@
+name: FULL_CI_PIPELINE
+
+on:
+  push:
+    branches:
+      - main
+      - dev
+      - 'feat/**'
+      - 'fix/**'
+      - 'patch/**'
+      - 'chore/**'
+  pull_request:
+    branches:
+      - main
+      - dev
+      - 'feat/**'
+      - 'fix/**'
+      - 'patch/**'
+      - 'chore/**'
+
+env:
+  HUSKY: 0
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  # -----------------------------
+  # 1) Setup, Build & Test
+  # -----------------------------
+  setup-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [22.x]
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Cache pnpm store
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint / Static Analysis
+        run: |
+          pnpm lint
+          pnpm depcruise
+          pnpm lint:unused
+
+      - name: Build App
+        run: pnpm build
+
+      - name: Test & Coverage
+        run: |
+          pnpm test
+          pnpm test:cov
+
+      - name: Upload Coverage
+        uses: codecov/codecov-action@v5
+        with:
+          fail_ci_if_error: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+
+      - name: Upload Build Artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-${{ github.ref_name }}
+          path: dist/
+
+  # -----------------------------
+  # 2) Repo Updates (Changesets + Depbadge)
+  # -----------------------------
+  repo-update:
+    runs-on: ubuntu-latest
+    needs: setup-test
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Restore pnpm store
+        uses: actions/cache@v5
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - run: pnpm install --frozen-lockfile
+
+      # Changesets
+      - name: Apply Changesets Version Bump
+        uses: changesets/action@v1
+        with:
+          version: pnpm changeset version
+          commit: 'VERSION BUMP'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Depbadge
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: dist-${{ github.ref_name }}
+          path: dist/
+
+      - name: Run Depbadge
+        uses: ehildt/depbadge@v1.0.9
+
+      - name: Commit Badge Updates
+        run: |
+          git config user.name "repo-update[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "REPO UPDATE (Changesets + Badges)" && git push origin HEAD:${{ github.ref_name }})
+
+  # -----------------------------
+  # 3) Wiki Sync (only main branch)
+  # -----------------------------
+  wiki:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    needs: setup-test
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository }}.wiki
+          path: wiki
+
+      - name: Mirror .wiki -> wiki
+        run: |
+          test -d .wiki || { echo "::error::.wiki folder missing"; exit 1; }
+          rsync -a --delete --exclude '.git/' .wiki/ wiki/
+
+      - name: Commit & Push Wiki
+        working-directory: wiki
+        run: |
+          git config user.name "wiki[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "WIKI UPDATE"
+          git push
+
+  # -----------------------------
+  # 4) Publish to NPM
+  # -----------------------------
+  publish:
+    runs-on: ubuntu-latest
+    needs: [repo-update, wiki]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+
+      - name: Download build artifact
+        uses: actions/download-artifact@v8
+        with:
+          name: dist-${{ github.ref_name }}
+          path: dist/
+
+      - name: Restore pnpm store
+        uses: actions/cache@v3
+        with:
+          path: ~/.pnpm-store
+          key: pnpm-store-${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - run: pnpm install --frozen-lockfile
+
+      - name: Publish
+        run: pnpm publish --no-git-checks
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

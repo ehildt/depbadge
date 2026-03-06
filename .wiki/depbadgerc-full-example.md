@@ -1,9 +1,14 @@
 # Depbadgerc (Full Example)
 
+⚠️ The pragma-style comment is a directive recognized by modern IDEs and editor tooling. It instructs the YAML language server to associate the file with the provided JSON schema, enabling features such as schema validation, autocompletion, and inline documentation for depbadgerc.yml.
+
 ```yaml
 # ==================
 # Root Configuration
 # ==================
+
+# PRAGMA
+# yaml-language-server: $schema=https://raw.githubusercontent.com/ehildt/depbadge/main/depbadgerc.schema.json
 
 integrity: 838e9da83c5b73c2de43b87b950428403a090d7dc926145640c1576d7c313820
 # Checksum to detect manual changes or drift
