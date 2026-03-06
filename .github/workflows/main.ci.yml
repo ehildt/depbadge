@@ -1,22 +1,12 @@
-name: FULL_CI_PIPELINE
+name: MAIN_CI
 
 on:
   push:
     branches:
       - main
-      - dev
-      - 'feat/**'
-      - 'fix/**'
-      - 'patch/**'
-      - 'chore/**'
   pull_request:
     branches:
       - main
-      - dev
-      - 'feat/**'
-      - 'fix/**'
-      - 'patch/**'
-      - 'chore/**'
 
 env:
   HUSKY: 0
@@ -131,7 +121,7 @@ jobs:
           path: dist/
 
       - name: Run Depbadge
-        uses: ehildt/depbadge@v1.0.9
+        uses: ehildt/depbadge@v1
 
       - name: Commit Badge Updates
         run: |
