@@ -144,27 +144,32 @@ jobs:
     if: github.event_name == 'push'
     needs: [repo-update, wiki]
     runs-on: ubuntu-latest
-
+    
     steps:
       - uses: actions/checkout@v4
-
+        with:
+          fetch-depth: 0  # ensure we can see the latest commits
+        
       - uses: pnpm/action-setup@v4
         with:
           version: 10
-
+        
       - uses: actions/setup-node@v4
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
-
-      - uses: actions/download-artifact@v4
-        with:
-          name: dist
-          path: dist/
-
+        
       - run: pnpm install --frozen-lockfile
-
-      - name: Publish to npm
-        run: pnpm publish --no-git-checks
+        
+      - name: Version bump & publish
+        run: |
+          # Apply changeset version bump locally
+          pnpm changeset version
+        
+          # Reinstall to update lockfile after version bump
+          pnpm install --frozen-lockfile
+        
+          # Publish to npm directly using the bumped version
+          pnpm publish --no-git-checks
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
