@@ -113,10 +113,11 @@
         "name": { "const": "github" },
         "metric": {
           "type": "string",
-          "enum": ["stars", "license", "release"]
+          "enum": ["stars", "license", "release", "actions"]
         },
         "user": { "type": "string" },
         "repo": { "type": "string" },
+        "workflow": { "type": ["string", "null"] },
         "branch": { "type": ["string", "null"] },
 
         "message": { "type": "string" },
@@ -188,11 +189,33 @@
       }
     },
 
+    "TileStatusBadge": {
+      "type": "object",
+      "required": ["name", "message"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "tile" },
+        "message": { "type": "string" },
+        "label": { "type": "string" },
+        "color": { "type": "string" },
+        "labelColor": { "type": "string" },
+        "isError": { "type": "boolean" },
+        "namedLogo": { "type": "string" },
+        "logoSvg": { "type": "string" },
+        "logoColor": { "type": "string" },
+        "logoWidth": { "type": "number" },
+        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
+        "cacheSeconds": { "type": "number" },
+        "link": { "type": "string" }
+      }
+    },
+
     "StatusBadgeItem": {
       "oneOf": [
         { "$ref": "#/$defs/GitHubStatusBadge" },
         { "$ref": "#/$defs/DockerHubStatusBadge" },
-        { "$ref": "#/$defs/CodecovStatusBadge" }
+        { "$ref": "#/$defs/CodecovStatusBadge" },
+        { "$ref": "#/$defs/TileStatusBadge" }
       ]
     },
 
