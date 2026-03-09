@@ -34,9 +34,10 @@ export type Dependencies = {
 
 export type GitHubStatusBadge = DependencyItem & {
   name: "github";
-  metric: "stars" | "license" | "release";
+  metric: "stars" | "license" | "release" | "issues" | "forks" | "watchers" | "actions";
   user: string;
   repo: string;
+  workflow?: string;
   branch?: string | null;
 };
 
@@ -57,7 +58,12 @@ export type CodecovStatusBadge = DependencyItem & {
   token?: string;
 };
 
-export type StatusBadgeItem = GitHubStatusBadge | DockerHubStatusBadge | CodecovStatusBadge;
+export type TileStatusBadge = DependencyItem & {
+  name: "tile";
+  label: string;
+};
+
+export type StatusBadgeItem = GitHubStatusBadge | DockerHubStatusBadge | CodecovStatusBadge | TileStatusBadge;
 
 export type StatusBadges = {
   layout?: Layout;

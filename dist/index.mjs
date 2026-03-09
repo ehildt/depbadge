@@ -4853,54 +4853,16 @@ var mapBadgesToMarkdown = useCtxCallback(
 
 // src/depbadgerc/map-status-badges-to-markdown.ts
 init_esm_shims();
+
+// src/depbadgerc/map-codecov-status-badge-to-markdown.ts
+init_esm_shims();
+
+// src/shared/encode-label.ts
+init_esm_shims();
 var REGEX2 = /[^a-zA-Z0-9]/g;
-var encodeLabel2 = (s2) => encodeURIComponent(s2?.replace(REGEX2, "_"));
-function mapGithubStatusBadgeToMarkdown(badge) {
-  const urlSearchParams = new URLSearchParams({
-    ...badge?.labelColor && { labelColor: badge.labelColor },
-    ...badge.style && { style: badge.style },
-    ...badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() },
-    ...badge?.color && { color: badge.color },
-    ...badge?.isError && { isError: "true" },
-    ...badge?.namedLogo && { logo: badge.namedLogo },
-    ...badge?.logoColor && { logoColor: badge.logoColor },
-    ...badge?.logoWidth && { logoWidth: badge.logoWidth.toString() },
-    ...badge?.logoSvg && {
-      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
-    },
-    ...badge.branch && { branch: badge.branch }
-  }).toString();
-  const label = badge.name;
-  const src = encodeLabel2(label);
-  const user = encodeLabel2(badge.user);
-  const metric = encodeLabel2(badge.metric);
-  const repo = encodeLabel2(badge.repo);
-  const url = `https://img.shields.io/${src}/${metric}/${user}/${repo}?${urlSearchParams}`;
-  return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
-}
-function mapDockerHubStatusBadgeToMarkdown(badge) {
-  const urlSearchParams = new URLSearchParams({
-    ...badge?.labelColor && { labelColor: badge.labelColor },
-    ...badge?.isError && { isError: "true" },
-    ...badge?.namedLogo && { logo: badge.namedLogo },
-    ...badge?.logoColor && { logoColor: badge.logoColor },
-    ...badge?.logoWidth && { logoWidth: badge.logoWidth.toString() },
-    ...badge.style && { style: badge.style },
-    ...badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() },
-    ...badge?.color && { color: badge.color },
-    ...badge?.logoSvg && {
-      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
-    },
-    ...badge.tag && badge.metric === "v" && { tag: badge.tag }
-  }).toString();
-  const label = badge.name;
-  const src = encodeLabel2(label);
-  const user = encodeLabel2(badge.user ?? "library");
-  const metric = encodeLabel2(badge.metric ?? "v");
-  const image = encodeLabel2(badge.image);
-  const url = `https://img.shields.io/${src}/${metric}/${user}/${image}?${urlSearchParams}`;
-  return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
-}
+var encodeLabel2 = (s2) => encodeURIComponent((s2 ?? "").replace(REGEX2, "_"));
+
+// src/depbadgerc/map-codecov-status-badge-to-markdown.ts
 function mapCodecovStatusBadgeToMarkdown(badge) {
   const urlSearchParams = new URLSearchParams({
     ...badge?.labelColor && { labelColor: badge.labelColor },
@@ -4925,6 +4887,83 @@ function mapCodecovStatusBadgeToMarkdown(badge) {
   const url = `https://img.shields.io/codecov/${flag}/${provider}/${user}/${repo}?${urlSearchParams}`;
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
 }
+
+// src/depbadgerc/map-dockerhub-status-badge-to-markdown.ts
+init_esm_shims();
+function mapDockerHubStatusBadgeToMarkdown(badge) {
+  const urlSearchParams = new URLSearchParams({
+    ...badge?.labelColor && { labelColor: badge.labelColor },
+    ...badge?.isError && { isError: "true" },
+    ...badge?.namedLogo && { logo: badge.namedLogo },
+    ...badge?.logoColor && { logoColor: badge.logoColor },
+    ...badge?.logoWidth && { logoWidth: badge.logoWidth.toString() },
+    ...badge.style && { style: badge.style },
+    ...badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() },
+    ...badge?.color && { color: badge.color },
+    ...badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
+    },
+    ...badge.tag && badge.metric === "v" && { tag: badge.tag }
+  }).toString();
+  const label = badge.name;
+  const src = encodeLabel2(label);
+  const user = encodeLabel2(badge.user ?? "library");
+  const metric = encodeLabel2(badge.metric ?? "v");
+  const image = encodeLabel2(badge.image);
+  const url = `https://img.shields.io/${src}/${metric}/${user}/${image}?${urlSearchParams}`;
+  return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
+}
+
+// src/depbadgerc/map-github-status-badge-to-markdown.ts
+init_esm_shims();
+function mapGithubStatusBadgeToMarkdown(badge) {
+  const urlSearchParams = new URLSearchParams({
+    ...badge?.labelColor && { labelColor: badge.labelColor },
+    ...badge.style && { style: badge.style },
+    ...badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() },
+    ...badge?.color && { color: badge.color },
+    ...badge?.isError && { isError: "true" },
+    ...badge?.namedLogo && { logo: badge.namedLogo },
+    ...badge?.logoColor && { logoColor: badge.logoColor },
+    ...badge?.logoWidth && { logoWidth: badge.logoWidth.toString() },
+    ...badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
+    },
+    ...badge.branch && { branch: badge.branch }
+  }).toString();
+  const label = badge.name;
+  const src = encodeLabel2(label);
+  const user = encodeLabel2(badge.user);
+  const workflow = encodeLabel2(badge.workflow);
+  const metric = encodeLabel2(badge.metric);
+  const repo = encodeLabel2(badge.repo);
+  const url = badge.metric === "actions" ? `https://img.shields.io/${src}/${metric}/workflow/status/${user}/${repo}/${workflow}?${urlSearchParams}` : `https://img.shields.io/${src}/${metric}/${user}/${repo}?${urlSearchParams}`;
+  return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
+}
+
+// src/depbadgerc/map-tile-status-badge-to-markdown.ts
+init_esm_shims();
+function mapTileStatusBadgeToMarkdown(badge) {
+  const urlSearchParams = new URLSearchParams({
+    ...badge?.labelColor && { labelColor: badge.labelColor },
+    ...badge?.isError && { isError: "true" },
+    ...badge?.cacheSeconds && { cacheSeconds: badge.cacheSeconds.toString() },
+    ...badge?.namedLogo && { logo: badge.namedLogo },
+    ...badge?.logoColor && { logoColor: badge.logoColor },
+    ...badge?.logoWidth && { logoWidth: badge.logoWidth.toString() },
+    ...badge.style && { style: badge.style },
+    ...badge?.logoSvg && {
+      logo: `data:image/svg+xml;utf8,${encodeURIComponent(badge.logoSvg)}`
+    }
+  }).toString();
+  const label = encodeLabel2(badge.label);
+  const message = encodeLabel2(badge.message);
+  const color = encodeLabel2(badge.color ?? "#333");
+  const url = `https://img.shields.io/badge/${label}-${message}-${color}?${urlSearchParams}`;
+  return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
+}
+
+// src/depbadgerc/map-status-badges-to-markdown.ts
 var mapStatusBadgesToMarkdown = useCtxCallback(
   (_, statusBadges) => Object.fromEntries(
     Object.entries(statusBadges).map(([section, badges]) => [
@@ -4933,6 +4972,7 @@ var mapStatusBadgesToMarkdown = useCtxCallback(
         if (item.name === "github") return mapGithubStatusBadgeToMarkdown(item);
         if (item.name === "docker") return mapDockerHubStatusBadgeToMarkdown(item);
         if (item.name === "codecov") return mapCodecovStatusBadgeToMarkdown(item);
+        if (item.name === "tile") return mapTileStatusBadgeToMarkdown(item);
       }).filter((x2) => Boolean(x2))
     ])
   )
