@@ -109,7 +109,7 @@ jobs:
           git config user.name "repo-update[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git diff --cached --quiet || (git commit -m "REPO UPDATE (Changesets + Badges)" && git push)
+          git diff --cached --quiet || (git commit -m "REPO UPDATE (Changesets + Badges)" && git push --set-upstream origin HEAD)
 
   wiki:
     if: github.event_name == 'push'
