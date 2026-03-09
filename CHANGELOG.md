@@ -1,5 +1,15 @@
 # @ehildt/depbadge
 
+## 1.1.0
+
+### Minor Changes
+
+- 46eead2: added tile status badge support
+
+### Patch Changes
+
+- 9248c28: updated cicd workflows
+
 ## 1.0.11
 
 ### Patch Changes
