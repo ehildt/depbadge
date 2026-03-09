@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/ehildt/depbadge/main/depbadgerc.schema.json
-integrity: 615810e8323145bf21b4c3a4551b281db62288b8103d1f8a9a8d8e6e5a13c374
+integrity: ee2a8a449c66304bd2b4013f3f4cd0c1b70db1352e90cd8b82e468a13f4d54b6
 target: README.md
 manifest: package.json
 
