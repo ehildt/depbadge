@@ -8,8 +8,7 @@
     "jest.config.ts",
     "eslint.config.ts",
     "tsup.config.ts",
-    "src/**/*.stories.?sx",
-    "src/**/map-status-badges-to-markdown.ts"
+    "src/**/*.stories.?sx"
   ],
   "extends": "./tsconfig.json"
 }
