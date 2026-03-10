@@ -18,7 +18,7 @@ export function mapTileStatusBadgeToMarkdown(badge: TileStatusBadge): string {
 
   const label = encodeLabel(badge.label);
   const message = encodeLabel(badge.message);
-  const color = encodeLabel(badge.color ?? "#333");
+  const color = badge.color;
   const url = `https://img.shields.io/badge/${label}-${message}-${color}?${urlSearchParams}`;
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
 }

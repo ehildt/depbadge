@@ -4859,8 +4859,9 @@ init_esm_shims();
 
 // src/shared/encode-label.ts
 init_esm_shims();
-var REGEX2 = /[^a-zA-Z0-9]/g;
-var encodeLabel2 = (s2) => encodeURIComponent((s2 ?? "").replace(REGEX2, "_"));
+var encodeLabel2 = (s2) => {
+  return (s2 ?? "").replace(/-/g, "--").replace(/_/g, "__").replace(/\s+/g, "_");
+};
 
 // src/depbadgerc/map-codecov-status-badge-to-markdown.ts
 function mapCodecovStatusBadgeToMarkdown(badge) {
@@ -4958,7 +4959,7 @@ function mapTileStatusBadgeToMarkdown(badge) {
   }).toString();
   const label = encodeLabel2(badge.label);
   const message = encodeLabel2(badge.message);
-  const color = encodeLabel2(badge.color ?? "#333");
+  const color = badge.color;
   const url = `https://img.shields.io/badge/${label}-${message}-${color}?${urlSearchParams}`;
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
 }
@@ -5055,6 +5056,9 @@ var processManifest = useCtxCallback((store, mfc) => {
 });
 
 // src/depbadgerc/read-depbadgerc-with-defaults.ts
+init_esm_shims();
+
+// src/shared/hash-string-to-hsl.ts
 init_esm_shims();
 
 // node_modules/.pnpm/colord@2.9.3/node_modules/colord/index.mjs
@@ -5217,14 +5221,15 @@ var w = function(r2) {
 };
 
 // src/shared/hash-string-to-hsl.ts
-init_esm_shims();
-function hashStringToHsl(str2) {
+function hashStringToHex(str2) {
   let h2 = 0;
-  for (let i2 = 0; i2 < str2.length; i2++) h2 = str2.charCodeAt(i2) + ((h2 << 5) - h2);
+  for (let i2 = 0; i2 < str2.length; i2++) {
+    h2 = str2.charCodeAt(i2) + ((h2 << 5) - h2);
+  }
   const hue = (h2 % 360 + 360) % 360;
   const sat = 60 + Math.abs(h2 >> 8) % 20;
   const lit = 40 + Math.abs(h2 >> 16) % 15;
-  return `hsl(${hue},${sat}%,${lit}%)`;
+  return w({ h: hue, s: sat, l: lit }).toHex().replace("#", "");
 }
 
 // src/depbadgerc/read-depbadgerc-with-defaults.ts
@@ -5245,9 +5250,9 @@ function applySectionDefaults(section, defaultLayout, defaultStyle) {
       const merged = { ...defaultStyle, ...section.badgeStyle, ...item };
       return {
         ...merged,
-        color: merged.color ? w(merged.color).toHslString() : hashStringToHsl(merged.name),
-        labelColor: merged.labelColor ? w(merged.labelColor).toHslString() : void 0,
-        logoColor: merged.logoColor ? w(merged.logoColor).toHslString() : hashStringToHsl(merged.name)
+        color: merged.color ?? hashStringToHex(merged.name),
+        logoColor: merged.logoColor ?? hashStringToHex(merged.name),
+        labelColor: merged.labelColor ?? hashStringToHex(merged.labelColor)
       };
     })
   };

@@ -1,31 +1,30 @@
 import { encodeLabel } from "./encode-label";
 
-describe("encodeLabel()", () => {
-  test("should replace special characters with underscores", () => {
-    expect(encodeLabel("hello-world")).toBe("hello_world");
-    expect(encodeLabel("user@name!")).toBe("user_name_");
-    expect(encodeLabel("my label 123")).toBe("my_label_123");
+describe("encodeLabel", () => {
+  test("should double existing dashes", () => {
+    expect(encodeLabel("my-label")).toBe("my--label");
   });
 
-  test("should preserve alphanumeric characters", () => {
-    expect(encodeLabel("Version2026")).toBe("Version2026");
-    expect(encodeLabel("abcXYZ")).toBe("abcXYZ");
+  test("should double existing underscores", () => {
+    expect(encodeLabel("my_label")).toBe("my__label");
   });
 
-  test("should handle multiple consecutive special characters", () => {
-    expect(encodeLabel("test!!!abc")).toBe("test___abc");
+  test("should convert single spaces to a single underscore", () => {
+    expect(encodeLabel("my label")).toBe("my_label");
   });
 
-  test("should handle empty strings", () => {
+  test("should convert multiple consecutive spaces to a single underscore", () => {
+    expect(encodeLabel("my    label")).toBe("my_label");
+  });
+
+  test("should handle a combination of all rules", () => {
+    // "-" -> "--"
+    // "_" -> "__"
+    // " " -> "_"
+    expect(encodeLabel("a-b_c d")).toBe("a--b__c_d");
+  });
+
+  test("should return an empty string when given an empty string", () => {
     expect(encodeLabel("")).toBe("");
-  });
-
-  test("should handle null or undefined input by returning an empty string", () => {
-    expect(encodeLabel(null as any)).toBe("");
-    expect(encodeLabel(undefined as any)).toBe("");
-  });
-
-  test("should produce URL-safe output", () => {
-    expect(encodeLabel("data 100%")).toBe("data_100_");
   });
 });

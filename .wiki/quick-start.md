@@ -66,7 +66,7 @@ jobs:
         run: pnpm install --ignore-scripts --frozen-lockfile
 
       - name: Run Depbadge
-        uses: ehildt/depbadge@v1.0.9
+        uses: ehildt/depbadge@v1
 
       - name: Commit Badge Updates
         run: |
