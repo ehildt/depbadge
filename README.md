@@ -28,7 +28,7 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 ![github](https://img.shields.io/github/stars/ehildt/depbadge?labelColor=333&style=for-the-badge&cacheSeconds=3600&color=b16425&logo=github&logoColor=b16425&logoWidth=40&branch=main)
 ![github](https://img.shields.io/github/license/ehildt/depbadge?labelColor=333&style=for-the-badge&cacheSeconds=3600&color=b16425&logo=github&logoColor=b16425&logoWidth=40&branch=main)
 ![codecov](https://img.shields.io/codecov/c/github/ehildt/depbadge?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=4021b0&logoWidth=40&style=for-the-badge&color=4021b0&branch=main)
-![I_Love](https://img.shields.io/badge/I_Love-COOKIES-F3A?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=b4cf2a&logoWidth=40&style=for-the-badge)
+![I_Love](https://img.shields.io/badge/I_Love-🍪🍪🍪-777?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=b4cf2a&logoWidth=40&style=for-the-badge)
 
 </div>
 
@@ -59,7 +59,7 @@ By automating badge generation, Depbadge solves common problems: outdated badges
 [![eslint-config-prettier](https://img.shields.io/badge/eslint_config_prettier-v10.1.8-c4921c.svg?labelColor=333&cacheSeconds=3600&logo=prettier&logoColor=c4921c&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![eslint-plugin-prettier](https://img.shields.io/badge/eslint_plugin_prettier-v5.5.5-d19d2e.svg?labelColor=333&cacheSeconds=3600&logo=prettier&logoColor=d19d2e&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![eslint-plugin-simple-import-sort](https://img.shields.io/badge/eslint_plugin_simple_import_sort-v12.1.1-39d025.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=39d025&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
-[![eslint-plugin-sonarjs](https://img.shields.io/badge/eslint_plugin_sonarjs-v4.0.1-ca216a.svg?labelColor=333&cacheSeconds=3600&logo=sonar&logoColor=ca216a&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
+[![eslint-plugin-sonarjs](https://img.shields.io/badge/eslint_plugin_sonarjs-v4.0.2-ca216a.svg?labelColor=333&cacheSeconds=3600&logo=sonar&logoColor=ca216a&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![globals](https://img.shields.io/badge/globals-v17.4.0-2570b1.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=2570b1&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![husky](https://img.shields.io/badge/husky-v9.1.7-2e81b8.svg?labelColor=333&cacheSeconds=3600&logo=husky&logoColor=2e81b8&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)
 [![jest](https://img.shields.io/badge/jest-v30.3.0-2442bc.svg?labelColor=333&cacheSeconds=3600&logo=jest&logoColor=2442bc&logoWidth=40&style=flat-square)](https://www.npmjs.com/package/example_package)

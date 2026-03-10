@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./depbadgerc.schema.json
-integrity: 369fb72c57404a0bb808a7e8cb36e2f7cd893db05c306ecc7db25060278c774e
+integrity: 724cbe3f82a39506220f80788c6fac613591454de12d71f0f86207d1b2db9cf7
 target: README.md
 manifest: package.json
 output:
