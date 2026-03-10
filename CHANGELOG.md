@@ -1,5 +1,11 @@
 # @ehildt/depbadge
 
+## 1.1.2
+
+### Patch Changes
+
+- 87549f0: extended jest.config.ts and tests
+
 ## 1.1.1
 
 ### Patch Changes
