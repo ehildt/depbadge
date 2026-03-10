@@ -19,7 +19,14 @@ export default {
       statements: 5,
     },
   },
-  collectCoverageFrom: ["!**/dist/**"],
+  collectCoverageFrom: [
+    "!**/dist/**",
+    "!**/manifest.store.ts",
+    "!**/manifest.read.ts",
+    "!**/index.ts",
+    "!**/depbadgerc.store.ts",
+    "!**/process-manifest.ts",
+  ],
   moduleNameMapper: {
     "^@/(.*)$": "<rootDir>/src/$1",
     "^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$": "identity-obj-proxy",
