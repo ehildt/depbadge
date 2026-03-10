@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./depbadgerc.schema.json
-integrity: 7739b0c23c7d354ab1f15f192975973384ea3921ab7263de8170a939840668cf
+integrity: 369fb72c57404a0bb808a7e8cb36e2f7cd893db05c306ecc7db25060278c774e
 target: README.md
 manifest: package.json
 output:
@@ -154,6 +154,6 @@ statusBadges:
       branch: main
       flag: c
     - name: tile
-      message: COOKIES
+      message: 🍪🍪🍪
       label: I Love
-      color: 'F3A'
+      color: '777'
