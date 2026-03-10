@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./depbadgerc.schema.json
-integrity: 724cbe3f82a39506220f80788c6fac613591454de12d71f0f86207d1b2db9cf7
+integrity: 0ee6dc425934a6bf3102e4db5aceeebfe550ee1d454e991c0881752d8433a363
 target: README.md
 manifest: package.json
 output:
@@ -9,56 +9,41 @@ dependenciesLayout: &DEPENDENCIES_LAYOUT
   position: center
   showHeader: false
 
-devDependenciesLayout: &DEV_DEPENDENCIES_LAYOUT
-  <<: *DEPENDENCIES_LAYOUT
-  position: left
-  showHeader: false
-  header: my-new-header-name
-
-statusBadgesLayout: &STATUS_BADGES_LAYOUT
-  position: center
-  showHeader: true
-
 dependenciesStyle: &DEPENDENCIES_STYLE
   labelColor: '333'
   isError: false
   namedLogo: npm
-  logoSvg: ''
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
-  link: https://www.npmjs.com/package/example_package
-
-devDependenciesStyle: &DEV_DEPENDENCIES_STYLE
-  <<: *DEPENDENCIES_STYLE
-  style: flat-square
 
 statusBadgesStyle: &STATUS_BADGES_STYLE   
   labelColor: '333'
   isError: false
-  namedLogo: 'npm'
-  logoSvg: ''
+  namedLogo: npm
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
 
 dependencies:
-  layout:
-    <<: *DEPENDENCIES_LAYOUT
+  layout: *DEPENDENCIES_LAYOUT
   badgeStyle: *DEPENDENCIES_STYLE
   items:
-    - name: colord
-      namedLogo: npm
     - name: js-yaml
       namedLogo: npm
+      link: https://github.com/nodeca/js-yaml
     - name: "@iarna/toml"
       namedLogo: toml
+      link: https://github.com/iarna/iarna-toml
+    - name: yargs
+      namedLogo: freebsd
+      link: https://github.com/yargs/yargs
 
 devDependencies:
-  layout:
-    <<: *DEV_DEPENDENCIES_LAYOUT
-    position: center
-  badgeStyle: *DEV_DEPENDENCIES_STYLE
+  layout:  *DEPENDENCIES_LAYOUT
+  badgeStyle: 
+    <<: *DEPENDENCIES_STYLE
+    style: flat-square
   items:
     - name: '@changesets/cli'
       namedLogo: npm
@@ -122,11 +107,12 @@ devDependencies:
       namedLogo: typescript
     - name: typescript-eslint
       namedLogo: eslint
+    - name: "@types/yargs"
+      namedLogo: freebsd
 
 statusBadges:
   layout:
-    <<: *STATUS_BADGES_LAYOUT
-    header: Highlights
+    position: center
     showHeader: false
   badgeStyle: *STATUS_BADGES_STYLE
   items:
@@ -153,7 +139,9 @@ statusBadges:
       repo: depbadge
       branch: main
       flag: c
+      link: https://about.codecov.io/
     - name: tile
       message: 🍪🍪🍪
-      label: I Love
+      label: My favorite
       color: '777'
+      link: https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/
