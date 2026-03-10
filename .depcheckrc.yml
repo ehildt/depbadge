@@ -3,6 +3,7 @@ ignores:
   - "@nestjs/schematics"
   - "@types/jest"
   - "@types/prettier"
+  - "@changesets/cli"
   - "conventional-changelog-conventionalcommits"
   - "dependency-cruiser"
   - "jest-junit"

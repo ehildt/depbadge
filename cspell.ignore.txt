@@ -74,6 +74,7 @@ fastify
 fieldname
 fieldtypes
 fontawesome
+freebsd
 genpose
 ghostwhite
 gitconfiglocal
@@ -226,4 +227,5 @@ WEBUI
 wireframe
 wireframes
 Xmark
+yargs
 zustand
