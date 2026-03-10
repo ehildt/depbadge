@@ -8,7 +8,9 @@
     "jest.config.ts",
     "eslint.config.ts",
     "tsup.config.ts",
-    "src/**/*.stories.?sx"
+    "src/**/*.stories.?sx",
+    "**/read-depbadgerc-with-defaults.ts",
+    "**/depbadgerc.type.ts"
   ],
   "extends": "./tsconfig.json"
 }

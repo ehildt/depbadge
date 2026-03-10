@@ -1,2 +1,3 @@
-const REGEX = /[^a-zA-Z0-9]/g;
-export const encodeLabel = (s: string) => encodeURIComponent((s ?? "").replace(REGEX, "_"));
+export const encodeLabel = (s: string) => {
+  return (s ?? "").replace(/-/g, "--").replace(/_/g, "__").replace(/\s+/g, "_");
+};

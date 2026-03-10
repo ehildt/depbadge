@@ -1,7 +1,9 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/ehildt/depbadge/main/depbadgerc.schema.json
-integrity: ee2a8a449c66304bd2b4013f3f4cd0c1b70db1352e90cd8b82e468a13f4d54b6
+# yaml-language-server: $schema=./depbadgerc.schema.json
+integrity: f8d7b86fe31184d797dc96ccbf83fa18cefac8a472638ada82629bb5e435c4fe
 target: README.md
 manifest: package.json
+output:
+  - markdown
 
 dependenciesLayout: &DEPENDENCIES_LAYOUT
   position: center
@@ -18,7 +20,7 @@ statusBadgesLayout: &STATUS_BADGES_LAYOUT
   showHeader: true
 
 dependenciesStyle: &DEPENDENCIES_STYLE
-  labelColor: '#333'
+  labelColor: '333'
   isError: false
   namedLogo: npm
   logoSvg: ''
@@ -32,7 +34,7 @@ devDependenciesStyle: &DEV_DEPENDENCIES_STYLE
   style: flat-square
 
 statusBadgesStyle: &STATUS_BADGES_STYLE   
-  labelColor: '#333'
+  labelColor: '333'
   isError: false
   namedLogo: 'npm'
   logoSvg: ''
@@ -151,3 +153,7 @@ statusBadges:
       repo: depbadge
       branch: main
       flag: c
+    - name: tile
+      message: COOKIES
+      label: I Love
+      color: 'F3A'

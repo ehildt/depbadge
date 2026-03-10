@@ -47,12 +47,25 @@
     "BadgeStyle": {
       "type": "object",
       "properties": {
-        "color": { "type": "string" },
-        "labelColor": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+
+        "labelColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "isError": { "type": "boolean" },
         "namedLogo": { "type": "string" },
         "logoSvg": { "type": "string" },
-        "logoColor": { "type": "string" },
+        "logoColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "logoWidth": { "type": "number" },
         "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
@@ -78,12 +91,25 @@
         "name": { "type": "string" },
         "message": { "type": "string" },
 
-        "color": { "type": "string" },
-        "labelColor": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+
+        "labelColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "isError": { "type": "boolean" },
         "namedLogo": { "type": "string" },
         "logoSvg": { "type": "string" },
-        "logoColor": { "type": "string" },
+        "logoColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "logoWidth": { "type": "number" },
         "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
@@ -122,12 +148,25 @@
 
         "message": { "type": "string" },
 
-        "color": { "type": "string" },
-        "labelColor": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+
+        "labelColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "isError": { "type": "boolean" },
         "namedLogo": { "type": "string" },
         "logoSvg": { "type": "string" },
-        "logoColor": { "type": "string" },
+        "logoColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "logoWidth": { "type": "number" },
         "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
@@ -151,12 +190,25 @@
 
         "message": { "type": "string" },
 
-        "color": { "type": "string" },
-        "labelColor": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+
+        "labelColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "isError": { "type": "boolean" },
         "namedLogo": { "type": "string" },
         "logoSvg": { "type": "string" },
-        "logoColor": { "type": "string" },
+        "logoColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "logoWidth": { "type": "number" },
         "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
@@ -176,12 +228,25 @@
         "branch": { "type": "string" },
         "flag": { "type": ["string", "null"] },
         "message": { "type": "string" },
-        "color": { "type": "string" },
-        "labelColor": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+
+        "labelColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "isError": { "type": "boolean" },
         "namedLogo": { "type": "string" },
         "logoSvg": { "type": "string" },
-        "logoColor": { "type": "string" },
+        "logoColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "logoWidth": { "type": "number" },
         "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },
@@ -191,18 +256,30 @@
 
     "TileStatusBadge": {
       "type": "object",
-      "required": ["name", "message"],
+      "required": ["name", "message", "label"],
       "additionalProperties": false,
       "properties": {
         "name": { "const": "tile" },
         "message": { "type": "string" },
         "label": { "type": "string" },
-        "color": { "type": "string" },
-        "labelColor": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+        "labelColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "isError": { "type": "boolean" },
         "namedLogo": { "type": "string" },
         "logoSvg": { "type": "string" },
-        "logoColor": { "type": "string" },
+        "logoColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
         "logoWidth": { "type": "number" },
         "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
         "cacheSeconds": { "type": "number" },

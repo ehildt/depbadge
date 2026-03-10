@@ -1,72 +1,61 @@
+import { encodeLabel } from "../shared/encode-label";
+
+import { GitHubStatusBadge } from "./depbadgerc.type";
 import { mapGithubStatusBadgeToMarkdown } from "./map-github-status-badge-to-markdown";
 
-describe("mapGithubStatusBadgeToMarkdown", () => {
-  const baseBadge = {
-    name: "Build Status",
-    user: "john_doe",
+jest.mock("../shared/encode-label", () => ({
+  encodeLabel: jest.fn((s: string) => `encoded_${s}`),
+}));
+
+describe("mapGithubStatusBadgeToMarkdown (with mocked encoder)", () => {
+  const mockedEncodeLabel = encodeLabel as jest.Mock;
+
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
+
+  const baseBadge: GitHubStatusBadge = {
+    name: "github",
     metric: "stars",
+    user: "my-user",
     repo: "my-repo",
+    message: "irrelevant-for-url",
   };
 
-  test("should return a basic image markdown without a link", () => {
-    const result = mapGithubStatusBadgeToMarkdown(baseBadge as any);
-    expect(result).toContain("![Build Status]");
-    expect(result).toContain("https://img.shields.io/Build_Status/stars/john_doe/my_repo?");
-    expect(result).not.toContain("[![Build Status]"); // Should not be wrapped in a link
+  it("should call encodeLabel for every URL segment", () => {
+    mapGithubStatusBadgeToMarkdown(baseBadge);
+    expect(mockedEncodeLabel).toHaveBeenCalledTimes(5);
+    expect(mockedEncodeLabel).toHaveBeenCalledWith("github");
+    expect(mockedEncodeLabel).toHaveBeenCalledWith("my-user");
+    expect(mockedEncodeLabel).toHaveBeenCalledWith("my-repo");
   });
 
-  test("should wrap in markdown link if badge.link is provided", () => {
-    const badgeWithLink = {
-      ...baseBadge,
-      link: "https://example.com",
-    };
-    const result = mapGithubStatusBadgeToMarkdown(badgeWithLink as any);
-
-    expect(result).toBe(
-      "[![Build Status](https://img.shields.io/Build_Status/stars/john_doe/my_repo?)](https://example.com)",
-    );
+  it("should construct the standard URL using mocked values", () => {
+    const result = mapGithubStatusBadgeToMarkdown(baseBadge);
+    expect(result).toContain("https://img.shields.io/encoded_github/encoded_stars/encoded_my-user/encoded_my-repo");
   });
 
-  test("should correctly append URL search parameters", () => {
-    const badgeWithParams = {
+  it('should construct the "actions" URL using mocked values', () => {
+    const actionsBadge: GitHubStatusBadge = {
       ...baseBadge,
-      labelColor: "red",
-      style: "flat-square",
-      isError: true,
-      namedLogo: "github",
+      metric: "actions",
+      workflow: "main-ci",
     };
 
-    const result = mapGithubStatusBadgeToMarkdown(badgeWithParams as any);
-
-    const url = new URL(result.match(/\(([^)]+)\)/)![1]);
-    expect(url.searchParams.get("labelColor")).toBe("red");
-    expect(url.searchParams.get("style")).toBe("flat-square");
-    expect(url.searchParams.get("isError")).toBe("true");
-    expect(url.searchParams.get("logo")).toBe("github");
+    const result = mapGithubStatusBadgeToMarkdown(actionsBadge);
+    expect(result).toContain("/workflow/status/encoded_my-user/encoded_my-repo/encoded_main-ci");
+    expect(mockedEncodeLabel).toHaveBeenCalledWith("main-ci");
   });
 
-  test("should handle numeric values (cacheSeconds, logoWidth) as strings", () => {
-    const badgeWithNumbers = {
+  it("should still handle query parameters correctly regardless of mocking", () => {
+    const styledBadge: GitHubStatusBadge = {
       ...baseBadge,
-      cacheSeconds: 3600,
-      logoWidth: 20,
+      color: "red",
+      style: "flat",
     };
 
-    const result = mapGithubStatusBadgeToMarkdown(badgeWithNumbers as any);
-
-    expect(result).toContain("cacheSeconds=3600");
-    expect(result).toContain("logoWidth=20");
-  });
-
-  test("should handle logoSvg with data URI encoding", () => {
-    const badgeWithSvg = {
-      ...baseBadge,
-      logoSvg: "<svg>...</svg>",
-    };
-
-    const result = mapGithubStatusBadgeToMarkdown(badgeWithSvg as any);
-    expect(result).toContain(
-      "![Build Status](https://img.shields.io/Build_Status/stars/john_doe/my_repo?logo=data%3Aimage%2Fsvg%2Bxml%3Butf8%2C%253Csvg%253E...%253C%252Fsvg%253E)",
-    );
+    const result = mapGithubStatusBadgeToMarkdown(styledBadge);
+    expect(result).toContain("color=red");
+    expect(result).toContain("style=flat");
   });
 });

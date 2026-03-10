@@ -1,9 +1,8 @@
-import { colord } from "colord";
 import fs from "fs";
 import yaml from "js-yaml";
 
 import { findFile } from "../shared/find-file.ts";
-import { hashStringToHsl } from "../shared/hash-string-to-hsl.ts";
+import { hashStringToHex } from "../shared/hash-string-to-hsl.ts";
 
 import { BadgeStyle, DepbadgeRC, DependencyItem, Layout } from "./depbadgerc.type.ts";
 
@@ -33,9 +32,9 @@ function applySectionDefaults<T extends Section>(section: T, defaultLayout?: Lay
       const merged = { ...defaultStyle, ...section.badgeStyle, ...item };
       return {
         ...merged,
-        color: merged.color ? colord(merged.color).toHslString() : hashStringToHsl(merged.name),
-        labelColor: merged.labelColor ? colord(merged.labelColor).toHslString() : undefined,
-        logoColor: merged.logoColor ? colord(merged.logoColor).toHslString() : hashStringToHsl(merged.name),
+        color: merged.color ?? hashStringToHex(merged.name),
+        logoColor: merged.logoColor ?? hashStringToHex(merged.name),
+        labelColor: merged.labelColor ?? hashStringToHex(merged.labelColor),
       } as DependencyItem;
     }),
   };

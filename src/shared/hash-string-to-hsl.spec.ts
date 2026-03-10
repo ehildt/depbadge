@@ -1,33 +1,33 @@
-import { hashStringToHsl } from "./hash-string-to-hsl.ts";
+import { hashStringToHex } from "./hash-string-to-hsl";
 
-describe("hashStringToHsl", () => {
-  it("returns a valid HSL string", () => {
-    const color = hashStringToHsl("example");
-    expect(color).toMatch(/^hsl\(\d{1,3},\d{2}%,\d{2}%\)$/);
+describe("hashStringToHex", () => {
+  test("should return a 6-character hex string without the #", () => {
+    const result = hashStringToHex("test-string");
+    expect(result).toMatch(/^[0-9a-f]{6}$/i);
+    expect(result).not.toContain("#");
   });
 
-  it("is deterministic for the same input", () => {
-    expect(hashStringToHsl("foo")).toBe(hashStringToHsl("foo"));
+  test("should be deterministic (same input returns same hex)", () => {
+    const input = "cookies";
+    const firstCall = hashStringToHex(input);
+    const secondCall = hashStringToHex(input);
+    expect(firstCall).toBe(secondCall);
   });
 
-  it("produces different colors for different inputs", () => {
-    expect(hashStringToHsl("foo")).not.toBe(hashStringToHsl("bar"));
+  test("should produce different colors for different strings", () => {
+    const color1 = hashStringToHex("apple");
+    const color2 = hashStringToHex("banana");
+    expect(color1).not.toBe(color2);
   });
 
-  it("keeps values within expected ranges", () => {
-    const [, h, s, l] = hashStringToHsl("range-test")
-      .match(/^hsl\((\d+),(\d+)%,(\d+)%\)$/)!
-      .map(Number);
-
-    expect(h).toBeGreaterThanOrEqual(0);
-    expect(h).toBeLessThan(360);
-    expect(s).toBeGreaterThanOrEqual(60);
-    expect(s).toBeLessThan(80);
-    expect(l).toBeGreaterThanOrEqual(40);
-    expect(l).toBeLessThan(55);
+  test("should handle empty strings without crashing", () => {
+    const result = hashStringToHex("");
+    expect(result).toMatch(/^[0-9a-f]{6}$/i);
   });
 
-  it("handles empty strings", () => {
-    expect(hashStringToHsl("")).toBe("hsl(0,60%,40%)");
+  test("should generate a valid hex color within expected HSL range", () => {
+    const result = hashStringToHex("ShieldsIO");
+    const isValidHex = /^[0-9a-f]{6}$/i.test(result);
+    expect(isValidHex).toBe(true);
   });
 });

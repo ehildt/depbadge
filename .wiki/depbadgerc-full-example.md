@@ -139,6 +139,9 @@ statusBadges:
       repo: depbadge
       branch: main
       flag: c
-      style: flat-square       # Override style for this badge             # Override style for this badge
+      style: flat-square       # Override style for this badge
+    - name: tile
+      label: 'I Love'
+      message: COOKIES
 ```
 

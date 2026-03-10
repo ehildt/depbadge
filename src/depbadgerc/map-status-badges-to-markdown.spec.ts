@@ -29,7 +29,7 @@ describe("Status badge markdown mapping", () => {
     const result = run(badges);
 
     expect(result.section1).toHaveLength(1);
-    expect(result.section1[0]).toContain("img.shields.io/github/stars/octocat/hello_world");
+    expect(result.section1[0]).toContain("img.shields.io/github/stars/octocat/hello--world");
   });
 
   it("maps GitHub badge correctly with link", () => {
@@ -92,7 +92,7 @@ describe("Status badge markdown mapping", () => {
 
     expect(result.codecovSection[0]).toContain("img.shields.io/codecov");
     expect(result.codecovSection[0]).toContain("octocat");
-    expect(result.codecovSection[0]).toContain("hello_world"); // dash -> underscore
+    expect(result.codecovSection[0]).toContain("hello--world"); // dash -> underscore
   });
 
   it("filters out unknown badge types", () => {
