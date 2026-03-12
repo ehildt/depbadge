@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./depbadgerc.schema.json
-integrity: 0ee6dc425934a6bf3102e4db5aceeebfe550ee1d454e991c0881752d8433a363
+integrity: 1be207b57484dfbe93185913c78206e7dd8f1c9d6d6f4b71ab1cc5c416ff75ff
 target: README.md
 manifest: package.json
 output:
@@ -29,6 +29,9 @@ dependencies:
   layout: *DEPENDENCIES_LAYOUT
   badgeStyle: *DEPENDENCIES_STYLE
   items:
+    - name: colord
+      namedLogo: npm
+      link: https://github.com/omgovich/colord
     - name: js-yaml
       namedLogo: npm
       link: https://github.com/nodeca/js-yaml

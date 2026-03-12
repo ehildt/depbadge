@@ -1,5 +1,7 @@
 import fs from "fs";
 import yaml from "js-yaml";
+import yargs from "yargs";
+import { hideBin } from "yargs/helpers";
 
 import { findFile } from "../shared/find-file.ts";
 import { hashStringToHex } from "../shared/hash-string-to-hsl.ts";
@@ -70,4 +72,10 @@ export function readDepbadgeRC(path = "depbadgerc.yml"): DepbadgeRC {
   return rc;
 }
 
-export const getDepbadgeRC = () => withDefaults(readDepbadgeRC());
+export function withYargs(rc: DepbadgeRC) {
+  const argv = yargs(hideBin(process.argv)).parse();
+  console.log(argv);
+  return rc;
+}
+
+export const getDepbadgeRC = () => withDefaults(withYargs(readDepbadgeRC()));
