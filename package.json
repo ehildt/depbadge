@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "@iarna/toml": "^2.2.5",
+    "colord": "^2.9.3",
     "js-yaml": "^4.1.1",
     "yargs": "^18.0.0"
   },
