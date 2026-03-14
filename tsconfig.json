@@ -19,13 +19,16 @@
     "noImplicitThis": true,
     "noEmit": true,
     "allowImportingTsExtensions": true,
+    "types": [
+      "node",
+      "vitest/globals"
+    ]
   },
-  "files": ["shims.d.ts"],
   "include": [
     "src/",
     "eslint.config.ts",
     "prettier.config.mjs",
-    "jest.config.ts",
-    "tsup.config.ts"
+    "tsup.config.ts",
+    "vitest.config.ts"
   ]
 }

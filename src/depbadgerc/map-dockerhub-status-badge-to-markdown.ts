@@ -1,6 +1,6 @@
-import { encodeLabel } from "../shared/encode-label";
+import { encodeLabel } from "../shared/encode-label.ts";
 
-import { DockerHubStatusBadge } from "./depbadgerc.type";
+import { DockerHubStatusBadge } from "./depbadgerc.type.ts";
 
 export function mapDockerHubStatusBadgeToMarkdown(badge: DockerHubStatusBadge): string {
   const urlSearchParams = new URLSearchParams({

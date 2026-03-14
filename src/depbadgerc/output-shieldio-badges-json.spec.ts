@@ -1,22 +1,23 @@
 import fs from "fs";
 import path from "path";
+import { beforeEach, describe, expect, Mocked, test, vi } from "vitest";
 
-import { outputShieldioBadgesJson } from "./output-shieldio-badges-json";
+import { outputShieldioBadgesJson } from "./output-shieldio-badges-json.ts";
 
-jest.mock("fs");
-jest.mock("path");
+vi.mock("fs");
+vi.mock("path");
 
 describe("outputShieldioBadgesJson", () => {
-  const mockedFs = fs as jest.Mocked<typeof fs>;
-  const mockedPath = path as jest.Mocked<typeof path>;
+  const mockedFs = fs as Mocked<typeof fs>;
+  const mockedPath = path as Mocked<typeof path>;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
     mockedPath.join.mockImplementation((...args: string[]) => args.join("/"));
   });
 
   const bind = () => {
-    const store = {} as any; // ctx store not used by function
+    const store = {} as any; // ctx store not used
     return outputShieldioBadgesJson(store);
   };
 

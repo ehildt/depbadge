@@ -1,8 +1,8 @@
-import { CtxStore } from "../store/ctx-store";
+import { CtxStore } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
-import { mapBadgesToMarkdown } from "./map-badges-to-markdown";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
+import { mapBadgesToMarkdown } from "./map-badges-to-markdown.ts";
 
 describe("mapBadgesToMarkdown", () => {
   const bind = (storeOverrides: any = {}) => {

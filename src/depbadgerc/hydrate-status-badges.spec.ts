@@ -1,8 +1,8 @@
-import { CtxStore } from "../store/ctx-store";
+import { CtxStore } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC, StatusBadgeItem, StatusBadges } from "./depbadgerc.type";
-import { hydrateStatusBadges } from "./hydrate-status-badges";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC, StatusBadgeItem, StatusBadges } from "./depbadgerc.type.ts";
+import { hydrateStatusBadges } from "./hydrate-status-badges.ts";
 
 describe("hydrateStatusBadges", () => {
   const bind = (storeOverrides: any = {}) => {

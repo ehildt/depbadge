@@ -1,18 +1,18 @@
-// apply-markdown-to-target.spec.ts
 import fs from "fs";
+import { Mocked, MockedFunction } from "vitest";
 
-import { findFile } from "../shared/find-file";
+import { findFile } from "../shared/find-file.ts";
 
-import { applyMarkdownToTarget } from "./apply-markdown-to-target";
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
+import { applyMarkdownToTarget } from "./apply-markdown-to-target.ts";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
 
-jest.mock("fs");
-jest.mock("../shared/find-file");
+vi.mock("fs");
+vi.mock("../shared/find-file");
 
 describe("applyMarkdownToTarget", () => {
-  const mockFs = fs as jest.Mocked<typeof fs>;
-  const mockFindFile = findFile as jest.MockedFunction<typeof findFile>;
+  const mockFs = fs as Mocked<typeof fs>;
+  const mockFindFile = findFile as MockedFunction<typeof findFile>;
 
   const makeMockStore = (overrides: Partial<DepbadgeRC> = {}): Readonly<DepbadgeRC & Methods> => ({
     manifest: "package.json",
@@ -26,22 +26,22 @@ describe("applyMarkdownToTarget", () => {
     output: undefined,
 
     // methods mocked
-    processManifest: jest.fn(),
-    getDependencies: jest.fn(),
-    getStatusBadges: jest.fn(),
-    hydrateDependencyBadges: jest.fn(),
-    outputShieldioBadgesJson: jest.fn(),
-    hydrateStatusBadges: jest.fn(),
-    mapBadgesToMarkdown: jest.fn(),
-    applyMarkdownToTarget: jest.fn(),
-    mapStatusBadgesToMarkdown: jest.fn(),
-    computeStateIntegrity: jest.fn(),
-    outputMarkdownPreview: jest.fn(),
+    processManifest: vi.fn(),
+    getDependencies: vi.fn(),
+    getStatusBadges: vi.fn(),
+    hydrateDependencyBadges: vi.fn(),
+    outputShieldioBadgesJson: vi.fn(),
+    hydrateStatusBadges: vi.fn(),
+    mapBadgesToMarkdown: vi.fn(),
+    applyMarkdownToTarget: vi.fn(),
+    mapStatusBadgesToMarkdown: vi.fn(),
+    computeStateIntegrity: vi.fn(),
+    outputMarkdownPreview: vi.fn(),
 
     ...overrides,
   });
 
-  beforeEach(() => jest.resetAllMocks());
+  beforeEach(() => vi.resetAllMocks());
 
   it("renders multiple markdown sections into the DEPBADGE block", () => {
     const store = makeMockStore();

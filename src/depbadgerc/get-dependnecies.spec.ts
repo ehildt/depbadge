@@ -1,8 +1,8 @@
-import { CtxStore } from "../store/ctx-store";
+import { CtxStore } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC, Dependencies } from "./depbadgerc.type";
-import { getDependencies } from "./get-dependencies";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC, Dependencies } from "./depbadgerc.type.ts";
+import { getDependencies } from "./get-dependencies.ts";
 
 describe("getDependencies", () => {
   const bind = (storeOverrides: Partial<DepbadgeRC> = {}) => {

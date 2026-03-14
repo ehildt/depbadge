@@ -1,17 +1,19 @@
-import { encodeLabel } from "../shared/encode-label";
+import { Mock } from "vitest";
 
-import { DockerHubStatusBadge } from "./depbadgerc.type";
-import { mapDockerHubStatusBadgeToMarkdown } from "./map-dockerhub-status-badge-to-markdown";
+import { encodeLabel } from "../shared/encode-label.ts";
 
-jest.mock("../shared/encode-label", () => ({
-  encodeLabel: jest.fn((s: string) => `encoded_${s}`),
+import { DockerHubStatusBadge } from "./depbadgerc.type.ts";
+import { mapDockerHubStatusBadgeToMarkdown } from "./map-dockerhub-status-badge-to-markdown.ts";
+
+vi.mock("../shared/encode-label", () => ({
+  encodeLabel: vi.fn((s: string) => `encoded_${s}`),
 }));
 
 describe("mapDockerHubStatusBadgeToMarkdown (with mocked encoder)", () => {
-  const mockedEncodeLabel = encodeLabel as jest.Mock;
+  const mockedEncodeLabel = encodeLabel as Mock;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const baseDockerBadge: DockerHubStatusBadge = {

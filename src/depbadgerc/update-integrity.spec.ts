@@ -1,61 +1,55 @@
+vi.mock("../shared/find-file.ts", () => ({
+  findFile: vi.fn(),
+}));
+
+vi.mock("fs", () => ({
+  default: {
+    readFileSync: vi.fn(),
+    writeFileSync: vi.fn(),
+  },
+}));
+
 import fs from "fs";
 
-import { findFile } from "../shared/find-file";
+import { findFile } from "../shared/find-file.ts";
 
-import { updateIntegrity } from "./update-integrity";
-
-jest.mock("fs");
-jest.mock("../shared/find-file");
+import { updateIntegrity } from "./update-integrity.ts";
 
 describe("updateIntegrity", () => {
-  const mockedFs = fs as jest.Mocked<typeof fs>;
-  const mockedFindFile = findFile as jest.Mock;
+  const findFileMock = vi.mocked(findFile);
+  const readFileSyncMock = vi.mocked(fs.readFileSync);
+  const writeFileSyncMock = vi.mocked(fs.writeFileSync);
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
-  test("does nothing if file is not found", () => {
-    mockedFindFile.mockReturnValue(undefined);
-
+  it("does nothing if file is not found", () => {
+    findFileMock.mockReturnValue(null);
     updateIntegrity("abc123");
-
-    expect(mockedFs.readFileSync).not.toHaveBeenCalled();
-    expect(mockedFs.writeFileSync).not.toHaveBeenCalled();
+    expect(readFileSyncMock).not.toHaveBeenCalled();
+    expect(writeFileSyncMock).not.toHaveBeenCalled();
   });
 
-  test("replaces existing integrity line", () => {
-    mockedFindFile.mockReturnValue("/tmp/depbadgerc.yml");
-    mockedFs.readFileSync.mockReturnValue("name: test\nintegrity: oldhash\nversion: 1");
-
+  it("replaces existing integrity field", () => {
+    findFileMock.mockReturnValue("/fake/depbadgerc.yml");
+    readFileSyncMock.mockReturnValue("integrity: oldhash\ndependencies:\n  items: []");
     updateIntegrity("newhash");
-
-    expect(mockedFs.writeFileSync).toHaveBeenCalledWith(
-      "/tmp/depbadgerc.yml",
-      "name: test\nintegrity: newhash\nversion: 1",
+    expect(writeFileSyncMock).toHaveBeenCalledWith(
+      "/fake/depbadgerc.yml",
+      "integrity: newhash\ndependencies:\n  items: []",
       "utf8",
     );
   });
 
-  test("adds integrity if missing", () => {
-    mockedFindFile.mockReturnValue("/tmp/depbadgerc.yml");
-    mockedFs.readFileSync.mockReturnValue("name: test\nversion: 1");
-
-    updateIntegrity("hash123");
-
-    expect(mockedFs.writeFileSync).toHaveBeenCalledWith(
-      "/tmp/depbadgerc.yml",
-      "integrity: hash123\nname: test\nversion: 1",
+  it("prepends integrity field if missing", () => {
+    findFileMock.mockReturnValue("/fake/depbadgerc.yml");
+    readFileSyncMock.mockReturnValue("dependencies:\n  items: []");
+    updateIntegrity("newhash");
+    expect(writeFileSyncMock).toHaveBeenCalledWith(
+      "/fake/depbadgerc.yml",
+      "integrity: newhash\ndependencies:\n  items: []",
       "utf8",
     );
-  });
-
-  test("adds integrity to empty file", () => {
-    mockedFindFile.mockReturnValue("/tmp/depbadgerc.yml");
-    mockedFs.readFileSync.mockReturnValue("");
-
-    updateIntegrity("hash123");
-
-    expect(mockedFs.writeFileSync).toHaveBeenCalledWith("/tmp/depbadgerc.yml", "integrity: hash123\n", "utf8");
   });
 });

@@ -8,6 +8,7 @@ appendfilename
 appendfsync
 appendonly
 arcticons
+arrayfy
 atts
 AUTHTOKEN
 autodocs
@@ -40,6 +41,7 @@ configdb
 conv
 conventionalcommits
 cres
+Csvg
 cuda
 datetime
 dbaeumer
@@ -136,6 +138,7 @@ msgpackr
 myimage
 myrepo
 nestjs
+newhash
 nginx
 ngrok
 NGROK
