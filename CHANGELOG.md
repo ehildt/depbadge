@@ -1,5 +1,12 @@
 # @ehildt/depbadge
 
+## 1.1.3
+
+### Patch Changes
+
+- f85787c: extended tsup.config.ts to support yargs
+- 1848219: extended depbadge cli, migrated from jest to vitest
+
 ## 1.1.2
 
 ### Patch Changes
