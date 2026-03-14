@@ -1,5 +1,11 @@
 # @ehildt/depbadge
 
+## 1.1.4
+
+### Patch Changes
+
+- c3cf920: updated cicd workflows
+
 ## 1.1.3
 
 ### Patch Changes
