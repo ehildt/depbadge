@@ -1,8 +1,8 @@
-import { CtxStore } from "../../store/ctx-store";
+import { CtxStore } from "../../store/ctx-store.ts";
 
-import { getDependencies } from "./get-dependencies";
-import { ManifestMethods } from "./manifest.store";
-import { Manifest } from "./manifest.type";
+import { getDependencies } from "./get-dependencies.ts";
+import { ManifestMethods } from "./manifest.store.ts";
+import { Manifest } from "./manifest.type.ts";
 
 describe("Cargo manifest getDependencies", () => {
   const bind = (storeOverrides: Partial<Manifest> = {}) => {

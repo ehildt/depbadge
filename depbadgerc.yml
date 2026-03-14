@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./depbadgerc.schema.json
-integrity: 1be207b57484dfbe93185913c78206e7dd8f1c9d6d6f4b71ab1cc5c416ff75ff
+integrity: a6421d83625bc5018b316a214f8203076692e3c1a0328db9fdcf08fae728dada
 target: README.md
 manifest: package.json
 output:
@@ -54,12 +54,8 @@ devDependencies:
       namedLogo: eslint
     - name: '@types/eslint'
       namedLogo: eslint
-    - name: '@types/jest'
-      namedLogo: jest
     - name: '@types/node'
       namedLogo: node
-    - name: '@types/supertest'
-      namedLogo: npm
     - name: depcheck
       namedLogo: npm
     - name: dependency-cruiser
@@ -80,12 +76,10 @@ devDependencies:
       namedLogo: npm
     - name: husky
       namedLogo: husky
-    - name: jest
-      namedLogo: jest
-    - name: jest-extended
-      namedLogo: jest
-    - name: jest-junit
-      namedLogo: jest
+    - name: "vitest"
+      namedLogo: vitest
+    - name: "@vitest/coverage-v8"
+      namedLogo: vitest
     - name: jiti
       namedLogo: npm
     - name: lint-staged
@@ -96,10 +90,6 @@ devDependencies:
       namedLogo: npm
     - name: source-map-support
       namedLogo: npm
-    - name: supertest
-      namedLogo: npm
-    - name: ts-jest
-      namedLogo: jest
     - name: ts-loader
       namedLogo: npm
     - name: ts-node

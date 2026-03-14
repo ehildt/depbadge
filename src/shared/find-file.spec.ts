@@ -1,15 +1,16 @@
 import fs from "fs";
 import path from "path";
+import { Mocked } from "vitest";
 
-import { findFile } from "./find-file";
+import { findFile } from "./find-file.ts";
 
-jest.mock("fs");
+vi.mock("fs");
 
 describe("findFile", () => {
-  const mockedFs = fs as jest.Mocked<typeof fs>;
+  const mockedFs = fs as Mocked<typeof fs>;
 
   beforeEach(() => {
-    jest.resetAllMocks();
+    vi.resetAllMocks();
   });
 
   it("returns the file in the start directory if it exists", () => {

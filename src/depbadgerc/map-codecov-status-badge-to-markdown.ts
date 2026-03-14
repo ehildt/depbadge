@@ -1,6 +1,6 @@
-import { encodeLabel } from "../shared/encode-label";
+import { encodeLabel } from "../shared/encode-label.ts";
 
-import { CodecovStatusBadge } from "./depbadgerc.type";
+import { CodecovStatusBadge } from "./depbadgerc.type.ts";
 
 export function mapCodecovStatusBadgeToMarkdown(badge: CodecovStatusBadge): string {
   const urlSearchParams = new URLSearchParams({

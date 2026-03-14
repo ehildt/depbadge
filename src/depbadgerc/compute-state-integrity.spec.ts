@@ -2,9 +2,9 @@
 import crypto from "crypto";
 import yaml from "js-yaml";
 
-import { computeStateIntegrity } from "./compute-state-integrity";
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
+import { computeStateIntegrity } from "./compute-state-integrity.ts";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
 
 describe("computeStateIntegrity", () => {
   const makeMockStore = (overrides: Partial<DepbadgeRC> = {}): Readonly<DepbadgeRC & Methods> => {
@@ -26,17 +26,17 @@ describe("computeStateIntegrity", () => {
       statusBadgesStyle: undefined,
 
       // Methods mocked
-      processManifest: jest.fn(),
-      getDependencies: jest.fn(),
-      getStatusBadges: jest.fn(),
-      hydrateDependencyBadges: jest.fn(),
-      outputShieldioBadgesJson: jest.fn(),
-      hydrateStatusBadges: jest.fn(),
-      mapBadgesToMarkdown: jest.fn(),
-      applyMarkdownToTarget: jest.fn(),
-      mapStatusBadgesToMarkdown: jest.fn(),
-      computeStateIntegrity: jest.fn(),
-      outputMarkdownPreview: jest.fn(),
+      processManifest: vi.fn(),
+      getDependencies: vi.fn(),
+      getStatusBadges: vi.fn(),
+      hydrateDependencyBadges: vi.fn(),
+      outputShieldioBadgesJson: vi.fn(),
+      hydrateStatusBadges: vi.fn(),
+      mapBadgesToMarkdown: vi.fn(),
+      applyMarkdownToTarget: vi.fn(),
+      mapStatusBadgesToMarkdown: vi.fn(),
+      computeStateIntegrity: vi.fn(),
+      outputMarkdownPreview: vi.fn(),
     };
 
     return { ...base, ...overrides };

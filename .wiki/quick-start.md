@@ -15,6 +15,12 @@ You can run depbadge directly using npx or add it to your project's development 
 `npm install -g @ehildt/depbadge` then run 
 `npx depbadge`
 
+depbadge accepts the `--generate` (or `-g`) option, which can take `json` or `markdown` as arguments. This allows generating badges JSON files or previewing Markdown when the output section is not set in depbadgerc.yml.
+
+```sh
+npx depbadge -g json -g markdown
+```
+
 ### ▶️ Via GitHub Actions
 Automate your badge updates by adding this workflow to `.github/workflows/depbadge.yml`. This example uses pnpm and automatically commits changes back to your branch.
 

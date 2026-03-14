@@ -1,9 +1,9 @@
-import { CtxStore } from "../store/ctx-store";
+import { CtxStore } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { CodecovStatusBadge, DepbadgeRC, DockerHubStatusBadge, GitHubStatusBadge } from "./depbadgerc.type";
-import { HydratedStatusBadgeMap } from "./hydrate-status-badges";
-import { mapStatusBadgesToMarkdown } from "./map-status-badges-to-markdown";
+import { Methods } from "./depbadgerc.store.ts";
+import { CodecovStatusBadge, DepbadgeRC, DockerHubStatusBadge, GitHubStatusBadge } from "./depbadgerc.type.ts";
+import { HydratedStatusBadgeMap } from "./hydrate-status-badges.ts";
+import { mapStatusBadgesToMarkdown } from "./map-status-badges-to-markdown.ts";
 
 describe("Status badge markdown mapping", () => {
   const bind = (storeOverrides: Partial<DepbadgeRC> = {}) => {

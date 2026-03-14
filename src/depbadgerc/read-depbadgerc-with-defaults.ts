@@ -4,9 +4,9 @@ import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
 import { findFile } from "../shared/find-file.ts";
-import { hashStringToHex } from "../shared/hash-string-to-hsl.ts";
+import { hashStringToHex } from "../shared/hash-string-to-hex.ts";
 
-import { BadgeStyle, DepbadgeRC, DependencyItem, Layout } from "./depbadgerc.type.ts";
+import { BadgeStyle, DepbadgeRC, DependencyItem, Layout, OutputFormat } from "./depbadgerc.type.ts";
 
 type Section = {
   layout?: Layout;
@@ -14,15 +14,19 @@ type Section = {
   items: any[];
 };
 
-function mergeLayout(defaultLayout?: Layout, sectionLayout?: Layout): Layout | undefined {
+export function mergeLayout(defaultLayout?: Layout, sectionLayout?: Layout): Layout | undefined {
   return defaultLayout || sectionLayout ? { ...defaultLayout, ...sectionLayout } : undefined;
 }
 
-function mergeStyle(defaultStyle?: BadgeStyle, sectionStyle?: BadgeStyle): BadgeStyle | undefined {
+export function mergeStyle(defaultStyle?: BadgeStyle, sectionStyle?: BadgeStyle): BadgeStyle | undefined {
   return defaultStyle || sectionStyle ? { ...defaultStyle, ...sectionStyle } : undefined;
 }
 
-function applySectionDefaults<T extends Section>(section: T, defaultLayout?: Layout, defaultStyle?: BadgeStyle): T {
+export function applySectionDefaults<T extends Section>(
+  section: T,
+  defaultLayout?: Layout,
+  defaultStyle?: BadgeStyle,
+): T {
   const layout = mergeLayout(defaultLayout, section.layout);
   const badgeStyle = mergeStyle(defaultStyle, section.badgeStyle);
 
@@ -45,7 +49,6 @@ function applySectionDefaults<T extends Section>(section: T, defaultLayout?: Lay
 export function withDefaults(rc: DepbadgeRC): DepbadgeRC {
   return {
     ...rc,
-
     dependencies: applySectionDefaults(rc.dependencies, rc.dependenciesLayout, rc.dependenciesStyle),
 
     devDependencies: rc.devDependencies
@@ -72,10 +75,18 @@ export function readDepbadgeRC(path = "depbadgerc.yml"): DepbadgeRC {
   return rc;
 }
 
-export function withYargs(rc: DepbadgeRC) {
-  const argv = yargs(hideBin(process.argv)).parse();
-  console.log(argv);
+type ARGV = {
+  g?: string[];
+  generate?: string[];
+};
+
+export function withYargs(rc: DepbadgeRC): DepbadgeRC {
+  rc.output ??= [];
+  const argv = yargs(hideBin(process.argv)).parse() as ARGV;
+  const arrayfy = (v?: string | string[]) => (v ? (Array.isArray(v) ? v : [v]) : []);
+  const gSet = new Set([...arrayfy(argv.g), ...arrayfy(argv.generate)]);
+  (["json", "markdown"] as OutputFormat[]).forEach((t) => gSet.has(t) && !rc.output!.includes(t) && rc.output!.push(t));
   return rc;
 }
 
-export const getDepbadgeRC = () => withDefaults(withYargs(readDepbadgeRC()));
+export const getDepbadgeRC = () => withYargs(withDefaults(readDepbadgeRC()));

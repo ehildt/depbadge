@@ -1,4 +1,4 @@
-import { encodeLabel } from "./encode-label";
+import { encodeLabel } from "./encode-label.ts";
 
 describe("encodeLabel", () => {
   test("should double existing dashes", () => {

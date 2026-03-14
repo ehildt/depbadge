@@ -1,13 +1,14 @@
 import fs from "fs";
+import { Mocked } from "vitest";
 
-import { outputMarkdownPreview } from "./output-markdown-preview";
+import { outputMarkdownPreview } from "./output-markdown-preview.ts";
 
-jest.mock("fs");
+vi.mock("fs");
 
 describe("outputMarkdownPreview", () => {
-  const mockedFs = fs as jest.Mocked<typeof fs>;
+  const mockedFs = fs as Mocked<typeof fs>;
 
-  beforeEach(() => jest.clearAllMocks());
+  beforeEach(() => vi.clearAllMocks());
 
   const bind = (storeOverrides: any = {}) => {
     const store = {

@@ -1,17 +1,19 @@
-import { encodeLabel } from "../shared/encode-label";
+import { Mock } from "vitest";
 
-import { CodecovStatusBadge } from "./depbadgerc.type";
-import { mapCodecovStatusBadgeToMarkdown } from "./map-codecov-status-badge-to-markdown";
+import { encodeLabel } from "../shared/encode-label.ts";
 
-jest.mock("../shared/encode-label", () => ({
-  encodeLabel: jest.fn((s: string) => `encoded_${s}`),
+import { CodecovStatusBadge } from "./depbadgerc.type.ts";
+import { mapCodecovStatusBadgeToMarkdown } from "./map-codecov-status-badge-to-markdown.ts";
+
+vi.mock("../shared/encode-label", () => ({
+  encodeLabel: vi.fn((s: string) => `encoded_${s}`),
 }));
 
 describe("mapCodecovStatusBadgeToMarkdown (with mocked encoder)", () => {
-  const mockedEncodeLabel = encodeLabel as jest.Mock;
+  const mockedEncodeLabel = encodeLabel as Mock;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const baseCodecovBadge: CodecovStatusBadge = {
