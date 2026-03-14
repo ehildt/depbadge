@@ -1,6 +1,6 @@
 type Position = "left" | "right" | "center" | "justify";
-type OutputFormat = "json" | "markdown";
 type SupportedManifest = "package.json" | "pyproject.toml" | "Cargo.toml";
+export type OutputFormat = "json" | "markdown";
 
 export type BadgeStyle = {
   color?: string;

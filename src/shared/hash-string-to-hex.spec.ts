@@ -1,4 +1,4 @@
-import { hashStringToHex } from "./hash-string-to-hsl";
+import { hashStringToHex } from "./hash-string-to-hex.ts";
 
 describe("hashStringToHex", () => {
   test("should return a 6-character hex string without the #", () => {

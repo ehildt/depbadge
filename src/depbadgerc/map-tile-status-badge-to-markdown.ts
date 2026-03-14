@@ -1,6 +1,6 @@
-import { encodeLabel } from "../shared/encode-label";
+import { encodeLabel } from "../shared/encode-label.ts";
 
-import { TileStatusBadge } from "./depbadgerc.type";
+import { TileStatusBadge } from "./depbadgerc.type.ts";
 
 export function mapTileStatusBadgeToMarkdown(badge: TileStatusBadge): string {
   const urlSearchParams = new URLSearchParams({

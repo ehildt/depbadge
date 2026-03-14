@@ -1,17 +1,19 @@
-import { encodeLabel } from "../shared/encode-label";
+import { Mock } from "vitest";
 
-import { GitHubStatusBadge } from "./depbadgerc.type";
-import { mapGithubStatusBadgeToMarkdown } from "./map-github-status-badge-to-markdown";
+import { encodeLabel } from "../shared/encode-label.ts";
 
-jest.mock("../shared/encode-label", () => ({
-  encodeLabel: jest.fn((s: string) => `encoded_${s}`),
+import { GitHubStatusBadge } from "./depbadgerc.type.ts";
+import { mapGithubStatusBadgeToMarkdown } from "./map-github-status-badge-to-markdown.ts";
+
+vi.mock("../shared/encode-label", () => ({
+  encodeLabel: vi.fn((s: string) => `encoded_${s}`),
 }));
 
 describe("mapGithubStatusBadgeToMarkdown (with mocked encoder)", () => {
-  const mockedEncodeLabel = encodeLabel as jest.Mock;
+  const mockedEncodeLabel = encodeLabel as Mock;
 
   beforeEach(() => {
-    jest.clearAllMocks();
+    vi.clearAllMocks();
   });
 
   const baseBadge: GitHubStatusBadge = {

@@ -1,8 +1,8 @@
-import { CtxStore } from "../store/ctx-store";
+import { CtxStore } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC, StatusBadges } from "./depbadgerc.type";
-import { getStatusBadges } from "./get-status-badges";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC, StatusBadges } from "./depbadgerc.type.ts";
+import { getStatusBadges } from "./get-status-badges.ts";
 
 describe("getStatusBadges", () => {
   const bind = (storeOverrides: Partial<DepbadgeRC> = {}) => {

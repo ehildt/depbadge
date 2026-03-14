@@ -1,9 +1,9 @@
-import { CtxStore } from "../store/ctx-store";
+import { CtxStore } from "../store/ctx-store.ts";
 
-import { Methods } from "./depbadgerc.store";
-import { DepbadgeRC } from "./depbadgerc.type";
-import { ManifestDependencyMap } from "./depbadgerc-manifest-contract.type";
-import { HydratedDependencyMap, hydrateDependencyBadges, RCDependencyMap } from "./hydrate-dependency-badges";
+import { Methods } from "./depbadgerc.store.ts";
+import { DepbadgeRC } from "./depbadgerc.type.ts";
+import { ManifestDependencyMap } from "./depbadgerc-manifest-contract.type.ts";
+import { HydratedDependencyMap, hydrateDependencyBadges, RCDependencyMap } from "./hydrate-dependency-badges.ts";
 
 describe("hydrateDependencyBadges", () => {
   const bind = (storeOverrides: any = {}) => {
@@ -89,7 +89,7 @@ describe("hydrateDependencyBadges", () => {
         items: [{ name: "react", message: "" }],
       },
       devDependencies: {
-        items: [{ name: "jest", message: "" }],
+        items: [{ name: "vitest", message: "" }],
       },
       peerDependencies: {
         items: [{ name: "typescript", message: "" }],
@@ -98,7 +98,7 @@ describe("hydrateDependencyBadges", () => {
 
     const mfdm: ManifestDependencyMap = {
       dependencies: { react: "^17.0.0" },
-      devDependencies: { jest: "^29.0.0" },
+      devDependencies: { vitest: "^29.0.0" },
       peerDependencies: { typescript: "^5.0.0" },
     };
 
@@ -106,7 +106,7 @@ describe("hydrateDependencyBadges", () => {
     const result = run(deps, mfdm);
 
     expect(result.dependencies!.react.message).toBe("^17.0.0");
-    expect(result.devDependencies!.jest.message).toBe("^29.0.0");
+    expect(result.devDependencies!.vitest.message).toBe("^29.0.0");
     expect(result.peerDependencies!.typescript.message).toBe("^5.0.0");
   });
 });

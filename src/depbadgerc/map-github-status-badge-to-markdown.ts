@@ -1,6 +1,6 @@
-import { encodeLabel } from "../shared/encode-label";
+import { encodeLabel } from "../shared/encode-label.ts";
 
-import { GitHubStatusBadge } from "./depbadgerc.type";
+import { GitHubStatusBadge } from "./depbadgerc.type.ts";
 
 export function mapGithubStatusBadgeToMarkdown(badge: GitHubStatusBadge): string {
   const urlSearchParams = new URLSearchParams({
