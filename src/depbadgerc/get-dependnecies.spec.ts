@@ -31,7 +31,11 @@ describe("getDependencies", () => {
     const devDeps: Dependencies = { items: [] };
     const peerDeps: Dependencies = { items: [] };
 
-    const run = bind({ dependencies: deps, devDependencies: devDeps, peerDependencies: peerDeps });
+    const run = bind({
+      dependencies: deps,
+      devDependencies: devDeps,
+      peerDependencies: peerDeps,
+    });
     const result = run();
 
     expect(result.dependencies).toBe(deps);

@@ -19,10 +19,30 @@ describe("applyMarkdownToTarget", () => {
     target: "README.md",
 
     // Each section includes layout for headers
-    dependencies: { items: [], layout: { showHeader: true, header: "Dependencies", position: "left" } },
-    devDependencies: { items: [], layout: { showHeader: true, header: "Dev Dependencies", position: "center" } },
-    peerDependencies: { items: [], layout: { showHeader: false, header: "Peer Dependencies", position: "right" } },
-    statusBadges: { items: [], layout: { showHeader: true, header: "Status Badges", position: "center" } },
+    dependencies: {
+      items: [],
+      layout: { showHeader: true, header: "Dependencies", position: "left" },
+    },
+    devDependencies: {
+      items: [],
+      layout: {
+        showHeader: true,
+        header: "Dev Dependencies",
+        position: "center",
+      },
+    },
+    peerDependencies: {
+      items: [],
+      layout: {
+        showHeader: false,
+        header: "Peer Dependencies",
+        position: "right",
+      },
+    },
+    statusBadges: {
+      items: [],
+      layout: { showHeader: true, header: "Status Badges", position: "center" },
+    },
     output: undefined,
 
     // methods mocked

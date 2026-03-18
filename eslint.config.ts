@@ -9,7 +9,15 @@ import tseslint from "typescript-eslint";
 
 export default defineConfig([
   {
-    ignores: [".husky", ".gitlab", ".vscode", ".json", ".depcruise.mjs", "dist", "node_modules"],
+    ignores: [
+      ".husky",
+      ".gitlab",
+      ".vscode",
+      ".json",
+      ".depcruise.mjs",
+      "dist",
+      "node_modules",
+    ],
   },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,

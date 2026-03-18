@@ -18,7 +18,16 @@ describe("getStatusBadges", () => {
 
   it("returns object with statusBadges if store.statusBadges exists", () => {
     const mockStatusBadges: StatusBadges = {
-      items: [{ name: "github", user: "octocat", repo: "hello-world", metric: "stars", message: "100", color: "blue" }],
+      items: [
+        {
+          name: "github",
+          user: "octocat",
+          repo: "hello-world",
+          metric: "stars",
+          message: "100",
+          color: "blue",
+        },
+      ],
     };
 
     const run = bind({ statusBadges: mockStatusBadges });

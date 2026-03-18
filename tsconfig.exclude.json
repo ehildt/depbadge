@@ -11,7 +11,7 @@
     "src/**/*.stories.?sx",
     "**/read-depbadgerc-with-defaults.ts",
     "**/depbadgerc.type.ts",
-    "**/vitest.config.ts",
+    "**/vitest.config.ts"
   ],
   "extends": "./tsconfig.json"
 }

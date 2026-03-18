@@ -6,12 +6,14 @@ import {
   DepbadgeRC,
   DockerHubStatusBadge,
   GitHubStatusBadge,
+  SocketStatusBadge,
   TileStatusBadge,
 } from "./depbadgerc.type.ts";
 import { HydratedStatusBadgeMap } from "./hydrate-status-badges.ts";
 import { mapCodecovStatusBadgeToMarkdown } from "./map-codecov-status-badge-to-markdown.ts";
 import { mapDockerHubStatusBadgeToMarkdown } from "./map-dockerhub-status-badge-to-markdown.ts";
 import { mapGithubStatusBadgeToMarkdown } from "./map-github-status-badge-to-markdown.ts";
+import { mapSocketStatusBadgeToMarkdown } from "./map-socket-status-badge-to-markdown.ts";
 import { mapTileStatusBadgeToMarkdown } from "./map-tile-status-badge-to-markdown.ts";
 
 export const mapStatusBadgesToMarkdown = useCtxCallback<CtxStore<DepbadgeRC, Methods>>(
@@ -25,6 +27,7 @@ export const mapStatusBadgesToMarkdown = useCtxCallback<CtxStore<DepbadgeRC, Met
             if (item.name === "docker") return mapDockerHubStatusBadgeToMarkdown(item as DockerHubStatusBadge);
             if (item.name === "codecov") return mapCodecovStatusBadgeToMarkdown(item as CodecovStatusBadge);
             if (item.name === "tile") return mapTileStatusBadgeToMarkdown(item as TileStatusBadge);
+            if (item.name === "socket") return mapSocketStatusBadgeToMarkdown(item as SocketStatusBadge);
           })
           .filter((x): x is string => Boolean(x)),
       ]),

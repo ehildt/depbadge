@@ -5,7 +5,7 @@
 integrity: 838e9da83c5b73c2de43b87b950428403a090d7dc926145640c1576d7c313820
 target: README.md
 manifest: package.json
-output: ['json', 'markdown']
+output: ["json", "markdown"]
 ```
 
 `# yaml-language-server`
@@ -36,8 +36,6 @@ Depbadge reads dependency sections from this file:
 
 Defines which output artifacts Depbadge generates (primarily for previewing and debugging).
 
-* `json` → Generates machine-readable files for each badge under `.depbadge/<section>/<name>.json` (e.g. `.depbadge/dependencies/react.json`). Useful for inspecting resolved configuration and computed badge data.
+- `json` → Generates machine-readable files for each badge under `.depbadge/<section>/<name>.json` (e.g. `.depbadge/dependencies/react.json`). Useful for inspecting resolved configuration and computed badge data.
 
-* `markdown` → Generates rendered badge previews as Markdown under `.depbadge/`. This allows you to verify layout and styling before writing to the target file.
-
-
+- `markdown` → Generates rendered badge previews as Markdown under `.depbadge/`. This allows you to verify layout and styling before writing to the target file.

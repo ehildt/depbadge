@@ -87,7 +87,9 @@ describe("computeStateIntegrity", () => {
 
   it("produces different hashes for different store states", () => {
     const store1 = makeMockStore();
-    const store2 = makeMockStore({ dependencies: { items: [{ name: "x", message: "ok" }] } });
+    const store2 = makeMockStore({
+      dependencies: { items: [{ name: "x", message: "ok" }] },
+    });
 
     const hash1 = computeStateIntegrity(store1)();
     const hash2 = computeStateIntegrity(store2)();

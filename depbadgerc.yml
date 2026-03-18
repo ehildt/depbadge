@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./depbadgerc.schema.json
-integrity: 11eb46cd419fa4124f9e5b83dbb43dc1ab17d2f8b4e7b550649bd7e2ce05851c
+integrity: bc5a33d7d59170f0090e8314ab2c69f7cdcfe507a07b5b94c5377073cf1cd54c
 target: README.md
 manifest: package.json
 output:
@@ -10,15 +10,15 @@ dependenciesLayout: &DEPENDENCIES_LAYOUT
   showHeader: false
 
 dependenciesStyle: &DEPENDENCIES_STYLE
-  labelColor: '333'
+  labelColor: "333"
   isError: false
   namedLogo: npm
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
 
-statusBadgesStyle: &STATUS_BADGES_STYLE   
-  labelColor: '333'
+statusBadgesStyle: &STATUS_BADGES_STYLE
+  labelColor: "333"
   isError: false
   namedLogo: npm
   logoWidth: 40
@@ -43,18 +43,18 @@ dependencies:
       link: https://github.com/yargs/yargs
 
 devDependencies:
-  layout:  *DEPENDENCIES_LAYOUT
-  badgeStyle: 
+  layout: *DEPENDENCIES_LAYOUT
+  badgeStyle:
     <<: *DEPENDENCIES_STYLE
     style: flat-square
   items:
-    - name: '@changesets/cli'
+    - name: "@changesets/cli"
       namedLogo: npm
-    - name: '@eslint/js'
+    - name: "@eslint/js"
       namedLogo: eslint
-    - name: '@types/eslint'
+    - name: "@types/eslint"
       namedLogo: eslint
-    - name: '@types/node'
+    - name: "@types/node"
       namedLogo: node
     - name: depcheck
       namedLogo: npm
@@ -136,5 +136,10 @@ statusBadges:
     - name: tile
       message: 🍪🍪🍪
       label: My favorite
-      color: '777'
+      color: "777"
       link: https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/
+    - name: socket
+      package: '@ehildt/depbadge'
+      metric: quality
+      version: 1.1.4
+      style: for-the-badge

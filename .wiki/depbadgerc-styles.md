@@ -7,10 +7,10 @@ It controls visual appearance, logo handling, linking, and caching. Like layouts
 
 ```yaml
 dependenciesStyle: &DEPENDENCIES_STYLE
-  labelColor: '#333'
+  labelColor: "#333"
   isError: false
   namedLogo: npm
-  logoSvg: ''
+  logoSvg: ""
   logoWidth: 40
   style: for-the-badge
   cacheSeconds: 3600
@@ -27,7 +27,6 @@ dependenciesStyle: &DEPENDENCIES_STYLE
 | `style`        | string  | Shields style (`flat`, `flat-square`, `for-the-badge`) |
 | `cacheSeconds` | number  | CDN cache duration                                     |
 | `link`         | string  | Target URL when clicking badge                         |
-
 
 ### Applying a Style to a Section
 
@@ -47,7 +46,7 @@ Every item may override any badgeStyle property:
 dependencies:
   items:
     - name: vue
-      labelColor: '#42b883'
+      labelColor: "#42b883"
       namedLogo: vue
       link: https://vuejs.org/
 ```

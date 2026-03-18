@@ -39,7 +39,9 @@ describe("read-depbadgerc-with-defaults", () => {
 
   it("applySectionDefaults applies defaults and calls hashStringToHex", () => {
     hashMock.mockImplementation((s) => `hash-${s}`);
-    const section = { items: [{ name: "foo", message: "bar" }] as DependencyItem[] };
+    const section = {
+      items: [{ name: "foo", message: "bar" }] as DependencyItem[],
+    };
     const result = applySectionDefaults(section);
     expect(result.items[0].color).toBe("hash-foo");
     expect(result.items[0].logoColor).toBe("hash-foo");

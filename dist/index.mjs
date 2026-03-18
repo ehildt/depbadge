@@ -4968,6 +4968,16 @@ function mapGithubStatusBadgeToMarkdown(badge) {
   return badge?.link ? `[![${label}](${url})](${badge.link})` : `![${label}](${url})`;
 }
 
+// src/depbadgerc/map-socket-status-badge-to-markdown.ts
+init_esm_shims();
+function mapSocketStatusBadgeToMarkdown(badge) {
+  const label = badge.name;
+  const version = badge.version ?? "*";
+  const url = `https://badge.socket.dev/npm/package/${badge.package}/${version}`;
+  const link = badge.link ?? `https://www.npmjs.com/package/${badge.package}`;
+  return `[![${label}](${url})](${link})`;
+}
+
 // src/depbadgerc/map-tile-status-badge-to-markdown.ts
 init_esm_shims();
 function mapTileStatusBadgeToMarkdown(badge) {
@@ -5000,6 +5010,7 @@ var mapStatusBadgesToMarkdown = useCtxCallback(
         if (item.name === "docker") return mapDockerHubStatusBadgeToMarkdown(item);
         if (item.name === "codecov") return mapCodecovStatusBadgeToMarkdown(item);
         if (item.name === "tile") return mapTileStatusBadgeToMarkdown(item);
+        if (item.name === "socket") return mapSocketStatusBadgeToMarkdown(item);
       }).filter((x2) => Boolean(x2))
     ])
   )

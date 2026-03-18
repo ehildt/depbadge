@@ -67,7 +67,9 @@
           "description": "Hex color code without the # prefix"
         },
         "logoWidth": { "type": "number" },
-        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
+        "style": {
+          "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"]
+        },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -111,7 +113,9 @@
           "description": "Hex color code without the # prefix"
         },
         "logoWidth": { "type": "number" },
-        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
+        "style": {
+          "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"]
+        },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -168,7 +172,9 @@
           "description": "Hex color code without the # prefix"
         },
         "logoWidth": { "type": "number" },
-        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
+        "style": {
+          "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"]
+        },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -210,7 +216,9 @@
           "description": "Hex color code without the # prefix"
         },
         "logoWidth": { "type": "number" },
-        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
+        "style": {
+          "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"]
+        },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -248,7 +256,9 @@
           "description": "Hex color code without the # prefix"
         },
         "logoWidth": { "type": "number" },
-        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
+        "style": {
+          "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"]
+        },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -281,7 +291,45 @@
           "description": "Hex color code without the # prefix"
         },
         "logoWidth": { "type": "number" },
-        "style": { "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"] },
+        "style": {
+          "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"]
+        },
+        "cacheSeconds": { "type": "number" },
+        "link": { "type": "string" }
+      }
+    },
+
+    "SocketStatusBadge": {
+      "type": "object",
+      "required": ["name", "package"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "const": "socket" },
+        "package": { "type": "string" },
+        "version": { "type": "string" },
+        "message": { "type": "string" },
+        "color": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+        "labelColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+        "isError": { "type": "boolean" },
+        "namedLogo": { "type": "string" },
+        "logoSvg": { "type": "string" },
+        "logoColor": {
+          "type": "string",
+          "pattern": "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "description": "Hex color code without the # prefix"
+        },
+        "logoWidth": { "type": "number" },
+        "style": {
+          "enum": ["flat", "flat-square", "plastic", "for-the-badge", "social"]
+        },
         "cacheSeconds": { "type": "number" },
         "link": { "type": "string" }
       }
@@ -292,7 +340,8 @@
         { "$ref": "#/$defs/GitHubStatusBadge" },
         { "$ref": "#/$defs/DockerHubStatusBadge" },
         { "$ref": "#/$defs/CodecovStatusBadge" },
-        { "$ref": "#/$defs/TileStatusBadge" }
+        { "$ref": "#/$defs/TileStatusBadge" },
+        { "$ref": "#/$defs/SocketStatusBadge" }
       ]
     },
 
