@@ -19,7 +19,7 @@ target: README.md
 manifest: package.json
 # Dependency source file; usually package.json for Node.js projects
 
-output: ['json', 'markdown']
+output: ["json", "markdown"]
 # 'json' → machine-readable preview for debugging
 # 'markdown' → badge-ready preview for verification
 
@@ -28,11 +28,11 @@ output: ['json', 'markdown']
 # =========================
 
 dependenciesLayout: &DEP_LAYOUT
-  position: center     # Alignment of badges: left, center, right
-  showHeader: true     # Render a section header
+  position: center # Alignment of badges: left, center, right
+  showHeader: true # Render a section header
 
 devDependenciesLayout: &DEV_LAYOUT
-  <<: *DEP_LAYOUT      # Inherit defaults from DEP_LAYOUT
+  <<: *DEP_LAYOUT # Inherit defaults from DEP_LAYOUT
   position: left
   showHeader: false
   header: Development
@@ -50,12 +50,12 @@ statusBadgesLayout: &STATUS_LAYOUT
 # ==============================
 
 baseStyle: &BASE_STYLE
-  labelColor: '#333'   # Left segment color
-  isError: false       # Force error style
-  logoSvg: ''          # Optional custom SVG logo
-  logoWidth: 40        # Width of logo in pixels
+  labelColor: "#333" # Left segment color
+  isError: false # Force error style
+  logoSvg: "" # Optional custom SVG logo
+  logoWidth: 40 # Width of logo in pixels
   style: for-the-badge # Shields style: flat, flat-square, for-the-badge
-  cacheSeconds: 3600   # CDN cache duration
+  cacheSeconds: 3600 # CDN cache duration
 
 # ====================
 # Dependencies Section
@@ -71,11 +71,11 @@ dependencies:
     - name: chalk
       # Uses section-level badgeStyle (npm logo, for-the-badge)
     - name: colord
-      labelColor: '#ff4500'  # Override label color per item
+      labelColor: "#ff4500" # Override label color per item
     - name: js-yaml
-      style: flat-square      # Override style per item
+      style: flat-square # Override style per item
     - name: "@iarna/toml"
-      namedLogo: toml         # Use a different logo per item
+      namedLogo: toml # Use a different logo per item
 
 # =======================
 # DevDependencies Section
@@ -90,11 +90,11 @@ devDependencies:
     style: flat-square
   items:
     - name: jest
-      namedLogo: jest          # Override logo for this package
+      namedLogo: jest # Override logo for this package
     - name: typescript
-      link: https://www.typescriptlang.org/  # Override link
+      link: https://www.typescriptlang.org/ # Override link
     - name: eslint
-      style: for-the-badge     # Override style
+      style: for-the-badge # Override style
 
 # =========================
 # Peer Dependencies Section
@@ -108,7 +108,7 @@ peerDependencies:
     style: flat
   items:
     - name: react
-      namedLogo: react         # Per-item logo
+      namedLogo: react # Per-item logo
 
 # ===================================
 # Status Badges Section (Independent)
@@ -123,25 +123,27 @@ statusBadges:
     namedLogo: github
   items:
     - name: github
-      metric: release          # Badge shows latest release
+      metric: release # Badge shows latest release
       user: ehildt
       repo: depbadge
       branch: main
       # Uses section-level badgeStyle
     - name: github
-      metric: stars            # Badge shows stars count
+      metric: stars # Badge shows stars count
       user: ehildt
       repo: depbadge
       branch: main
-      labelColor: '#ffcc00'   # Override label color
+      labelColor: "#ffcc00" # Override label color
     - name: codecov
       user: ehildt
       repo: depbadge
       branch: main
       flag: c
-      style: flat-square       # Override style for this badge
+      style: flat-square # Override style for this badge
     - name: tile
-      label: 'I Love'
+      label: "I Love"
       message: COOKIES
+    - name: socket
+      package: express
+      version: "4.18.2"
 ```
-

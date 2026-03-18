@@ -21,7 +21,19 @@ const require = __createRequire(import.meta.url);
   },
   esbuildOptions(options) {
     options.platform = "node";
-    options.external = ["node:*", "net", "http", "https", "tls", "crypto", "path", "fs", "os", "url", "child_process"];
+    options.external = [
+      "node:*",
+      "net",
+      "http",
+      "https",
+      "tls",
+      "crypto",
+      "path",
+      "fs",
+      "os",
+      "url",
+      "child_process",
+    ];
   },
   treeshake: true,
 });

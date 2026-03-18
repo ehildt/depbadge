@@ -11,12 +11,11 @@ dependenciesLayout: &DEPENDENCIES_LAYOUT
   # header: 'My Dependencies'
 ```
 
-
-| Property | Type | Description |
-| :--- | :--- | :--- |
-| **position** | string | Alignment in the document (left, center, right) |
-| **showHeader** | boolean | Whether a Markdown header is rendered above the section |
-| **header** | string | Optional custom header title (falls back to section name) |
+| Property       | Type    | Description                                               |
+| :------------- | :------ | :-------------------------------------------------------- |
+| **position**   | string  | Alignment in the document (left, center, right)           |
+| **showHeader** | boolean | Whether a Markdown header is rendered above the section   |
+| **header**     | string  | Optional custom header title (falls back to section name) |
 
 ### Reusing Layouts via YAML Anchors
 
@@ -29,7 +28,9 @@ devDependenciesLayout: &DEV_DEPENDENCIES_LAYOUT
   showHeader: true
   header: Development Dependencies
 ```
+
 YAML merge (<<) allows:
+
 - DRY configuration
 - Targeted overrides
 - Consistent styling across sections

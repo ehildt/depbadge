@@ -32,7 +32,9 @@ describe("outputShieldioBadgesJson", () => {
 
     run(map as any);
 
-    expect(mockedFs.mkdirSync).toHaveBeenCalledWith(".depbadge/dependencies", { recursive: true });
+    expect(mockedFs.mkdirSync).toHaveBeenCalledWith(".depbadge/dependencies", {
+      recursive: true,
+    });
   });
 
   test("writes badge files", () => {
@@ -80,7 +82,9 @@ describe("outputShieldioBadgesJson", () => {
 
     run(map as any, "custom");
 
-    expect(mockedFs.mkdirSync).toHaveBeenCalledWith("custom/dependencies", { recursive: true });
+    expect(mockedFs.mkdirSync).toHaveBeenCalledWith("custom/dependencies", {
+      recursive: true,
+    });
   });
 
   test("handles multiple sections", () => {

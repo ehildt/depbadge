@@ -63,7 +63,18 @@ export type TileStatusBadge = DependencyItem & {
   label: string;
 };
 
-export type StatusBadgeItem = GitHubStatusBadge | DockerHubStatusBadge | CodecovStatusBadge | TileStatusBadge;
+export type SocketStatusBadge = DependencyItem & {
+  name: "socket";
+  package: string;
+  version?: string;
+};
+
+export type StatusBadgeItem =
+  | GitHubStatusBadge
+  | DockerHubStatusBadge
+  | CodecovStatusBadge
+  | TileStatusBadge
+  | SocketStatusBadge;
 
 export type StatusBadges = {
   layout?: Layout;

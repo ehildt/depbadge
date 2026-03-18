@@ -1,19 +1,22 @@
 # Quick Start
+
 depbadge is a platform-agnostic tool designed to run anywhere JavaScript is available. Whether you're running it locally or integrated into a CI/CD pipeline, setup is designed to be minimal and fast.
 
 ## Installation & Usage
+
 ### 📦 Via NPM
+
 You can run depbadge directly using npx or add it to your project's development dependencies.
 
-- Run once without installing   
-`npx @ehildt/depbadge`
+- Run once without installing  
+  `npx @ehildt/depbadge`
 
-- Or add to your project   
-`npm install -D @ehildt/depbadge`
+- Or add to your project  
+  `npm install -D @ehildt/depbadge`
 
-- Or add globally   
-`npm install -g @ehildt/depbadge` then run 
-`npx depbadge`
+- Or add globally  
+  `npm install -g @ehildt/depbadge` then run
+  `npx depbadge`
 
 depbadge accepts the `--generate` (or `-g`) option, which can take `json` or `markdown` as arguments. This allows generating badges JSON files or previewing Markdown when the output section is not set in depbadgerc.yml.
 
@@ -22,6 +25,7 @@ npx depbadge -g json -g markdown
 ```
 
 ### ▶️ Via GitHub Actions
+
 Automate your badge updates by adding this workflow to `.github/workflows/depbadge.yml`. This example uses pnpm and automatically commits changes back to your branch.
 
 ```yml
@@ -86,7 +90,8 @@ jobs:
 ```
 
 ## 🛠️ Minimal Configuration
-To get started, create a `.depbadgerc.yml` file in your project root.    
+
+To get started, create a `.depbadgerc.yml` file in your project root.  
 Define which packages to track by listing them under `dependencies.items`.
 
 ```yaml
@@ -96,7 +101,9 @@ dependencies:
     - name: js-yaml
     - name: "@iarna/toml"
 ```
+
 ## ↕️ Badge Injection Markers
+
 Finally, add the following markers to your README.md. The badges will be automatically injected between them:
 
 ```markdown
