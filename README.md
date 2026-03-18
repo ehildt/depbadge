@@ -29,7 +29,6 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 ![github](https://img.shields.io/github/license/ehildt/depbadge?labelColor=333&style=for-the-badge&cacheSeconds=3600&color=b16425&logo=github&logoColor=b16425&logoWidth=40&branch=main)
 [![codecov](https://img.shields.io/codecov/c/github/ehildt/depbadge?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=4021b0&logoWidth=40&style=for-the-badge&color=4021b0&branch=main)](https://about.codecov.io/)
 [![My_favorite](https://img.shields.io/badge/My_favorite-🍪🍪🍪-777?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=b4cf2a&logoWidth=40&style=for-the-badge)](https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/)
-[![socket](https://badge.socket.dev/npm/package/@ehildt/depbadge/1.1.4)](https://www.npmjs.com/package/@ehildt/depbadge)
 
 </div>
 
@@ -66,14 +65,14 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 ![@vitest/coverage-v8](https://img.shields.io/badge/_vitest_coverage_v8-4.1.0-92d435.svg?labelColor=333&cacheSeconds=3600&logo=vitest&logoColor=92d435&logoWidth=40&style=flat-square)
 ![jiti](https://img.shields.io/badge/jiti-v2.6.1-2ab746.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=2ab746&logoWidth=40&style=flat-square)
 ![lint-staged](https://img.shields.io/badge/lint_staged-v16.4.0-dfba26.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=dfba26&logoWidth=40&style=flat-square)
-![npm-check-updates](https://img.shields.io/badge/npm_check_updates-v19.6.3-1ec23c.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=1ec23c&logoWidth=40&style=flat-square)
+![npm-check-updates](https://img.shields.io/badge/npm_check_updates-v19.6.5-1ec23c.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=1ec23c&logoWidth=40&style=flat-square)
 ![rimraf](https://img.shields.io/badge/rimraf-v6.1.3-24a85b.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=24a85b&logoWidth=40&style=flat-square)
 ![source-map-support](https://img.shields.io/badge/source_map_support-v0.5.21-2ecc39.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=2ecc39&logoWidth=40&style=flat-square)
 ![ts-loader](https://img.shields.io/badge/ts_loader-v9.5.4-1e46be.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=1e46be&logoWidth=40&style=flat-square)
 ![ts-node](https://img.shields.io/badge/ts_node-v10.9.2-c51b76.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=c51b76&logoWidth=40&style=flat-square)
 ![ts-unused-exports](https://img.shields.io/badge/ts_unused_exports-v11.0.1-5e26c0.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=5e26c0&logoWidth=40&style=flat-square)
 ![typescript](https://img.shields.io/badge/typescript-v5.9.3-4c2eb8.svg?labelColor=333&cacheSeconds=3600&logo=typescript&logoColor=4c2eb8&logoWidth=40&style=flat-square)
-![typescript-eslint](https://img.shields.io/badge/typescript_eslint-v8.57.0-dc2e59.svg?labelColor=333&cacheSeconds=3600&logo=eslint&logoColor=dc2e59&logoWidth=40&style=flat-square)
+![typescript-eslint](https://img.shields.io/badge/typescript_eslint-v8.57.1-dc2e59.svg?labelColor=333&cacheSeconds=3600&logo=eslint&logoColor=dc2e59&logoWidth=40&style=flat-square)
 ![@types/yargs](https://img.shields.io/badge/_types_yargs-v17.0.35-9db92d.svg?labelColor=333&cacheSeconds=3600&logo=freebsd&logoColor=9db92d&logoWidth=40&style=flat-square)
 
 </div>
