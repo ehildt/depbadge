@@ -19,10 +19,7 @@
     "noImplicitThis": true,
     "noEmit": true,
     "allowImportingTsExtensions": true,
-    "types": [
-      "node",
-      "vitest/globals"
-    ]
+    "types": ["node", "vitest/globals"]
   },
   "include": [
     "src/",

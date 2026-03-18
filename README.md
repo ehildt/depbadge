@@ -15,7 +15,7 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 
 **`package.json`** – Node.js / JavaScript / TypeScript projects  
 **`pyproject.toml`** – Python projects (PEP 621)  
-**`Cargo.toml`** – Rust projects   
+**`Cargo.toml`** – Rust projects
 
 </div>
 <br>
@@ -29,6 +29,7 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 ![github](https://img.shields.io/github/license/ehildt/depbadge?labelColor=333&style=for-the-badge&cacheSeconds=3600&color=b16425&logo=github&logoColor=b16425&logoWidth=40&branch=main)
 [![codecov](https://img.shields.io/codecov/c/github/ehildt/depbadge?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=4021b0&logoWidth=40&style=for-the-badge&color=4021b0&branch=main)](https://about.codecov.io/)
 [![My_favorite](https://img.shields.io/badge/My_favorite-🍪🍪🍪-777?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=b4cf2a&logoWidth=40&style=for-the-badge)](https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/)
+[![socket](https://badge.socket.dev/npm/package/@ehildt/depbadge/1.1.4)](https://www.npmjs.com/package/@ehildt/depbadge)
 
 </div>
 
@@ -80,11 +81,9 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 
 <br>
 
-
 <div align="center">
 
 [E-MAIL](mailto:eugen.hildt@gmail.com) &nbsp;—&nbsp; [WIKI](https://github.com/ehildt/depbadge/wiki) &nbsp;—&nbsp; [ISSUES](https://github.com/ehildt/depbadge/issues) &nbsp;—&nbsp; [DONATE](https://github.com/sponsors/ehildt)
-
 
 </div>
 <br>

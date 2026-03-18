@@ -26,12 +26,16 @@ describe("outputMarkdownPreview", () => {
     const run = bind();
     run("BADGES", { dependencies: ["badge1", "badge2"] });
 
-    expect(mockedFs.mkdirSync).toHaveBeenCalledWith(".depbadge", { recursive: true });
+    expect(mockedFs.mkdirSync).toHaveBeenCalledWith(".depbadge", {
+      recursive: true,
+    });
     expect(mockedFs.writeFileSync).toHaveBeenCalledWith(".depbadge/BADGES.md", "badge1\nbadge2");
   });
 
   it("adds header when showHeader is true", () => {
-    const run = bind({ dependencies: { layout: { showHeader: true, header: "Deps" } } });
+    const run = bind({
+      dependencies: { layout: { showHeader: true, header: "Deps" } },
+    });
     run("BADGES", { dependencies: ["badge"] });
 
     // Matches exact newlines from implementation
@@ -50,7 +54,9 @@ describe("outputMarkdownPreview", () => {
 
   it("wraps content with header + alignment div", () => {
     const run = bind({
-      dependencies: { layout: { showHeader: true, header: "Deps", position: "center" } },
+      dependencies: {
+        layout: { showHeader: true, header: "Deps", position: "center" },
+      },
     });
     run("BADGES", { dependencies: ["badge"] });
 
@@ -64,7 +70,9 @@ describe("outputMarkdownPreview", () => {
     const run = bind();
     run("BADGES", { dependencies: ["badge"] }, "preview");
 
-    expect(mockedFs.mkdirSync).toHaveBeenCalledWith("preview", { recursive: true });
+    expect(mockedFs.mkdirSync).toHaveBeenCalledWith("preview", {
+      recursive: true,
+    });
     expect(mockedFs.writeFileSync).toHaveBeenCalledWith("preview/BADGES.md", "badge");
   });
 

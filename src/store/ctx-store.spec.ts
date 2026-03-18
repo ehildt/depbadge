@@ -1,4 +1,4 @@
-import { useCtxCallback, useCtxStore } from "./ctx-store";
+import { useCtxCallback, useCtxStore } from "./ctx-store.ts";
 
 describe("CtxStore / useCtxCallback strict tests", () => {
   type State = { count: number; text: string };
@@ -39,7 +39,11 @@ describe("CtxStore / useCtxCallback strict tests", () => {
   it("multiple callbacks bound independently", () => {
     const store = useCtxStore<State, Methods>(
       { count: 4, text: "y" },
-      { increment: (s) => (d) => s.count + d, double: (s) => () => s.count * 2, append: (s) => (str) => s.text + str },
+      {
+        increment: (s) => (d) => s.count + d,
+        double: (s) => () => s.count * 2,
+        append: (s) => (str) => s.text + str,
+      },
     );
 
     const cb1 = useCtxCallback<typeof store>((s) => s.count * 2)(store);
@@ -60,7 +64,11 @@ describe("CtxStore / useCtxCallback strict tests", () => {
   it("callbacks still work even with frozen store", () => {
     const store = useCtxStore<State, Methods>(
       { count: 7, text: "z" },
-      { increment: (s) => (d) => s.count + d, double: (s) => () => s.count * 2, append: (s) => (str) => s.text + str },
+      {
+        increment: (s) => (d) => s.count + d,
+        double: (s) => () => s.count * 2,
+        append: (s) => (str) => s.text + str,
+      },
     );
 
     const fn = useCtxCallback<typeof store>((s, delta: number) => s.count + delta)(store);
