@@ -1,5 +1,11 @@
 # @ehildt/depbadge
 
+## 1.3.0
+
+### Minor Changes
+
+- aae9e4e: Replace js-yaml with yaml and yargs with native parseArgs, add resolveYamlMergeKey for YAML 1.1 merge key support
+
 ## 1.2.0
 
 ### Minor Changes
