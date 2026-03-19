@@ -1,6 +1,7 @@
 import { colord } from "colord";
 
-export function hashStringToHex(str: string) {
+export function hashStringToHex(str: string): string {
+  if (!str?.length) str = "default";
   let h = 0;
   for (let i = 0; i < str.length; i++) {
     h = str.charCodeAt(i) + ((h << 5) - h);

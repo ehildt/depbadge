@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import crypto from "crypto";
-import yaml from "js-yaml";
+import yaml from "yaml";
 
 import { computeStateIntegrity } from "./compute-state-integrity.ts";
 import { Methods } from "./depbadgerc.store.ts";
@@ -68,7 +68,7 @@ describe("computeStateIntegrity", () => {
     const result = computeStateIntegrity(store)(...payload);
 
     const hash = crypto.createHash("sha256");
-    const yml = yaml.dump({ ...pickState(store), integrity: null });
+    const yml = yaml.stringify({ ...pickState(store), integrity: null });
     const payloadStringified = JSON.stringify(payload);
     hash.update(`${yml} --- ${payloadStringified}`, "utf8");
     const expectedHash = hash.digest("hex");
