@@ -1,12 +1,13 @@
-import fs from "fs";
-import yaml from "js-yaml";
-import yargs from "yargs";
-import { hideBin } from "yargs/helpers";
+import fs from "node:fs";
+import { parseArgs } from "node:util";
+
+import yaml from "yaml";
 
 import { findFile } from "../shared/find-file.ts";
 import { hashStringToHex } from "../shared/hash-string-to-hex.ts";
+import { resolveYamlMergeKey } from "../shared/resolve-yaml-merge-key.ts";
 
-import { BadgeStyle, DepbadgeRC, DependencyItem, Layout, OutputFormat } from "./depbadgerc.type.ts";
+import type { BadgeStyle, DepbadgeRC, DependencyItem, Layout, OutputFormat } from "./depbadgerc.type.ts";
 
 type Section = {
   layout?: Layout;
@@ -71,22 +72,28 @@ export function withDefaults(rc: DepbadgeRC): DepbadgeRC {
 export function readDepbadgeRC(path = "depbadgerc.yml"): DepbadgeRC {
   const filePath = findFile(path);
   if (!filePath) throw new Error(`${path} not found`);
-  const rc = yaml.load(fs.readFileSync(filePath, "utf8")) as DepbadgeRC;
+  const rc = resolveYamlMergeKey(yaml.parse(fs.readFileSync(filePath, "utf8"))) as DepbadgeRC;
   return rc;
 }
 
-type ARGV = {
-  g?: string[];
-  generate?: string[];
-};
-
-export function withYargs(rc: DepbadgeRC): DepbadgeRC {
+export function withArgs(rc: DepbadgeRC): DepbadgeRC {
   rc.output ??= [];
-  const argv = yargs(hideBin(process.argv)).parse() as ARGV;
+  const { values } = parseArgs({
+    options: {
+      g: {
+        type: "string",
+        multiple: true,
+      },
+      generate: {
+        type: "string",
+        multiple: true,
+      },
+    },
+  });
   const arrayfy = (v?: string | string[]) => (v ? (Array.isArray(v) ? v : [v]) : []);
-  const gSet = new Set([...arrayfy(argv.g), ...arrayfy(argv.generate)]);
+  const gSet = new Set([...arrayfy(values.g), ...arrayfy(values.generate)]);
   (["json", "markdown"] as OutputFormat[]).forEach((t) => gSet.has(t) && !rc.output!.includes(t) && rc.output!.push(t));
   return rc;
 }
 
-export const getDepbadgeRC = () => withYargs(withDefaults(readDepbadgeRC()));
+export const getDepbadgeRC = () => withArgs(withDefaults(readDepbadgeRC()));

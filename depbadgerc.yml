@@ -1,5 +1,5 @@
 # yaml-language-server: $schema=./depbadgerc.schema.json
-integrity: 7e0ca4fb48dfc72250a2f0badf01959937a3e1605ad410262c98940c5e69abee
+integrity: 2dba81fa2bc8c81cc09452035d6b34e781d69536b2af3db6ada1d586c2f1e63a
 target: README.md
 manifest: package.json
 output:
@@ -32,21 +32,16 @@ dependencies:
     - name: colord
       namedLogo: npm
       link: https://github.com/omgovich/colord
-    - name: js-yaml
-      namedLogo: npm
-      link: https://github.com/nodeca/js-yaml
     - name: "@iarna/toml"
       namedLogo: toml
       link: https://github.com/iarna/iarna-toml
-    - name: yargs
-      namedLogo: freebsd
-      link: https://github.com/yargs/yargs
 
 devDependencies:
   layout: *DEPENDENCIES_LAYOUT
   badgeStyle:
     <<: *DEPENDENCIES_STYLE
     style: flat-square
+    # labelColor: "333"
   items:
     - name: "@changesets/cli"
       namedLogo: npm
@@ -100,8 +95,6 @@ devDependencies:
       namedLogo: typescript
     - name: typescript-eslint
       namedLogo: eslint
-    - name: "@types/yargs"
-      namedLogo: freebsd
 
 statusBadges:
   layout:
@@ -138,8 +131,3 @@ statusBadges:
       label: My favorite
       color: "777"
       link: https://sallysbakingaddiction.com/chewy-chocolate-chip-cookies/
-    - name: socket
-      package: '@ehildt/depbadge'
-      metric: quality
-      version: 1.1.4
-      style: for-the-badge
