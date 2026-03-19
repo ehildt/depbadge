@@ -1,7 +1,7 @@
 const WHITELIST = {
   noOrphans: [],
   notToDevDep: ["src/config.yml.loader.ts"],
-  notToUnresolvable: [],
+  notToUnresolvable: ["src/depbadgerc/read-depbadgerc-with-defaults.ts"],
 };
 
 /** @type {import('dependency-cruiser').IConfiguration} */

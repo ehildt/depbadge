@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import yaml from "js-yaml";
+import yaml from "yaml";
 
 import { CtxStore, useCtxCallback } from "../store/ctx-store.ts";
 
@@ -9,7 +9,7 @@ import { DepbadgeRC } from "./depbadgerc.type.ts";
 export const computeStateIntegrity = useCtxCallback<CtxStore<DepbadgeRC, Methods>>((store, ...rest: unknown[]) => {
   const payloadStringified = JSON.stringify(rest);
   const hash = crypto.createHash("sha256");
-  const yml = yaml.dump({
+  const yml = yaml.stringify({
     ...JSON.parse(JSON.stringify(store)),
     integrity: null,
   });

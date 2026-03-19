@@ -9,7 +9,7 @@ import {
   mergeLayout,
   mergeStyle,
   readDepbadgeRC,
-  withYargs,
+  withArgs,
 } from "./read-depbadgerc-with-defaults.ts";
 
 vi.mock("../shared/find-file", () => ({ findFile: vi.fn() }));
@@ -65,7 +65,7 @@ describe("read-depbadgerc-with-defaults", () => {
     const rc = { manifest: "package.json", dependencies: { items: [] } } as any;
     const originalArgv = process.argv;
     process.argv = ["node", "test", "--g", "json", "--generate", "markdown"];
-    const result = withYargs(rc);
+    const result = withArgs(rc);
     expect(result.output).toEqual(["json", "markdown"]);
     process.argv = originalArgv;
   });

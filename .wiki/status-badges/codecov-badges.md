@@ -8,18 +8,18 @@ Display code coverage from Codecov using shields.io.
 
 ### Configuration
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | Must be `"codecov"` |
-| `user` | string | Yes | Codecov username or organization |
-| `repo` | string | Yes | Repository name |
-| `branch` | string | No | Branch name |
-| `flag` | string | No | Specific coverage flag (e.g., `unit`, `integration`) |
-| `token` | string | No | Codecov upload token (required for private repos) |
-| `link` | string | No | Custom link URL |
-| `style` | string | No | Badge style: `flat`, `flat-square`, `plastic`, `for-the-badge`, `social` |
-| `color` | string | No | Badge color (hex or named color) |
-| `labelColor` | string | No | Label background color |
+| Property     | Type   | Required | Description                                                              |
+| ------------ | ------ | -------- | ------------------------------------------------------------------------ |
+| `name`       | string | Yes      | Must be `"codecov"`                                                      |
+| `user`       | string | Yes      | Codecov username or organization                                         |
+| `repo`       | string | Yes      | Repository name                                                          |
+| `branch`     | string | No       | Branch name                                                              |
+| `flag`       | string | No       | Specific coverage flag (e.g., `unit`, `integration`)                     |
+| `token`      | string | No       | Codecov upload token (required for private repos)                        |
+| `link`       | string | No       | Custom link URL                                                          |
+| `style`      | string | No       | Badge style: `flat`, `flat-square`, `plastic`, `for-the-badge`, `social` |
+| `color`      | string | No       | Badge color (hex or named color)                                         |
+| `labelColor` | string | No       | Label background color                                                   |
 
 ### Examples
 

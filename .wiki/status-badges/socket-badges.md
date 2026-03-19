@@ -8,12 +8,12 @@ Display supply chain security scores from [Socket.dev](https://socket.dev/) for 
 
 ### Configuration
 
-| Property | Type | Required | Default | Description |
-|----------|------|----------|---------|-------------|
-| `name` | string | Yes | - | Must be `"socket"` |
-| `package` | string | Yes | - | npm package name (e.g., `"express"`, `"@babel/core"`) |
-| `version` | string | No | `"*"` | Package version or `"*"` for latest |
-| `link` | string | No | npm package URL | Custom link URL |
+| Property  | Type   | Required | Default         | Description                                           |
+| --------- | ------ | -------- | --------------- | ----------------------------------------------------- |
+| `name`    | string | Yes      | -               | Must be `"socket"`                                    |
+| `package` | string | Yes      | -               | npm package name (e.g., `"express"`, `"@babel/core"`) |
+| `version` | string | No       | `"*"`           | Package version or `"*"` for latest                   |
+| `link`    | string | No       | npm package URL | Custom link URL                                       |
 
 ### What the Badge Shows
 
