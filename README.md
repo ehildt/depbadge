@@ -37,9 +37,7 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 <div align="center">
 
 [![colord](https://img.shields.io/badge/colord-v2.9.3-bc1cc4.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=bc1cc4&logoWidth=40&style=for-the-badge)](https://github.com/omgovich/colord)
-[![js-yaml](https://img.shields.io/badge/js_yaml-v4.1.1-6c3ad9.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=6c3ad9&logoWidth=40&style=for-the-badge)](https://github.com/nodeca/js-yaml)
 [![@iarna/toml](https://img.shields.io/badge/_iarna_toml-v2.2.5-d53f5d.svg?labelColor=333&cacheSeconds=3600&logo=toml&logoColor=d53f5d&logoWidth=40&style=for-the-badge)](https://github.com/iarna/iarna-toml)
-[![yargs](https://img.shields.io/badge/yargs-v18.0.0-c0e01f.svg?labelColor=333&cacheSeconds=3600&logo=freebsd&logoColor=c0e01f&logoWidth=40&style=for-the-badge)](https://github.com/yargs/yargs)
 
 </div>
 
@@ -73,7 +71,6 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 ![ts-unused-exports](https://img.shields.io/badge/ts_unused_exports-v11.0.1-5e26c0.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=5e26c0&logoWidth=40&style=flat-square)
 ![typescript](https://img.shields.io/badge/typescript-v5.9.3-4c2eb8.svg?labelColor=333&cacheSeconds=3600&logo=typescript&logoColor=4c2eb8&logoWidth=40&style=flat-square)
 ![typescript-eslint](https://img.shields.io/badge/typescript_eslint-v8.57.1-dc2e59.svg?labelColor=333&cacheSeconds=3600&logo=eslint&logoColor=dc2e59&logoWidth=40&style=flat-square)
-![@types/yargs](https://img.shields.io/badge/_types_yargs-v17.0.35-9db92d.svg?labelColor=333&cacheSeconds=3600&logo=freebsd&logoColor=9db92d&logoWidth=40&style=flat-square)
 
 </div>
 <!-- DEPBADGE:END -->

@@ -8,16 +8,16 @@ Display custom static badges with arbitrary text using shields.io.
 
 ### Configuration
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | Must be `"tile"` |
-| `label` | string | Yes | Left side text |
-| `message` | string | Yes | Right side text |
-| `color` | string | No | Badge color (hex or named color like `brightgreen`, `orange`, `red`) |
-| `labelColor` | string | No | Label background color |
-| `isError` | boolean | No | Force error-style rendering |
-| `link` | string | No | Custom link URL |
-| `style` | string | No | Badge style: `flat`, `flat-square`, `plastic`, `for-the-badge`, `social` |
+| Property     | Type    | Required | Description                                                              |
+| ------------ | ------- | -------- | ------------------------------------------------------------------------ |
+| `name`       | string  | Yes      | Must be `"tile"`                                                         |
+| `label`      | string  | Yes      | Left side text                                                           |
+| `message`    | string  | Yes      | Right side text                                                          |
+| `color`      | string  | No       | Badge color (hex or named color like `brightgreen`, `orange`, `red`)     |
+| `labelColor` | string  | No       | Label background color                                                   |
+| `isError`    | boolean | No       | Force error-style rendering                                              |
+| `link`       | string  | No       | Custom link URL                                                          |
+| `style`      | string  | No       | Badge style: `flat`, `flat-square`, `plastic`, `for-the-badge`, `social` |
 
 ### Examples
 
