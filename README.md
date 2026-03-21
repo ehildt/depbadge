@@ -24,6 +24,7 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 <!-- DEPBADGE:START -->
 <div align="center">
 
+[![depbadge](https://img.shields.io/badge/depbadge-NPM-b4cf2a?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=b4cf2a&logoWidth=40&style=for-the-badge)](https://www.npmjs.com/package/@ehildt/depbadge)
 ![github](https://img.shields.io/github/release/ehildt/depbadge?labelColor=333&style=for-the-badge&cacheSeconds=3600&color=b16425&logo=github&logoColor=b16425&logoWidth=40&branch=main)
 ![github](https://img.shields.io/github/stars/ehildt/depbadge?labelColor=333&style=for-the-badge&cacheSeconds=3600&color=b16425&logo=github&logoColor=b16425&logoWidth=40&branch=main)
 ![github](https://img.shields.io/github/license/ehildt/depbadge?labelColor=333&style=for-the-badge&cacheSeconds=3600&color=b16425&logo=github&logoColor=b16425&logoWidth=40&branch=main)
@@ -38,6 +39,7 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 
 [![colord](https://img.shields.io/badge/colord-v2.9.3-bc1cc4.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=bc1cc4&logoWidth=40&style=for-the-badge)](https://github.com/omgovich/colord)
 [![@iarna/toml](https://img.shields.io/badge/_iarna_toml-v2.2.5-d53f5d.svg?labelColor=333&cacheSeconds=3600&logo=toml&logoColor=d53f5d&logoWidth=40&style=for-the-badge)](https://github.com/iarna/iarna-toml)
+[![yaml](https://img.shields.io/badge/yaml-v2.8.3-5121e4.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=5121e4&logoWidth=40&style=for-the-badge)](https://github.com/eemeli/yaml)
 
 </div>
 
@@ -52,7 +54,7 @@ Depbadge is a CLI tool that automatically generates and maintains dependency and
 ![depcheck](https://img.shields.io/badge/depcheck-v1.4.7-28a95e.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=28a95e&logoWidth=40&style=flat-square)
 ![dependency-cruiser](https://img.shields.io/badge/dependency_cruiser-v17.3.9-c22431.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=c22431&logoWidth=40&style=flat-square)
 ![dotenv-cli](https://img.shields.io/badge/dotenv_cli-v11.0.0-d53074.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=d53074&logoWidth=40&style=flat-square)
-![eslint](https://img.shields.io/badge/eslint-v10.0.3-3f2ab7.svg?labelColor=333&cacheSeconds=3600&logo=eslint&logoColor=3f2ab7&logoWidth=40&style=flat-square)
+![eslint](https://img.shields.io/badge/eslint-v10.1.0-3f2ab7.svg?labelColor=333&cacheSeconds=3600&logo=eslint&logoColor=3f2ab7&logoWidth=40&style=flat-square)
 ![eslint-config-prettier](https://img.shields.io/badge/eslint_config_prettier-v10.1.8-c4921c.svg?labelColor=333&cacheSeconds=3600&logo=prettier&logoColor=c4921c&logoWidth=40&style=flat-square)
 ![eslint-plugin-prettier](https://img.shields.io/badge/eslint_plugin_prettier-v5.5.5-d19d2e.svg?labelColor=333&cacheSeconds=3600&logo=prettier&logoColor=d19d2e&logoWidth=40&style=flat-square)
 ![eslint-plugin-simple-import-sort](https://img.shields.io/badge/eslint_plugin_simple_import_sort-v12.1.1-39d025.svg?labelColor=333&cacheSeconds=3600&logo=npm&logoColor=39d025&logoWidth=40&style=flat-square)
