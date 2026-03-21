@@ -1,5 +1,11 @@
 # @ehildt/depbadge
 
+## 1.3.1
+
+### Patch Changes
+
+- 426f823: fix encodeLabel for scoped package names: strip @ prefix and convert / to - for correct shield.io badge URLs
+
 ## 1.3.0
 
 ### Minor Changes
