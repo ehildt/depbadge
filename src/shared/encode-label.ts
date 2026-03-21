@@ -1,3 +1,3 @@
 export const encodeLabel = (s: string) => {
-  return (s ?? "").replace(/-/g, "--").replace(/_/g, "__").replace(/\s+/g, "_");
+  return (s ?? "").replace(/^@/, "").replace(/_/g, "__").replace(/\//g, "-").replace(/\s+/g, "_");
 };
