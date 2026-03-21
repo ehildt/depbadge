@@ -35,6 +35,9 @@ dependencies:
     - name: "@iarna/toml"
       namedLogo: toml
       link: https://github.com/iarna/iarna-toml
+    - name: yaml 
+      namedLogo: npm 
+      link: https://github.com/eemeli/yaml
 
 devDependencies:
   layout: *DEPENDENCIES_LAYOUT
@@ -102,6 +105,11 @@ statusBadges:
     showHeader: false
   badgeStyle: *STATUS_BADGES_STYLE
   items:
+    - name: tile
+      message: NPM
+      label: depbadge
+      namedLogo: npm
+      link: https://www.npmjs.com/package/@ehildt/depbadge
     - name: github
       metric: release
       user: ehildt
