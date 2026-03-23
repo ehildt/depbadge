@@ -1,0 +1,39 @@
+# depbadge
+
+Generates shields.io badges from manifest files:
+- package.json
+- pyproject.toml
+- Cargo.toml
+
+## Usage
+
+```bash
+npx depbadge
+```
+
+Regenerates all badges based on `depbadgerc.yml` and injects them into the target file.
+
+## When to Run
+
+- After updating dependencies in package.json
+- After running `npm run ncu:update`
+- After any manifest change
+
+## Setup in Consuming Projects
+
+1. Create `depbadgerc.yml` in project root
+2. Add markers to README.md:
+   ```markdown
+   <!-- DEPBADGE:START -->
+   <!-- DEPBADGE:END -->
+   ```
+3. Run `npx depbadge` to generate badges
+
+## Configuration
+
+- Schema: `depbadgerc.schema.json`
+- Key sections: `manifest`, `target`, `dependencies`, `devDependencies`, `peerDependencies`, `statusBadges`
+
+## More Details
+
+Wiki at `.wiki/` (quick-start, layouts, styles, examples)
