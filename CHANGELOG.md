@@ -1,5 +1,11 @@
 # @ehildt/depbadge
 
+## 1.3.2
+
+### Patch Changes
+
+- 2ed5f1c: Rename lint-staged script to lint:staged for naming consistency
+
 ## 1.3.1
 
 ### Patch Changes
